@@ -19,10 +19,12 @@
 .scroll-up-button.hidden {
   display: block;
   opacity: 0;
+  visibility: hidden;
 }
 
 .scroll-up-button:not(.hidden) {
   opacity: 1;
+  visibility: visible;
 }
 
 .scroll-up-button:hover {
@@ -36,6 +38,7 @@
     right: 35px;
   }
 }
+
 @media (min-width: 1440px) {
   .scroll-up-button {
     width: 65px;
