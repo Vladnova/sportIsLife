@@ -1,0 +1,17 @@
+.exercises-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  column-count: 2; /* Разбиваем на две колонки */
+  column-gap: 20px; /* Добавляем промежуток между колонками */
+}
+
+.exercise-item {
+  margin-bottom: 20px;
+}
+
+.exercise-container {
+  break-inside: avoid; /* Предотвращаем разрыв элементов между колонками */
+  padding: 20px;
+  background-color: #ccc;
+}
