@@ -1,0 +1,10 @@
+@import url('./base/reset.css');
+@import url('./base/common.css');
+
+@import url('./layout/exercises-left-part.css');
+@import url('./layout/exercises-right-part.css');
+@import url('./layout/exercises-right-part-filter.css');
+@import url('./layout/favorites.css');
+@import url('./layout/footer.css');
+@import url('./layout/header.css');
+@import url('./layout/hero.css');
