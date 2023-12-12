@@ -84,3 +84,8 @@ html {
     width: 1440px;
   }
 }
+
+.position-page {
+  display: flex;
+  gap: 32px;
+}
