@@ -11,6 +11,12 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       sourcemap: true,
+      headers: [
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "unsafe-none"
+        }
+      ],
 
       rollupOptions: {
         input: glob.sync('./src/*.html'),

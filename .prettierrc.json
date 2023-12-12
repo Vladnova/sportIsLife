@@ -6,5 +6,11 @@
   "trailingComma": "es5",
   "bracketSpacing": true,
   "arrowParens": "avoid",
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "headers": [
+    {
+      "key": "Cross-Origin-Embedder-Policy",
+      "value": "unsafe-none"
+    }
+  ]
 }
