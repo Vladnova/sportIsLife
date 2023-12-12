@@ -26,7 +26,7 @@ function scrollToTopButton() {
   });
 
   document.addEventListener('scroll', function () {
-    if (window.scrollY > 50) {
+    if (window.scrollY > window.innerHeight) {
       button.classList.remove('hidden');
     } else {
       button.classList.add('hidden');
