@@ -16,7 +16,6 @@ window.addEventListener("DOMContentLoaded", getDataExercises);
 async function getDataExercises() {
   try {
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-    console.log("exercises-->", exercises);
 
     const exercisesResult = exercises.results;
 
@@ -33,7 +32,6 @@ async function getDataExercises() {
   }
 }
 
-console.log(exercisesList);
 
 export function makeMarkupExercises(exercisesResult) {
   const markup = exercisesResult
