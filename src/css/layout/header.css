@@ -23,7 +23,36 @@
 
 .social-links{
     display: flex;
+    direction: row;
 }
+.social-links li:not(:last-child){
+    margin-right: 12px;
+}
+
+.social-links-items {
+
+    
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    width: 44px;
+    height: 44px;
+    fill: var(--primary-color);
+    padding: 8px;
+}
+.social-links-items svg {
+
+    fill: rgba(36, 36, 36, 1);
+}
+
+.social-links-items {
+    display: flex;
+    align-items: center;
+}
+
+
 
 .page-navigattion{
 width: 233px;
@@ -45,6 +74,9 @@ font-size: 16px;
 font-weight: 400;
 line-height: 24px;
 color: var(--primary-color);
+}
+.page-navigattion-item:active{
+    background-color: var(--primary-color);
 }
 @media screen and (min-width: 767px) {
     .burger-button{
