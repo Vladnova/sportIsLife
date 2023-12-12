@@ -19,14 +19,94 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/sportIsLife/assets/main-aab7526b.js"></script>
-    <link rel="stylesheet" href="/sportIsLife/assets/main-e7194f45.css">
+    <script type="module" crossorigin src="/sportIsLife/assets/vendor-18779182.js"></script>
+    <script type="module" crossorigin src="/sportIsLife/assets/main-3d3199a9.js"></script>
+    <link rel="stylesheet" href="/sportIsLife/assets/main-64669418.css">
   </head>
   <body>
-    <header>
-  <h1>HEADER</h1>
+    <header class="container">
+  <div class="header">
+<div>
+
+  <img src = "/sportIsLife/assets/your-energy-3ea00216.svg" alt="logo"/>
+  <p id="user"></p>
+</div>
+    <nav class="page-navigattion">
+      <a href="./index.html" class="page-navigattion-item active" id="home"><span class="black" id="home-text">Home</span></a>
+      <a href="./favorite.html" class="page-navigattion-item" id="favorites"><span  id="favorites-text">Favorites</span></a>
+    </nav>
+    <ul class ="social-links">
+      <li class ="social-links-items">
+
+        <button id="sign-in">
+          <img src = "/sportIsLife/assets/icon-google-0cf576a5.svg" alt="google" width="18px" height="18"/>
+          SignIn</button>
+      
+        <button  id="sign-out" class="display-none">Sign out</button>
+      </li>
+      <li class ="social-links-items">
+  
+        <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+          <use href="/sportIsLife/assets/icons-59920c89.svg#icon-facebook"  />
+        </svg>
+      </li >
+      <li >
+        <a  class ="social-links-items" href="https://www.instagram.com/goitclub/" target="_blank">
+        <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+          <use href="/sportIsLife/assets/icons-59920c89.svg#icon-instagram"  />
+        </svg>
+        </a>
+      </li>
+      <li class ="social-links-items">
+  
+        <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+          <use href="/sportIsLife/assets/icons-59920c89.svg#icon-youtube"  />
+        </svg>
+      </li>
+    </ul>
+    <button class="burger-button" id="burger-button">
+      <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+        <use href="/sportIsLife/assets/icons-59920c89.svg#icon-burger-menu" stroke="#242424" />
+      </svg>
+    </button>
+  </div>
 </header>
 
+
+    <div class="burger-modal visually-hidden" id="burger">
+   <button class="burger-button-close" id ="burger-button-close">
+       <svg  xmlns="http://www.w3.org/2000/svg" width="16px" height="16"> 
+           <use href="/sportIsLife/assets/icons-59920c89.svg#icon-close"  />
+         </svg>
+   </button>
+      <ul class="burger-pages-list">
+        <li class="burger-pages-list-item">Home</li>
+        <li class="burger-pages-list-item">favorites</li>
+      </ul>
+      <ul class ="social-links-list">
+          <li >
+          <a class="social-links-list-item" href="https://www.facebook.com/goITclub/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+                <use href="/sportIsLife/assets/icons-59920c89.svg#icon-facebook"  fill="white"/>
+              </svg>
+            </a>
+        </li >
+        <li >
+        <a  class="social-links-list-item" href="https://www.instagram.com/goitclub/" target="_blank">
+          <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+            <use href="/sportIsLife/assets/icons-59920c89.svg#icon-instagram"  />
+          </svg>
+        </a>
+    </li>
+    <li >
+        <a class="social-links-list-item" href="https://www.youtube.com/c/GoIT" target="_blank">
+          <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+            <use href="/sportIsLife/assets/icons-59920c89.svg#icon-youtube" />
+          </svg>
+        </a>
+    </li>
+      </ul>
+</div>
 
     
 
