@@ -83,3 +83,8 @@ html {
     min-width: 1280px;
   }
 }
+
+.position-page {
+  display: flex;
+  gap: 32px;
+}

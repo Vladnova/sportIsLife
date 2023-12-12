@@ -2,6 +2,8 @@
 import{googleSignin, logOut} from "./js/authentication.js"
 import {openMenu, closeMenu} from "./js/burger"
 import {chengeOnActive} from "./js/header.js"
+import './js/muscles.js';
+import './js/exercises';
 
 import fetchSportEnergy from "./shared/api/apiSport";
 
@@ -18,7 +20,7 @@ const dataFilter = {
     limit: 12,
 };
 
-async function getDataFilter() {
+export async function getDataFilter() {
     const filter = await fetchSportEnergy.getByFilterName(dataFilter);
     console.log('filter-->', filter);
 }
