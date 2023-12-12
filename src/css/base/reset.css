@@ -20,12 +20,14 @@ ul {
 }
 
 a {
-  color: currentColor;
+  /* color: currentColor; */
   text-decoration: none;
 }
 
 button {
   cursor: pointer;
+  background-color: transparent;
+  border:none;
 }
 
 img {
