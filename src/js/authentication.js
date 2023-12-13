@@ -52,8 +52,6 @@ if (localStorage.getItem("user")){
         SingIn.classList.remove("display-none")
     }
     
-   
-
     SingIn.addEventListener("click", googleSignin);
     SignOut.addEventListener("click", logOut);
     
