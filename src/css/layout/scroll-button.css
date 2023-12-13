@@ -28,7 +28,7 @@
 }
 
 .scroll-up-button:hover {
-  background-color: var(--primary-color);
+  background-color: var(--stars-background-active-color);
 }
 
 @media (min-width: 768px) {

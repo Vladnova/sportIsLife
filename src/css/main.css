@@ -10,3 +10,6 @@
 @import url('./layout/hero.css');
 @import url('./layout/scroll-button.css');
 @import url('./layout/spinner.css');
+@import url('./layout/search.css');
+@import url('./layout/burger-modal.css');
+@import url('../js/pagination/pagination.css');
