@@ -1,3 +1,5 @@
+
+import './js/modal-window/modal.js'
 import './js/authentication.js';
 import './js/burger';
 import './js/header.js';
