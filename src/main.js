@@ -1,4 +1,5 @@
 
+import { auth } from "../firebase.js";
 import{googleSignin, logOut} from "./js/authentication.js"
 import {openMenu, closeMenu} from "./js/burger"
 import { onClickPage } from "./js/header.js"
@@ -73,5 +74,7 @@ async function addExercisesRate() {
     addExercisesRate();
     addSubscription();
     
+
+
     
     export {googleSignin, logOut, openMenu, closeMenu, onClickPage};
