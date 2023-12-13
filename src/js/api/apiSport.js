@@ -23,17 +23,10 @@ class ApiSportEnergy {
         return await wrappedMethod();
     }
 
-    // async getByFilterName(data) {
-    //     const wrappedMethod = ApiSportEnergy.handleErrors(async () => {
-    //         const params = new URLSearchParams({ ...data });
-    //         return await ApiSportEnergy.fetchJson(`${ApiSportEnergy.BASE_URL}/filters?${params}`);
-    //     });
-    //     return await wrappedMethod();
-    // }
-
     async getByFilterName(data) {
         const wrappedMethod = ApiSportEnergy.handleErrors(async () => {
-            return await ApiSportEnergy.fetchJson(`${ApiSportEnergy.BASE_URL}/filters?${data}&page=1&limit=12`);
+            const params = new URLSearchParams({ ...data });
+            return await ApiSportEnergy.fetchJson(`${ApiSportEnergy.BASE_URL}/filters?${params}`);
         });
         return await wrappedMethod();
     }
