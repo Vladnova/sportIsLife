@@ -9,13 +9,14 @@ const dataExercises = {
   limit: 10,
 };
 
-const exercisesList = document.querySelector(".exercises-list");
+const exercisesList = document.querySelector(".muscles-list");
 
-window.addEventListener("DOMContentLoaded", getDataExercises);
+// window.addEventListener("DOMContentLoaded", getDataExercises);
 
-async function getDataExercises() {
+export async function getDataExercises() {
   try {
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+    console.log("exercises-->", exercises);
 
     const exercisesResult = exercises.results;
 
@@ -32,6 +33,7 @@ async function getDataExercises() {
   }
 }
 
+console.log(exercisesList);
 
 export function makeMarkupExercises(exercisesResult) {
   const markup = exercisesResult
@@ -85,7 +87,7 @@ export function makeMarkupExercises(exercisesResult) {
            <p class="exercises-text">Body part:<span class="exercises-span">${bodyPart}</span></p>
            <p class="exercises-text">Target:<span class="exercises-span">${target}</span></p>
            </div>
-           <!-- exercises-text-box -->
+            <!-- exercises-text-box -->
            </li>
           `;
       }
