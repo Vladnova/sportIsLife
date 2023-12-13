@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  
+    padding-top: 20px;
 }
 .active{
     background-color: var(--primary-color);
@@ -44,7 +44,7 @@
     padding: 8px;
 }
 .social-links li:hover{
-    border: 1px solid  rgba(36, 36, 36, 0.5); 
+    border: 1px solid  rgba(36, 36, 36, 0.5);
     transition: 300ms;
 }
 .social-links-items svg {
@@ -89,7 +89,11 @@ color: var(--primary-color);
     .burger-button{
         display: none;
     }
-    
+
+    .header{
+      padding-top: 28px;
+  }
+
 }
 @media screen and (max-width: 768px){
     .social-links{

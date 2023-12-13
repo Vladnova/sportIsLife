@@ -196,11 +196,8 @@
   }
 
   .footer_title {
-    font-size: 42px;
+    font-size: 38px;
   }
-}
-
-@media (max-width: 425px) {
   .footer_form-wrapper {
     width: 100%;
   }
@@ -208,12 +205,5 @@
   .form {
     width: 100%;
   }
-
-  .footer_form-title {
-    font-size: 14px;
-  }
-
-  .footer_title {
-    font-size: 38px;
-  }
 }
+
