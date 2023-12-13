@@ -4,7 +4,11 @@ const refs = {
   pagesList: document.querySelector('.js-pagination'),
 };
 
-// refs.pagesList.addEventListener('click', handleClick);
+try {
+  refs.pagesList.addEventListener('click', handleClick);
+} catch (error) {
+  console.log(error);
+}
 
 async function handleClick(e) {
   const dataFilter = {
