@@ -1,5 +1,11 @@
-.wrap-head-section{
+.wrap-pd-section{
   padding-top: 40px;
+  padding-bottom: 80px;
+
+}
+
+.hidden-form {
+  display: none;
 }
 
 .title-exercises {
@@ -8,10 +14,13 @@
   font-weight: 400;
   letter-spacing: -0.56px;
 }
-
+.wrap-exercise-filter {
+  margin-bottom: 20px;
+}
 .filter-form {
   position: relative;
   margin-top: 40px;
+  max-width: 335px;
 }
 
 .input-exercises {
@@ -35,7 +44,8 @@
   display: inline-flex;
   align-items: center;
   right: 16px;
-  top: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   padding: 0;
   border: none;
   background-color: inherit;
@@ -48,7 +58,6 @@
 
 .wrap-button {
   display: flex;
-  margin-bottom: 28px;
   margin-top: 20px;
   column-gap: 20px;
 }
@@ -70,7 +79,7 @@
 .btn-filter-active::after {
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -4px;
   content: '';
   display: block;
   width: 100%;
@@ -81,8 +90,9 @@
 
 
 @media screen and (min-width: 768px){
-  .wrap-head-section{
+  .wrap-pd-section{
     padding-top: 64px;
+    padding-bottom: 100px;
 
   }
 
@@ -101,6 +111,7 @@
   }
 
   .filter-form{
+    width: 273px;
     margin: 0;
   }
 
@@ -109,7 +120,7 @@
   }
 
   .input-exercises{
-    width: 273px;
+
     font-size: 16px;
   }
 
@@ -126,10 +137,10 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .wrap-head-section{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 32px;
+  .wrap-pd-section{
+    /* display: flex;
+    justify-content: space-between; */
+    padding-bottom: 132px;
   }
 
   .title-exercises{

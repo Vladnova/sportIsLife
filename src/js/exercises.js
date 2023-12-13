@@ -1,4 +1,4 @@
-import fetchSportEnergy from "../shared/api/apiSport";
+import fetchSportEnergy from "./api/apiSport";
 
 const dataExercises = {
   bodypart: "back",
@@ -51,7 +51,7 @@ export function makeMarkupExercises(exercisesResult) {
         time,
         popularity,
       }) => {
-        return ` 
+        return `
         <li class="exercises-item" id="${_id}">
         <!-- rating-menu -->
         <div class="rating-menu">
@@ -81,7 +81,7 @@ export function makeMarkupExercises(exercisesResult) {
            <!-- box-menu -->
 
            <!-- exercises-text-box -->
-     
+
            <div class="exercises-text-box">
            <p class="exercises-text">Burned calories:<span class="exercises-span">${burnedCalories}</span></p>
            <p class="exercises-text">Body part:<span class="exercises-span">${bodyPart}</span></p>

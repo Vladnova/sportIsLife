@@ -1,4 +1,4 @@
-import fetchSportEnergy from '../shared/api/apiSport';
+import fetchSportEnergy from './api/apiSport';
 
 import { getDataExercises } from './exercises';
 
@@ -22,10 +22,10 @@ export async function handleCategoryClick(event) {
     //     categoryItem.forEach(item => {
     //         item.classList.remove('btn-filter-active')
     //     })
-    // } 
+    // }
     // // Добавление класса 'active' к текущему пункту меню
     // target.parentNode.classList.add('btn-filter-active');
-    
+
   if (categoryName === 'Body parts') {
     musclesList.innerHTML = '';
     getDataExercises();
@@ -59,9 +59,9 @@ async function loadSectionOnClick(categoryName) {
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ _id, filter, name, imgURL }) => {
-      return ` 
+      return `
         <li class="muscles-item" id="${_id}">
-        <a href="" class="muscles-link" id="${_id}"> 
+        <a href="" class="muscles-link" id="${_id}">
         <img class="muscles-image" src="${imgURL}" alt="${name}" id="${_id}">
           <!-- box-menu -->
           <div class="muscles-box-menu">
