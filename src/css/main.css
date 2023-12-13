@@ -11,4 +11,4 @@
 @import url('./layout/search.css');
 @import url('./layout/burger-modal.css');
 
-@import url('../shared/pagination/pagination.css')
+@import url('../js/pagination/pagination.css')
