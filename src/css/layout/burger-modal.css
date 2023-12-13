@@ -1,0 +1,58 @@
+
+.burger-modal{
+    position: absolute;
+    top:0;
+    width: 100%;
+    height:100%;
+    padding:20px 27px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.burger-button-close{
+    position: absolute;
+    top: 20px;
+    right:20px;
+    background-color: transparent;
+    border: none;
+    stroke: var(--primary-color);
+}
+
+.burger-pages-list{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    color: var(--primary-color);
+}
+.social-links-list{
+    position: absolute;
+    bottom:20px;
+    display: flex;
+    flex-direction: row;
+
+    
+}
+
+.social-links-list-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(244, 244, 244, 0.1);
+    width: 44px;
+    height: 44px;
+    fill: var(--primary-color);
+}
+
+.social-links-list li:not(:last-child){
+    margin-right: 12px;
+}
+
+@media screen and (min-width: 768px) {
+    .burger-modal{
+        display: none;
+    }
+  }
