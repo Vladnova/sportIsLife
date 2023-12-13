@@ -22,8 +22,8 @@
     <!-- <link src="https://identitytoolkit.googleapis.com/" referrerpolicy="no-referrer" /> -->
     
     <script type="module" crossorigin src="/sportIsLife/assets/vendor-18779182.js"></script>
-    <script type="module" crossorigin src="/sportIsLife/assets/pagination-06aea215.js"></script>
-    <link rel="stylesheet" href="/sportIsLife/assets/pagination-b2ad3067.css">
+    <script type="module" crossorigin src="/sportIsLife/assets/pagination-a9a5fd2a.js"></script>
+    <link rel="stylesheet" href="/sportIsLife/assets/pagination-628b3926.css">
   </head>
   <body>
     <header class="container">
@@ -33,12 +33,35 @@
   <img src = "/sportIsLife/assets/your-energy-3ea00216.svg" alt="logo"/>
   <p id="user"></p>
 </div>
-    <nav class="page-navigattion">
-      <a href="./index.html" class="page-navigattion-item active" id="home"><span class="black" id="home-text">Home</span></a>
-      <a href="./favorite.html" class="page-navigattion-item" id="favorites"><span  id="favorites-text">Favorites</span></a>
+    <nav class="page-navigattion" id="navigation">
+      <a  href="./index.html" class="page-navigattion-item active" id="home" >
+       <span class="black" id="home-text">Home</span></a>
+      <a  href="./favorite.html" class="page-navigattion-item" id="favorites">
+        <span  id="favorites-text">Favorites</span></a>
     </nav>
     <ul class ="social-links">
+      <li class ="social-links-items" >
+        <a   href="https://www.facebook.com/goITclub/" target="_blank">
+          <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+            <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-facebook"  />
+          </svg>
+        </a>
+      </li >
+      <li  class ="social-links-items">
+        <a  href="https://www.instagram.com/goitclub/" target="_blank">
+          <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+            <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-instagram"  />
+          </svg>
+        </a>
+      </li>
       <li class ="social-links-items">
+        <a   href="https://www.youtube.com/c/GoIT" target="_blank">
+          <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
+            <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-youtube"  />
+          </svg>
+        </a>
+      </li>
+      <li  class ="social-links-items">
 
         <button id="sign-in">
           <img src = "/sportIsLife/assets/icon-google-0cf576a5.svg" alt="google" width="18px" height="18"/>
@@ -46,29 +69,10 @@
       
         <button  id="sign-out" class="display-none">Sign out</button>
       </li>
-      <li class ="social-links-items">
-  
-        <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
-          <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-facebook"  />
-        </svg>
-      </li >
-      <li >
-        <a  class ="social-links-items" href="https://www.instagram.com/goitclub/" target="_blank">
-        <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
-          <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-instagram"  />
-        </svg>
-        </a>
-      </li>
-      <li class ="social-links-items">
-  
-        <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
-          <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-youtube"  />
-        </svg>
-      </li>
     </ul>
     <button class="burger-button" id="burger-button">
       <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
-        <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-burger-menu" stroke="#242424" />
+        <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-burger-menu" stroke="#242424" />
       </svg>
     </button>
   </div>
@@ -77,33 +81,33 @@
 
     <div class="burger-modal visually-hidden" id="burger">
    <button class="burger-button-close" id ="burger-button-close">
-       <svg  xmlns="http://www.w3.org/2000/svg" width="16px" height="16"> 
-           <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-close"  />
+       <svg  xmlns="http://www.w3.org/2000/svg" width="16px" height="16" stroke="white"> 
+           <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-close"  />
          </svg>
    </button>
-      <ul class="burger-pages-list">
-        <li class="burger-pages-list-item">Home</li>
-        <li class="burger-pages-list-item">favorites</li>
-      </ul>
+      <nav class="burger-pages-list">
+        <a  href="./index.html" class="burger-pages-list-item">Home</a>
+        <a href="./favorite.html" class="burger-pages-list-item">Favorites</a>
+      </nav>
       <ul class ="social-links-list">
           <li >
           <a class="social-links-list-item" href="https://www.facebook.com/goITclub/" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
-                <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-facebook"  fill="white"/>
+                <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-facebook"  />
               </svg>
             </a>
         </li >
         <li >
         <a  class="social-links-list-item" href="https://www.instagram.com/goitclub/" target="_blank">
           <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
-            <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-instagram"  />
+            <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-instagram"  />
           </svg>
         </a>
     </li>
     <li >
         <a class="social-links-list-item" href="https://www.youtube.com/c/GoIT" target="_blank">
           <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32"> 
-            <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-youtube" />
+            <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-youtube" />
           </svg>
         </a>
     </li>
@@ -115,7 +119,7 @@
         <div class="header-hero-wrapper">
           <h1 class="hero-header">
             <svg class="sun-icon-img" width="38" height="38" aria-label="sun-icon">
-              <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-sun"></use>
+              <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-sun"></use>
             </svg>
             Get <span class="accent-header">Body&nbsp;</span> in <br />
             shape, Stay healthy
@@ -160,7 +164,7 @@
     <input type="text" class="input-exercises" placeholder="Search" />
     <button type="submit" class="btn-search">
       <svg class="input-icon-btn" width="18" height="18" aria-label="search-icon">
-        <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-search"></use>
+        <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-search"></use>
       </svg>
     </button>
     <button type="submit" class="btn-search visually-hidden">
@@ -192,7 +196,7 @@
         height="20"
         aria-label="running-man-icon"
       >
-        <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-running-man"></use>
+        <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-running-man"></use>
       </svg>
     </span>
     <div class="quote-wrapper">
@@ -205,7 +209,7 @@
             height="20"
             aria-label="quote-icon"
           >
-            <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-inverted-commas"></use>
+            <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-inverted-commas"></use>
           </svg>
         </span>
       </h3>
@@ -233,7 +237,7 @@
         height="20"
         aria-label="dumbbell-icon"
       >
-        <use href="/sportIsLife/assets/icons-b84b6a04.svg#icon-dumbbell"></use>
+        <use href="/sportIsLife/assets/icons-f584b2fe.svg#icon-dumbbell"></use>
       </svg>
     </span>
     <div class="daily-wrapper">
