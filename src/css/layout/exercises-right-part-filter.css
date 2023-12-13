@@ -9,18 +9,18 @@
 .exercises_list::-webkit-scrollbar {
   width: 8px;
   border-radius: 12px;
-  background: #24242410;
+  background: var(--second-color);
 }
 
 .exercises_list::-webkit-scrollbar-thumb {
   width: 8px;
   border-radius: 12px;
-  background: #242424;
+  background: var(--second-color);
 }
 .exercises_list_item {
   width: 371px;
   height: 141px;
-  background: #fff;
+  background: var(--second-color);
   padding: 16px 18px;
   border-radius: 15px;
 }
@@ -35,10 +35,10 @@
   width: 76px;
   height: 26px;
   border-radius: 15px;
-  border: 1px solid #242424;
-  color: #242424;
+  border: 1px solid var(--second-color);
+  color: var(--second-color);
 
-  font-family: DM Sans;
+  font-family: var(--primary-font);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -59,12 +59,12 @@
   height: 16px;
 }
 
-/* .exercises_star_icon { */
-/* display: flex;
+/* .exercises_star_icon { 
+ display: flex;
 fill: #eea10c;
 width: 18px;
-height: 18px; */
-/* } */
+height: 18px;  
+} */
 
 .exercises_btn_start {
   display: flex;
@@ -76,9 +76,9 @@ height: 18px; */
 
 .exercises_btn_start_text {
   text-transform: capitalize;
-  color: #242424;
+  color: var(--second-color);
 
-  font-family: DM Sans;
+  font-family: var(--primary-font);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -89,7 +89,7 @@ height: 18px; */
   width: 16px;
   height: 16px;
   transform: rotate(90deg);
-  stroke: black;
+  stroke: var(--second-color);
 }
 
 .exercises_list_item_middle {
@@ -106,7 +106,7 @@ height: 18px; */
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #242424;
+  background: var(--second-color);
 }
 .exercises_list_item_icon_star {
   display: flex;
@@ -118,18 +118,18 @@ height: 18px; */
 .exercises_list_item_icon_svg_star {
   width: 16px;
   height: 16px;
-  fill: #eea10c;
+  fill: var(--stars-background-active-color);
 }
 .exercises_list_item_middle_icon_svg {
   width: 14px;
   height: 16px;
-  fill: #f4f4f4;
+  fill: var(--primary-color);
 }
 
 .exercises_list_item_middle_title {
-  color: #242424;
+  color: var(--second-color);
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: DM Sans;
+  font-family: var(--primary-font);
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -146,11 +146,11 @@ height: 18px; */
 }
 
 .exercises_list_item_bottom_list_item_text {
-  color: rgba(36, 36, 36, 0.4);
+  color: var(--color-text-in-card);
   display: flex;
   flex-direction: row;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: DM Sans;
+  font-family: var(--primary-font);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -158,7 +158,7 @@ height: 18px; */
 }
 
 .exercises_list_item_bottom_list_item_text span {
-  color: #242424;
+  color: var(--second-color);
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
