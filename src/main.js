@@ -1,7 +1,7 @@
 
 import{googleSignin, logOut} from "./js/authentication.js"
 import {openMenu, closeMenu} from "./js/burger"
-import {chengeOnActive} from "./js/header.js"
+import { onClickPage } from "./js/header.js"
 
 import fetchSportEnergy from "./shared/api/apiSport";
 
@@ -74,4 +74,4 @@ async function addExercisesRate() {
     addSubscription();
     
     
-    export {googleSignin, logOut, openMenu, closeMenu,chengeOnActive};
+    export {googleSignin, logOut, openMenu, closeMenu, onClickPage};

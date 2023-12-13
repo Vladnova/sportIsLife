@@ -6,7 +6,7 @@
   
 }
 .active{
-    background-color: var(--primary-color);
+    background-color: green;
 }
 .black{
     color:var(--second-color);
@@ -75,8 +75,12 @@ font-weight: 400;
 line-height: 24px;
 color: var(--primary-color);
 }
-.page-navigattion-item:active{
+.page-navigattion a:visited{
     background-color: var(--primary-color);
+}
+
+.page-navigattion a:hover{
+    border: 1px solid var(--primary-color);
 }
 @media screen and (min-width: 767px) {
     .burger-button{

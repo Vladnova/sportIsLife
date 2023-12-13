@@ -1,17 +1,34 @@
 
-    const Home = document.getElementById("home")
-    const Favorites = document.getElementById("favorites")
-    const TextHome = document.getElementById("home-text")
-    const TextFavorite = document.getElementById("favorites-text")
+const Home = document.getElementById("home")
+const Favorites = document.getElementById("favorites")
+const TextHome = document.getElementById("home-text")
+const TextFavorite = document.getElementById("favorites-text")
+const Nav = document.getElementById("navigation")
+const currentUrl = window.location.href.toString();
 
-export const chengeOnActive =async()=>{
+let part = currentUrl.slice(-10 )
+
+export const onClickPage=()=>{
+// e.preventDefault()
+
+ if(part==="index.html"){
+    Home.classList.add("active");
+    TextHome.classList.add("black");
+    Favorites.classList.remove("active");
+    TextFavorite.classList.remove("black");
+ } else {
+   
     Home.classList.remove("active");
-    TextHome.remove("black")
-    Favorites.classList.add("active")
-    TextFavorite.classList.add("black")
-}
+    TextHome.classList.remove("black");
+    Favorites.classList.add("active");
+    TextFavorite.classList.add("black");
+ }
 
-Home.addEventListener("click", chengeOnActive)
-Favorites.addEventListener("click", chengeOnActive)
+   
+}
+onClickPage(part)
+
+
+
 
 
