@@ -49,4 +49,4 @@ var k=Object.defineProperty;var $=(s,e,t)=>e in s?k(s,e,{enumerable:!0,configura
             </a>
            </li>
           `).join("")}const _={pagesList:document.querySelector(".js-pagination")};_.pagesList.addEventListener("click",ee);async function ee(s){const e={bodypart:"Muscles",page:s.target.textContent,limit:12},t=await m.getByFilterName(e);console.log("filter-->",t)}
-//# sourceMappingURL=pagination-a9a5fd2a.js.map
+//# sourceMappingURL=pagination-c8c128f0.js.map
