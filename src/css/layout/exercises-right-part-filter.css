@@ -9,7 +9,7 @@
 .exercises_list::-webkit-scrollbar {
   width: 8px;
   border-radius: 12px;
-  background: var(--second-color);
+  background: #24242410;
 }
 
 .exercises_list::-webkit-scrollbar-thumb {
@@ -20,7 +20,7 @@
 .exercises_list_item {
   width: 371px;
   height: 141px;
-  background: var(--second-color);
+  background: #fff;
   padding: 16px 18px;
   border-radius: 15px;
 }
@@ -31,13 +31,18 @@
   align-items: center;
 }
 
-.exercises_btn_workout {
+.exercises_workout {
   width: 76px;
   height: 26px;
   border-radius: 15px;
   border: 1px solid var(--second-color);
   color: var(--second-color);
-
+  /* display: block; */
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  padding: 0, auto;
+  list-style: none;
   font-family: var(--primary-font);
   font-size: 12px;
   font-style: normal;
@@ -59,12 +64,12 @@
   height: 16px;
 }
 
-/* .exercises_star_icon { 
- display: flex;
+/* .exercises_star_icon { */
+/* display: flex;
 fill: #eea10c;
 width: 18px;
-height: 18px;  
-} */
+height: 18px; */
+/* } */
 
 .exercises_btn_start {
   display: flex;
@@ -118,12 +123,12 @@ height: 18px;
 .exercises_list_item_icon_svg_star {
   width: 16px;
   height: 16px;
-  fill: var(--stars-background-active-color);
+  fill: #eea10c;
 }
 .exercises_list_item_middle_icon_svg {
   width: 14px;
   height: 16px;
-  fill: var(--primary-color);
+  fill: #f4f4f4;
 }
 
 .exercises_list_item_middle_title {
@@ -146,7 +151,7 @@ height: 18px;
 }
 
 .exercises_list_item_bottom_list_item_text {
-  color: var(--color-text-in-card);
+  color: rgba(36, 36, 36, 0.4);
   display: flex;
   flex-direction: row;
   font-feature-settings: 'clig' off, 'liga' off;
