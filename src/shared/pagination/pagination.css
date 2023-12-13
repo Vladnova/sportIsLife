@@ -1,0 +1,11 @@
+.page {
+    display: flex;
+    gap: 12px;
+    font-size: 16px;
+    justify-content: flex-end;
+}
+
+.page li:hover {
+    color: red;
+}
+
