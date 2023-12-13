@@ -7,7 +7,7 @@ const BurgerCloseButton = document.getElementById("burger-button-close")
 
 export const openMenu = async() =>{
     Burger.classList.remove("visually-hidden");
-    console.log("1")
+ 
 }
 
 export const closeMenu = async() =>{
