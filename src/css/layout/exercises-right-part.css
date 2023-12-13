@@ -59,7 +59,8 @@
   }
   .muscles-item {
     position: relative;
-    width: 225px;
+    flex-basis: calc((100% - 30px) / 3);
+    /* width: 225px; */
     height: 225px;
   }
 }
@@ -75,7 +76,7 @@
   }
   .muscles-item {
     position: relative;
-    width: 290px;
+    /* width: 290px; */
     height: 242px;
     /* flex-basis: calc((100% - 30px) / 3); */
   }
@@ -83,7 +84,7 @@
   .muscles-image {
     border-radius: 12px;
     width: 290px;
-    height: 242px;
+    /* height: 242px; */
   }
 
   .muscles-small-title {

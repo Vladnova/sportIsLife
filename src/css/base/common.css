@@ -84,8 +84,21 @@ html {
     width: 1440px;
   }
 }
-
 .position-page {
   display: flex;
-  gap: 32px;
+  gap: 80px;
+  flex-direction: column-reverse;
+}
+
+@media screen and (min-width: 768px) {
+  .position-page {
+    gap: 64px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .position-page {
+    gap: 32px;
+    flex-direction: row;
+  }
 }
