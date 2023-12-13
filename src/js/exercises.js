@@ -9,7 +9,7 @@ const dataExercises = {
   limit: 10,
 };
 
-const exercisesList = document.querySelector(".muscles-list");
+const exercisesList = document.querySelector(".exercises-list");
 
 // window.addEventListener("DOMContentLoaded", getDataExercises);
 
