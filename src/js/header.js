@@ -6,7 +6,7 @@ const TextFavorite = document.getElementById("favorites-text")
 const Nav = document.getElementById("navigation")
 const currentUrl = window.location.href.toString();
 
-let part = currentUrl.slice(-10 )
+let part = currentUrl.slice(-10)
 
 export const onClickPage=()=>{
 // e.preventDefault()
