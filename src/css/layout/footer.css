@@ -141,7 +141,7 @@
   width: 352px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1439px) {
   .footer_title {
     width: 92%;
   }
@@ -164,7 +164,7 @@
   }
 }
 
-@media (max-width: 625px) {
+@media (max-width: 767px) {
   .footer_content {
     gap: 120px;
   }
