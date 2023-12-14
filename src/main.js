@@ -3,7 +3,7 @@ import { openMenu, closeMenu } from './js/burger';
 import { chengeOnActive } from './js/header.js';
 
 import fetchSportEnergy from './shared/api/apiSport';
-
+import './js/addSubscription.js';
 // Цитата дня
 async function getQuotes() {
   const quotes = await fetchSportEnergy.getQuotes();
@@ -52,21 +52,6 @@ async function addExercisesRate() {
   const addRate = await fetchSportEnergy.addExercisesRate('64f389465ae26083f39b1ab2', dataRate);
   console.log('addRate-->', addRate);
 }
-
-// Оформлення підписки на розсилку нових вправ
-const subscribeForm = document.querySelector('#subscribe-form');
-const emailInput = document.querySelector('#email');
-
-async function addSubscription() {
-  const subscription = await fetchSportEnergy.addSubscription({ email: emailInput.value });
-  console.log('subscription-->', subscription);
-}
-
-subscribeForm.addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  addSubscription();
-});
 
 getQuotes();
 getDataFilter();
