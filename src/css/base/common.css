@@ -33,6 +33,11 @@ body {
   background-color: var(--primary-color);
 }
 
+.disable-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
