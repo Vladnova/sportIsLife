@@ -26,6 +26,8 @@ if (localStorage.getItem("user")){
             
             localStorage.user= user.email;
             User.innerHTML = user.email;
+            SignOut.classList.remove("display-none")
+            SingIn.classList.add("display-none")
        
         }).catch((error) => {
             // Handle Errors here.
