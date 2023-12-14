@@ -2,7 +2,7 @@
 import './js/header.js';
 import './js/burger';
 import './js/authentication.js';
-import './js/when-ckick-at-the-picture.js';
+
 import './js/modal-window/modal.js'
 import './js/muscles.js';
 import './js/exercises';
