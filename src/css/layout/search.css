@@ -4,6 +4,10 @@
 
 }
 
+.wrap-search-section{
+  margin-bottom: 20px;
+}
+
 .hidden-form {
   display: none;
 }
@@ -14,9 +18,7 @@
   font-weight: 400;
   letter-spacing: -0.56px;
 }
-.wrap-exercise-filter {
-  margin-bottom: 20px;
-}
+
 .filter-form {
   position: relative;
   margin-top: 40px;
@@ -96,6 +98,10 @@
 
   }
 
+  .wrap-search-section{
+    margin-bottom: 32px;
+  }
+
   .wrap-exercise-filter{
     display: flex;
     align-items: center;
@@ -141,6 +147,11 @@
     /* display: flex;
     justify-content: space-between; */
     padding-bottom: 132px;
+  }
+  .wrap-search-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .title-exercises{
