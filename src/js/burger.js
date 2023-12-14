@@ -14,13 +14,13 @@ export const openMenu = async() =>{
 export const closeMenu = async(e) =>{
     Burger.classList.add("visually-hidden");
     document.body.classList.remove("disable-scroll");
-    console.log("1")
+   
 }
 export const closeEscape=(e)=>{
     if (e.key === 'Escape') {
 Burger.classList.add("visually-hidden");
 }
-console.log("here")
+
 document.body.classList.remove("disable-scroll");
 }
 

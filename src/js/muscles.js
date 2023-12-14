@@ -61,8 +61,7 @@ export async function loadSectionOnClick(dataFilter) {
       console.log("Sorry, we didn't find anything according to your request.");
       return;
     }
-    musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult));
-
+    
     // Перевірка категорії та додавання класу btn-filter-active
     if (dataFilter.filter === 'Muscles') {
       musclesBtn.classList.add('btn-filter-active');
@@ -73,7 +72,8 @@ export async function loadSectionOnClick(dataFilter) {
       bodyParts.classList.remove('btn-filter-active');
       Equipment.classList.add('btn-filter-active');
     }
-
+    
+    musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult));
     pagination.setCurrentPage(1);
   } catch (error) {
     console.log(error.message);
@@ -86,14 +86,14 @@ export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({filter, name, imgURL }) => {
       return `
-        <li class="muscles-item">
-        <a href="" class="muscles-link">
-        <img class="muscles-image" src="${imgURL}" alt="${name}" data-filter=${filter.toLocaleLowerCase().replaceAll(' ', '')}>
+        <li class="muscles-item"  data-name=${name} data-filter=${filter.toLocaleLowerCase().replaceAll(' ', '')}>
+        <a href="" class="muscles-link class="muscles-box-menu"">
+        <img class="muscles-image" src="${imgURL}" alt="${name}"  >
+        <div class="muscles-box-menu">
+           <h3 class="muscles-small-title">${filter}</h3>
+           <p class="muscles-text">${name}</p>
+            </div>
           <!-- box-menu -->
-          <div class="muscles-box-menu">
-             <h3 class="muscles-small-title">${filter}</h3>
-             <p class="muscles-text">${name}</p>
-              </div>
             </a>
            </li>
           `;
