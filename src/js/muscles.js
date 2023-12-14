@@ -2,6 +2,8 @@ import fetchSportEnergy from './api/apiSport';
 
 import { handleCategoryClick } from './search';
 
+import * as pagination from './pagination/pagination';
+
 const musclesList = document.querySelector('.muscles-list');
 
 const musclesBtn = document.querySelector('#Muscles');
@@ -17,6 +19,7 @@ handleCategoryClick();
 document.addEventListener('DOMContentLoaded', () => {
   loadSectionOnClick({ filter: 'Muscles', page: 1, limit: 12 }, 'Muscles');
 });
+const totalPages = 5; // потрібно видалити після прокиндання з ф-ї loadSectionOnClick filter.totalPages
 
 // export async function handleCategoryClick(event) {
 //   event.preventDefault();
@@ -70,10 +73,14 @@ export async function loadSectionOnClick(dataFilter) {
       bodyParts.classList.remove('btn-filter-active');
       Equipment.classList.add('btn-filter-active');
     }
+
+    pagination.setCurrentPage(1);
   } catch (error) {
     console.log(error.message);
   }
 }
+
+pagination.getPaginationNumbers(totalPages); // потрібно прокинути з ф-ї loadSectionOnClick filter.totalPages
 
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
