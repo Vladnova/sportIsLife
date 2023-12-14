@@ -22,15 +22,17 @@
     <!-- <link src="https://identitytoolkit.googleapis.com/" referrerpolicy="no-referrer" /> -->
     
     <script type="module" crossorigin src="/sportIsLife/assets/vendor-938032cf.js"></script>
-    <script type="module" crossorigin src="/sportIsLife/assets/spinner-51ddd771.js"></script>
-    <link rel="stylesheet" href="/sportIsLife/assets/spinner-33d6ae00.css">
+    <script type="module" crossorigin src="/sportIsLife/assets/spinner-5fb858f1.js"></script>
+    <link rel="stylesheet" href="/sportIsLife/assets/spinner-23970fe5.css">
   </head>
   <body>
-    <header class="container">
+    <header>
   <div class="header">
 <div>
+<a href="./index.html">
 
   <img src = "/sportIsLife/assets/your-energy-3ea00216.svg" alt="logo"/>
+</a>
   <p id="user"></p>
 </div>
     <nav class="page-navigattion" id="navigation">
@@ -78,95 +80,6 @@
   </div>
 </header>
 
-
-    <button class="modal-js" type="button">open modal window</button>
-
-<div class="overlay">
-  <div class="modal-info modal-get-raiting visually-hidden">
-    <button class="modal-button-close" id="button-close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        <use href="/sportIsLife/assets/icons-90cac633.svg#icon-close" />
-      </svg>
-    </button>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-      <use href="/sportIsLife/assets/icons-90cac633.svg#icon-close" />
-    </svg>
-    <div class="get-rating-container">
-      <div class="get-rating-choise">
-        <h3 class="title-card-get-rating">Rating</h3>
-        <p class="rating-modal">4.0 riting ****</p>
-      </div>
-      <form class="form raiting-form">
-        <label class="raiting-form-field">
-          <input
-            type="Email"
-            class="raiting-form-field-input"
-            name="user_email"
-            placeholder="Email"
-            required
-          />
-        </label>
-        <label class="form-comment">
-          <textarea
-            class="raiting-form-field-comment"
-            name="user_comment"
-            placeholder="Your comment"
-          ></textarea>
-        </label>
-        <button class="raiting-form-submit">Send</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- <button class="modal-button-close" id="button-close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        <use href="./img/icons.svg#icon-close" />
-      </svg>
-    </button>
-    <div class="modal-image-vrapper">
-      <img class="modal-img" src="./img/stub-modal.jpg" alt="Example" />
-    </div>
-    <div class="modal-content-wrapper">
-      <div class="card-wrapper">
-        <h3 class="title-card-modal">Air bake</h3>
-        <p class="rating-modal">4.0 riting ****</p>
-      </div>
-      <hr class="modal-decoration-line" />
-      <ul class="modal-table">
-        <li>
-          <h4 class="title-collum">Target</h4>
-          <p class="data-collumn">Abs</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Body Part</h4>
-          <p class="data-collumn">Waist</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Equipment</h4>
-          <p class="data-collumn">Body weight</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Popular</h4>
-          <p class="data-collumn">150</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Burned Calories</h4>
-          <p class="data-collumn">323/3 min</p>
-        </li>
-      </ul>
-      <hr class="modal-decoration-line" />
-      <p class="about-exercise">
-        This refers to your core muscles, which include the rectus abdominis, obliques, and
-        transverse abdominis. They're essential for maintaining posture, stability, and generating
-        force in many movements. Exercises that target the abs include crunches, leg raises, and
-        planks.
-      </p>
-      <div class="button-section-modal">
-        <button class="add-favorite" type="button">
-          <span>Add to favorites</span><span>❤️</span>
-        </button>
-        <button class="add-rating" type="button">Give a rating</button>` -->
 
     <div class="burger-modal visually-hidden" id="burger">
    <button class="burger-button-close" id ="burger-button-close">
@@ -245,7 +158,7 @@
       </div>
     </section>
 
-
+      
       <section class="container wrap-pd-section">
         <div class="wrap-search-section">
   <h2 class="title-exercises">Exercises</h2>
@@ -365,17 +278,17 @@
 
         </div>
       </section>
-
-      <section class="exercises">
-  <ul class="exercises_list">
-    <li class="exercises_list_item">
+      
+      <section >
+  <ul class="exercises_list" id="cards">
+    <!-- <li class="exercises_list_item">
       <div class="exercises_list_item_up">
         <div class="exercises_list_item_up_left">
           <div class="exercises_workout">workout</div>
           <p class="exercises_rating">4.0</p>
           <div class="exercises_list_item_icon_star">
             <svg class="exercises_list_item_icon_svg_star" width="18px" height="18px">
-              <use xlink:href="/sportIsLife/assets/icons-90cac633.svg#icon-star" fill=""></use>
+              <use xlink:href="./img/icons.svg#icon-star" fill=""></use>
               />
             </svg>
           </div>
@@ -393,7 +306,7 @@
       <div class="exercises_list_item_middle">
         <div class="exercises_list_item_middle_icon">
           <svg class="exercises_list_item_middle_icon_svg" width="24px" height="24px">
-            <use xlink:href="/sportIsLife/assets/icons-90cac633.svg#icon-running-man"></use>
+            <use xlink:href="./img/icons.svg#icon-running-man"></use>
             />
           </svg>
         </div>
@@ -898,28 +811,28 @@
           </li>
         </ul>
       </div>
-    </li>
+    </li> -->
   </ul>
 </section>
       <nav class="pagination-container">
         <button
-          class="pagination-button"
-          id="prev-button"
-          title="Previous page"
-          aria-label="Previous page"
+        class="pagination-button"
+        id="prev-button"
+        title="Previous page"
+        aria-label="Previous page"
         >
-          &lt;
-        </button>
-
-        <div class="pagination-numbers"></div>
-
-        <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
-          &gt;
-        </button>
-      </nav>
-    </main>
-
-    <footer class="footer">
+        &lt;
+      </button>
+      
+      <div class="pagination-numbers"></div>
+      
+      <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
+        &gt;
+      </button>
+    </nav>
+  </main>
+  
+  <footer class="footer">
   <div class="container">
     <div class="footer_content">
       <div class="footer_top">
@@ -988,6 +901,95 @@
     </div>
   </div>
 </footer>
+
+  <button class="modal-js" type="button">open modal window</button>
+
+<div class="overlay">
+  <div class="modal-info modal-get-raiting visually-hidden">
+    <button class="modal-button-close" id="button-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+        <use href="/sportIsLife/assets/icons-90cac633.svg#icon-close" />
+      </svg>
+    </button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+      <use href="/sportIsLife/assets/icons-90cac633.svg#icon-close" />
+    </svg>
+    <div class="get-rating-container">
+      <div class="get-rating-choise">
+        <h3 class="title-card-get-rating">Rating</h3>
+        <p class="rating-modal">4.0 riting ****</p>
+      </div>
+      <form class="form raiting-form">
+        <label class="raiting-form-field">
+          <input
+            type="Email"
+            class="raiting-form-field-input"
+            name="user_email"
+            placeholder="Email"
+            required
+          />
+        </label>
+        <label class="form-comment">
+          <textarea
+            class="raiting-form-field-comment"
+            name="user_comment"
+            placeholder="Your comment"
+          ></textarea>
+        </label>
+        <button class="raiting-form-submit">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <button class="modal-button-close" id="button-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+        <use href="./img/icons.svg#icon-close" />
+      </svg>
+    </button>
+    <div class="modal-image-vrapper">
+      <img class="modal-img" src="./img/stub-modal.jpg" alt="Example" />
+    </div>
+    <div class="modal-content-wrapper">
+      <div class="card-wrapper">
+        <h3 class="title-card-modal">Air bake</h3>
+        <p class="rating-modal">4.0 riting ****</p>
+      </div>
+      <hr class="modal-decoration-line" />
+      <ul class="modal-table">
+        <li>
+          <h4 class="title-collum">Target</h4>
+          <p class="data-collumn">Abs</p>
+        </li>
+        <li>
+          <h4 class="title-collum">Body Part</h4>
+          <p class="data-collumn">Waist</p>
+        </li>
+        <li>
+          <h4 class="title-collum">Equipment</h4>
+          <p class="data-collumn">Body weight</p>
+        </li>
+        <li>
+          <h4 class="title-collum">Popular</h4>
+          <p class="data-collumn">150</p>
+        </li>
+        <li>
+          <h4 class="title-collum">Burned Calories</h4>
+          <p class="data-collumn">323/3 min</p>
+        </li>
+      </ul>
+      <hr class="modal-decoration-line" />
+      <p class="about-exercise">
+        This refers to your core muscles, which include the rectus abdominis, obliques, and
+        transverse abdominis. They're essential for maintaining posture, stability, and generating
+        force in many movements. Exercises that target the abs include crunches, leg raises, and
+        planks.
+      </p>
+      <div class="button-section-modal">
+        <button class="add-favorite" type="button">
+          <span>Add to favorites</span><span>❤️</span>
+        </button>
+        <button class="add-rating" type="button">Give a rating</button>` -->
 
 
     
