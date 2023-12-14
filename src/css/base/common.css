@@ -9,11 +9,7 @@
   --color-text-modal: #a1a1a1;
   --color-text-in-card: rgba(244, 244, 244, 0.4);
   --color-subtitle-in-card: #a7a7a7;
-  --gradient: linear-gradient(
-      0deg,
-      rgba(17, 17, 17, 0.5) 0%,
-      rgba(17, 17, 17, 0.5) 100%
-    ),
+  --gradient: linear-gradient(0deg, rgba(17, 17, 17, 0.5) 0%, rgba(17, 17, 17, 0.5) 100%),
     url(<path-to-image>), lightgray -50.028px 0px / 125.192% 100% no-repeat;
   /* FONTS */
   --primary-font: 'DM Sans', sans-serif;
@@ -51,6 +47,10 @@ html {
   white-space: nowrap;
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.no-scroll {
   overflow: hidden;
 }
 
