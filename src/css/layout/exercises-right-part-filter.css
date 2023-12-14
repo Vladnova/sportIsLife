@@ -37,12 +37,9 @@
   border-radius: 15px;
   border: 1px solid var(--second-color);
   color: var(--second-color);
-  /* display: block; */
-  justify-content: center;
   text-align: center;
-  margin: auto;
-  padding: 0, auto;
-  list-style: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
   font-family: var(--primary-font);
   font-size: 12px;
   font-style: normal;
@@ -123,12 +120,12 @@ height: 18px; */
 .exercises_list_item_icon_svg_star {
   width: 16px;
   height: 16px;
-  fill: #eea10c;
+  fill: var(--stars-background-active-color);
 }
 .exercises_list_item_middle_icon_svg {
   width: 14px;
   height: 16px;
-  fill: #f4f4f4;
+  fill: var(--primary-color);
 }
 
 .exercises_list_item_middle_title {
