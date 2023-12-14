@@ -1,7 +1,6 @@
 .exercise-quote {
   display: flex;
   flex-direction: column;
-  margin-bottom: 80px;
   gap: 20px;
 }
 
@@ -112,14 +111,17 @@
   -webkit-box-orient: vertical;
 }
 
+.img-exe {
+  object-fit: cover;
+  border-radius: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .exercise-quote {
-    min-width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 166px;
-    row-gap: 16px;
-    column-gap: 32px;
+    /* min-width: 100%; */
+    display: grid;
+    grid-template-columns: 400px 288px;
+    gap: 16px;
   }
   /* .exercise-quote:nth-child(odd) {
     max-width: 400px;
@@ -152,9 +154,10 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .exercise-quote {
-    flex-direction: column;
+    display: flex;
+    max-width: 444px;
     gap: 32px;
   }
 }

@@ -27,6 +27,7 @@ body {
   font-family: var(--primary-font);
   font-size: 12px;
   line-height: 1.5;
+  font-weight: var(--primary-weight);
   font-style: normal;
   color: var(--second-color);
   background-color: var(--primary-color);
@@ -55,8 +56,8 @@ html {
 
 .container {
   margin: 0 auto;
-  padding-left: 20px;
   padding-right: 20px;
+  padding-left: 20px;
 }
 
 @media screen and (max-width: 374px) {
@@ -67,19 +68,38 @@ html {
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .container {
-    min-width: 375px;
+    max-width: 375px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .container {
-    min-width: 768px;
-   padding: 24px 32px 0 32px;
+    max-width: 768px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .container {
-    min-width: 1280px;
+    max-width: 1440px;
+  }
+}
+.position-page {
+  display: flex;
+  gap: 80px;
+  flex-direction: column-reverse;
+}
+
+@media screen and (min-width: 768px) {
+  .position-page {
+    gap: 64px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .position-page {
+    gap: 32px;
+    flex-direction: row;
   }
 }

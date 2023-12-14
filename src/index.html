@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YOUR ENERGY</title>
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
@@ -24,18 +24,24 @@
   </head>
   <body>
     <load ="partials/header.html" />
+    <load ="partials/modal.html" />
     <load ="partials/burger.html" />
     <main>
       <load ="partials/hero.html" />
-      <load ="partials/exercises-left-part.html" />
-      <load ="partials/exercises-right-part.html" />
+
+      <section class="container wrap-pd-section">
+        <load ="partials/search-section.html" />
+        <div class="position-page">
+          <load ="partials/exercises-left-part.html" />
+          <load ="partials/exercises-right-part.html" />
+        </div>
+      </section>
+
       <load ="partials/exercises-right-part-filter.html" />
     </main>
-
 
     <load ="partials/footer.html" />
 
     <script type="module" src="/main.js"></script>
-  
   </body>
 </html>
