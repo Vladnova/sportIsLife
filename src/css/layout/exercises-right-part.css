@@ -15,14 +15,14 @@
 }
 .muscles-item {
   position: relative;
-  width: 335px;
-  height: 225px;
+  /* width: 335px;
+  height: 225px; */
   border-radius: 12px;
 }
 
 .muscles-image {
   border-radius: 12px;
-  max-height: 225px;
+  object-fit: cover;
 }
 .muscles-box-menu {
   position: absolute;

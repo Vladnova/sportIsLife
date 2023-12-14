@@ -1,9 +1,9 @@
-<section class="container wrap-head-section">
+<div class="wrap-search-section">
   <h2 class="title-exercises">Exercises</h2>
   <div class="wrap-exercise-filter">
-    <form class="filter-form" action="">
+    <form class="filter-form hidden-form" action="">
       <input type="text" class="input-exercises" placeholder="Search" />
-      <button type="submit" class="btn-search ">
+      <button type="submit" class="btn-search">
         <svg class="input-icon-btn" width="18" height="18" aria-label="search-icon">
           <use href="./img/icons.svg#icon-search"></use>
         </svg>
@@ -15,17 +15,19 @@
       </button>
     </form>
     <ul class="wrap-button">
-      <li class="wrap-list-btn btn-filter-active">
-        <button class="btn-filter" type="button" data-name="Muscles">
-          Muscles
+      <li class="wrap-list-btn">
+        <button class="btn-filter" type="button" data-name="Muscles" id="Muscles">Muscles</button>
+      </li>
+      <li class="wrap-list-btn">
+        <button class="btn-filter" type="button" data-name="Body parts" id="Body parts">
+          Body parts
         </button>
       </li>
       <li class="wrap-list-btn">
-        <button class="btn-filter" type="button" data-name="Body parts">Body parts</button>
-      </li>
-      <li class="wrap-list-btn">
-        <button class="btn-filter" type="button" data-name="Equipment">Equipment</button>
+        <button class="btn-filter" type="button" data-name="Equipment" id="Equipment">
+          Equipment
+        </button>
       </li>
     </ul>
   </div>
-</section>
+</div>
