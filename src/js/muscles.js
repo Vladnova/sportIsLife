@@ -66,6 +66,7 @@ export async function loadSectionOnClick(dataFilter) {
       console.log("Sorry, we didn't find anything according to your request.");
       return;
     }
+
     musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult));
 
 
@@ -76,6 +77,7 @@ export async function loadSectionOnClick(dataFilter) {
     localStorage.setItem('infoRequest', data);
     paginationNumbers.innerHTML = '';
     pagination.getPaginationNumbers();
+
     pagination.setCurrentPage(1);
 
 
@@ -101,14 +103,14 @@ export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({filter, name, imgURL }) => {
       return `
-        <li class="muscles-item">
-        <a href="" class="muscles-link">
-        <img class="muscles-image" src="${imgURL}" alt="${name}" data-filter=${filter.toLocaleLowerCase().replaceAll(' ', '')}>
+        <li class="muscles-item"  data-name=${name} data-filter=${filter.toLocaleLowerCase().replaceAll(' ', '')}>
+        <a href="" class="muscles-link class="muscles-box-menu"">
+        <img class="muscles-image" src="${imgURL}" alt="${name}"  >
+        <div class="muscles-box-menu">
+           <h3 class="muscles-small-title">${filter}</h3>
+           <p class="muscles-text">${name}</p>
+            </div>
           <!-- box-menu -->
-          <div class="muscles-box-menu">
-             <h3 class="muscles-small-title">${filter}</h3>
-             <p class="muscles-text">${name}</p>
-              </div>
             </a>
            </li>
           `;
