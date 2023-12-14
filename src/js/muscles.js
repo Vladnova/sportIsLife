@@ -84,17 +84,16 @@ pagination.getPaginationNumbers(totalPages); // потрібно прокину�
 
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
-    .map(({ _id, filter, name, imgURL }) => {
+    .map(({filter, name, imgURL }) => {
       return `
-        <li class="muscles-item" id="${_id}">
-        <a href="" class="muscles-link" id="${_id}">
-        <img class="muscles-image" src="${imgURL}" alt="${name}" id="${_id}">
+        <li class="muscles-item">
+        <a href="" class="muscles-link">
+        <img class="muscles-image" src="${imgURL}" alt="${name}" data-filter=${filter.toLocaleLowerCase().replaceAll(' ', '')}>
           <!-- box-menu -->
           <div class="muscles-box-menu">
-             <h3 class="muscles-small-title" id="${_id}">${filter}</h3>
-             <p class="muscles-text" id="${_id}">${name}</p>
+             <h3 class="muscles-small-title">${filter}</h3>
+             <p class="muscles-text">${name}</p>
               </div>
-           <!-- box-menu -->
             </a>
            </li>
           `;
