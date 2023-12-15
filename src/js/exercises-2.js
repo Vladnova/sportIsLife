@@ -18,9 +18,13 @@ async function handlerClickFilterCards(e) {
   if (target.nodeName === "IMG") {
     nameFilter = target.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.dataset.name;
+    console.log(nameFilter)
+    console.log(nameCard)
   } if (target.nodeName === "P" || target.nodeName === "H3") {
     nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.parentNode.dataset.name;
+    console.log(nameFilter)
+    console.log(nameCard)
   }
   const dataExercises = {
     [nameFilter]: [nameCard],
@@ -43,11 +47,11 @@ list.classList.add("exercises_list");
 
 
   export function makeMarkupCards (exercises) {
-    // console.log(exercises.results.length)
+    console.log(exercises.results)
   if (exercises.results.length){
     // console.log("here")
     const markup = exercises.results
-    .map(({_id, target, rating,name }) => {
+    .map(({_id, target, rating, name, burnedCalories, time }) => {
       console.log(_id)
       return `
       <li class="exercises_list_item" id=${_id}>
@@ -85,7 +89,7 @@ list.classList.add("exercises_list");
         <ul class="exercises_list_item_bottom_list">
           <li class="exercises_list_item_bottom_list_item">
             <p class="exercises_list_item_bottom_list_item_text">
-              Burned calories: <span>312 / 3 min</span>
+              Burned calories: <span>${burnedCalories ? burnedCalories : ""} / ${time ? time : "your wish"} min</span>
             </p>
           </li>
         </ul>
@@ -98,7 +102,7 @@ list.classList.add("exercises_list");
   } else {
     const underfinde = "<p>Sorry</p>"
     console.log("sorry")
-    return underfinde
+    
   }
   // makeMarkupCards(exercises)
   }

@@ -17,7 +17,7 @@ export async function handleCategoryClick(event) {
 
   if (target.nodeName !== 'BUTTON') return;
   const categoryName = target.dataset.name;
-
+console.log(target.classList)
   if (target.classList.contains('btn-filter')) {
     const categoryItem = [...currentTarget.children];
     categoryItem.forEach(item => {
@@ -34,6 +34,7 @@ export async function handleCategoryClick(event) {
   };
   musclesList.innerHTML = '';
   loadSectionOnClick(dataFilter);
+  // document.getElementById("filter-section").classList.add("muscles-section")
 }
 
 //======================================================
@@ -66,11 +67,17 @@ export async function loadSectionOnClick(dataFilter) {
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
+      console.log(filter)
+      let filterCurrent = filter.toLocaleLowerCase()
+      .replaceAll(' ', '');
+      console.log(filter)
+      console.log(filterCurrent)
+      if (filterCurrent==="bodyparts"){
+        filterCurrent="bodypart"
+        }
       return `
-        <li class="muscles-item"  data-name=${name} data-filter=${filter
-        .toLocaleLowerCase()
-        .replaceAll(' ', '')}>
-        <a href="" class="muscles-link class="muscles-box-menu"">
+        <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
+        <a href="" class="muscles-link">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">
            <h3 class="muscles-small-title">${filter}</h3>
