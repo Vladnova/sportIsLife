@@ -4,20 +4,28 @@ import { message } from './toasts/message';
 const form = document.querySelector('#subscribe-form');
 const input = form.querySelector('#email');
 
-export const sendEmail = event => {
+form.addEventListener('submit', handlerSendEmail);
+
+async function handlerSendEmail(event) {
   event.preventDefault();
 
   const { value } = input;
-  fetchSportEnergy
-    .addSubscription({ email: value })
-    .then(() => {
-      message.success('Your email has been added to subscriptions!');
-      input.value = '';
-    })
-    .catch(err => {
-      message.error('Opps. Somethig wrong');
-      throw err;
-    });
-};
+  const PATTERN = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  PATTERN.test(value);
 
-form.addEventListener('submit', sendEmail);
+  if (!PATTERN.test(value)) {
+    message.info("Enter the following sample email - 'test@gmail.com'");
+    input.value = '';
+    return;
+  }
+
+  try {
+    const result = await fetchSportEnergy.addSubscription({ email: value });
+    message.success(result.message);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    input.value = '';
+  }
+
+}
