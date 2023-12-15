@@ -4,10 +4,11 @@ import * as filterBtn from '../filter';
 const paginationNumbers = document.querySelector('.pagination-numbers');
 const musclesList = document.querySelector('.muscles-list');
 
-const nextButton = document.getElementById('next-button');
-const prevButton = document.getElementById('prev-button');
+// ============= Стрілки пагінації ================
+// const nextButton = document.getElementById('next-button');
+// const prevButton = document.getElementById('prev-button');
 
-let pageCount = 5; // потрібно підтягувати з dataFilter.Total pages
+// let pageCount = 5; // зараз є наявним для стлілок пагінації - Андрій глянь на основі того, що вирішить команда стосовно стрілок
 let currentPage = 1; //
 
 try {
@@ -17,6 +18,7 @@ try {
   console.log(error);
 }
 
+// ============= Стрілки пагінації ================
 // prevButton.addEventListener('click', () => {
 //   setCurrentPage(currentPage - 1);
 // });
@@ -28,11 +30,15 @@ try {
 async function handleClick(e) {
   const { totalPages, categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
   const dataFilter = {
-    filter: categoryName, // потрібно підтягнути з актуальної сторінки/фільтру
+    filter: categoryName,
     page: e.target.textContent,
     limit: 12,
-    totalPages, // потрібно підтягнути з початкового рендеру
+    totalPages,
   };
+
+  if (dataFilter.page === currentPage) {
+    return;
+  }
 
   const filter = await fetchSportEnergy.getByFilterName(dataFilter);
   const filteredResult = filter.results;
@@ -60,12 +66,14 @@ export function getPaginationNumbers() {
 
 function handlePageNumberClick(page) {
   setCurrentPage(page);
-  prevButton.addEventListener('click', () => {
-    setCurrentPage(currentPage - 1);
-  });
-  nextButton.addEventListener('click', () => {
-    setCurrentPage(currentPage + 1);
-  });
+  // ============= Стрілки пагінації ================
+  // prevButton.addEventListener('click', () => {
+  //   setCurrentPage(currentPage - 1);
+  // });
+  // nextButton.addEventListener('click', () => {
+  //   setCurrentPage(currentPage + 1);
+  // });
+
   document.querySelectorAll('.pagination-number').forEach(button => {
     const pageIndex = Number(button.getAttribute('page-index'));
     if (pageIndex) {
@@ -81,8 +89,9 @@ export function setCurrentPage(pageNum) {
 
   handlePageButtonsStatus();
 
-  const prevRange = (pageNum - 1) * pageCount;
-  const currRange = pageNum * pageCount;
+  // ============= Стрілки пагінації ================
+  // const prevRange = (pageNum - 1) * pageCount;
+  // const currRange = pageNum * pageCount;
 }
 
 export function handleActivePageNumber() {
@@ -96,25 +105,27 @@ export function handleActivePageNumber() {
   });
 }
 
-const disableButton = button => {
-  button.classList.add('disabled');
-  button.setAttribute('disabled', true);
-};
-const enableButton = button => {
-  if (!button) return;
-  button.classList.remove('disabled');
-  button.removeAttribute('disabled');
-};
+// ============= Стрілки пагінації ================
 
-const handlePageButtonsStatus = () => {
-  if (currentPage === 1) {
-    disableButton(prevButton);
-  } else {
-    enableButton(prevButton);
-  }
-  if (pageCount === currentPage) {
-    disableButton(nextButton);
-  } else {
-    enableButton(nextButton);
-  }
-};
+// const disableButton = button => {
+//   button.classList.add('disabled');
+//   button.setAttribute('disabled', true);
+// };
+// const enableButton = button => {
+//   if (!button) return;
+//   button.classList.remove('disabled');
+//   button.removeAttribute('disabled');
+// };
+
+// function handlePageButtonsStatus() {
+// if (currentPage === 1) {
+//   disableButton(prevButton);
+// } else {
+//   enableButton(prevButton);
+// }
+// if (pageCount === currentPage) {
+//   disableButton(nextButton);
+// } else {
+//   enableButton(nextButton);
+// }
+// }
