@@ -8,6 +8,7 @@ list.addEventListener('click', handlerClickFilterCards);
 async function handlerClickFilterCards(e) {
   e.preventDefault();
   // list.classList.add("visually-hidden");
+  console.log(e)
   const { target } = e;
   let nameFilter;
   let nameCard;
