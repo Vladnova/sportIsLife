@@ -1,6 +1,7 @@
 import './js/header.js';
 import './js/burger';
 import './js/authentication.js';
+import './js/search';
 
 import './js/modal-window/modal.js';
 import './js/filter.js';
