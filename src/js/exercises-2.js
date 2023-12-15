@@ -2,7 +2,7 @@ import fetchSportEnergy from './api/apiSport';
 
 
 const list = document.querySelector('.filter-list-js');
-const Exercises = document.querySelector(".exercises_list");
+// const Exercises = document.querySelector(".exercises_list");
 
 
 list.addEventListener('click', handlerClickFilterCards);
