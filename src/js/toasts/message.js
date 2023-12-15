@@ -1,4 +1,4 @@
-import iziToast from "izitoast";
+import iziToast from 'izitoast';
 
 iziToast.settings({
   timeout: 3000,
@@ -6,6 +6,7 @@ iziToast.settings({
   icon: 'material-icons',
   transitionIn: 'flipInX',
   transitionOut: 'flipOutX',
+  position: 'topRight',
   onOpening: function () {
     console.log('callback abriu!');
   },
@@ -35,7 +36,6 @@ class Message {
       message,
     });
   }
-
 }
 
-export const message = new Message()
+export const message = new Message();

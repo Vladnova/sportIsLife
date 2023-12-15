@@ -9,10 +9,10 @@ import './js/exercises';
 import './js/quote.js';
 import './js/pagination/pagination.js';
 import './js/scrollToTopButton';
-import './js/exercises-right-part-filter.js'
-import './js/raiting.js'
+import './js/exercises-right-part-filter.js';
+import './js/raiting.js';
 import './js/exercises-2.js';
-import './js/addSubscription.js';
+import './js/sendEmail.js';
 
 // How to Use Spinner
 // 1. Import spinner to your js file. (Don't forget about relative path)
