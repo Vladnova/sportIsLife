@@ -18,12 +18,23 @@
   /* width: 335px;
   height: 225px; */
   border-radius: 12px;
+ 
+  display: inline-block;
 }
 
 .muscles-image {
   border-radius: 12px;
   object-fit: cover;
+  filter: brightness(50%)
 }
+
+   
+.muscles-link img{
+  display: block;
+}
+
+
+
 .muscles-box-menu {
   position: absolute;
   top: 40%;

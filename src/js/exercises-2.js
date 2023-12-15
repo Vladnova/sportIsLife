@@ -2,7 +2,7 @@ import fetchSportEnergy from './api/apiSport';
 
 
 const list = document.querySelector('.filter-list-js');
-const Exercises = document.querySelector(".exercises_list");
+// const Exercises = document.querySelector(".exercises_list");
 
 
 list.addEventListener('click', handlerClickFilterCards);
@@ -18,9 +18,13 @@ async function handlerClickFilterCards(e) {
   if (target.nodeName === "IMG") {
     nameFilter = target.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.dataset.name;
+    console.log(nameFilter)
+    console.log(nameCard)
   } if (target.nodeName === "P" || target.nodeName === "H3") {
     nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.parentNode.dataset.name;
+    console.log(nameFilter)
+    console.log(nameCard)
   }
   const dataExercises = {
     [nameFilter]: [nameCard],
@@ -34,7 +38,7 @@ list.classList.remove("muscles-list");
 list.classList.add("exercises_list");
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
    
-    list.insertAdjacentHTML('beforeend', makeMarkupCards(exercises));
+    list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
     
   } catch (er) {
     console.log(er.message);
@@ -43,11 +47,11 @@ list.classList.add("exercises_list");
 
 
   export function makeMarkupCards (exercises) {
-    // console.log(exercises.results.length)
+    console.log(exercises.results)
   if (exercises.results.length){
     // console.log("here")
     const markup = exercises.results
-    .map(({_id, target, rating }) => {
+    .map(({_id, target, rating, name, burnedCalories, time }) => {
       console.log(_id)
       return `
       <li class="exercises_list_item" id=${_id}>
@@ -79,15 +83,18 @@ list.classList.add("exercises_list");
             />
           </svg>
         </div>
-        <h3 class="exercises_list_item_middle_title">Air bike</h3>
+        <h3 class="exercises_list_item_middle_title">${name}</h3>
       </div>
       <div class="exercises_list_item_bottom">
         <ul class="exercises_list_item_bottom_list">
           <li class="exercises_list_item_bottom_list_item">
             <p class="exercises_list_item_bottom_list_item_text">
-              Burned calories: <span>312 / 3 min</span>
+              Burned calories: <span>${burnedCalories ? burnedCalories : ""} / ${time ? time : "your wish"} min</span>
             </p>
-          </li>`
+          </li>
+        </ul>
+        </div>
+    </li>`
     })
     .join('');
   //  console.log(markup)
@@ -95,7 +102,9 @@ list.classList.add("exercises_list");
   } else {
     const underfinde = "<p>Sorry</p>"
     console.log("sorry")
-    return underfinde
+    
   }
   // makeMarkupCards(exercises)
   }
+
+
