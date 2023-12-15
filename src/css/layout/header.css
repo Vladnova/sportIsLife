@@ -1,9 +1,19 @@
+/* header {
+    position: fixed;
+top: 0px;
+} */
 .header{
+    position: fixed;
+    top: 0px;
+    background-image: linear-gradient(to bottom, var(--primary-color)70%, rgba(244,244,244, 0));
+    padding:20px 20px 20px 20px;
+    z-index:2;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
+  
 }
 .active{
     background-color: var(--primary-color);
@@ -44,7 +54,7 @@
     padding: 8px;
 }
 .social-links li:hover{
-    border: 1px solid  rgba(36, 36, 36, 0.5);
+    border: 1px solid  rgba(36, 36, 36, 0.5); 
     transition: 300ms;
 }
 .social-links-items svg {
@@ -85,17 +95,15 @@ color: var(--primary-color);
     border: 1px solid var(--primary-color);
     transition: 300ms;
 }
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
     .burger-button{
         display: none;
     }
-
     .header{
-      padding-top: 28px;
-  }
-
+        padding:24px 32px ;
 }
-@media screen and (max-width: 768px){
+}
+@media screen and (max-width: 767px){
     .social-links{
         display: none;
     }

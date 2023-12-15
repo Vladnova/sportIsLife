@@ -29,6 +29,11 @@ body {
   background-color: var(--primary-color);
 }
 
+.disable-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -56,8 +61,7 @@ html {
 
 .container {
   margin: 0 auto;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding: 0 20px 0 20px;
 }
 
 @media screen and (max-width: 374px) {
@@ -75,8 +79,7 @@ html {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding-right: 32px;
-    padding-left: 32px;
+   padding: 24px 32px 0 32px;
   }
 }
 
