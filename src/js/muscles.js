@@ -87,14 +87,14 @@ export function makeMarkupMuscles(filteredResult) {
     .map(({filter, name, imgURL }) => {
       return `
         <li class="muscles-item"  data-name=${name} data-filter=${filter.toLocaleLowerCase().replaceAll(' ', '')}>
-        <a href="" class="muscles-link class="muscles-box-menu"">
-        <img class="muscles-image" src="${imgURL}" alt="${name}"  >
+    <a href="" class="muscles-link">
+      <img class="muscles-image" src="${imgURL}" alt="${name}"  >
+   
         <div class="muscles-box-menu">
            <h3 class="muscles-small-title">${filter}</h3>
            <p class="muscles-text">${name}</p>
-            </div>
-          <!-- box-menu -->
-            </a>
+        </div>
+    </a>
            </li>
           `;
     })
