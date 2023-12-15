@@ -1,18 +1,20 @@
 function getRating(rating) {
-    return "*".repeat(rating)
+  let result = '<div class="rating-container" data-rating="0">'
+  for (let i = 1; i <= 5; i += 1) {
+    if (i <= rating) {
+      result += `<span class="star-js selected" data-value="${i}">&#9733;</span>`
+    } else {
+      result += `<span class="star-js" data-value="${i}">&#9733;</span>`
+    }
+  }
+  return result +'</div>'
 }
 
-
-
-
-
-
-
 export function getExerciseModal(data) {
-    return `<div class="modal-info">
+    return `<div class="modal-info" data-id="${data._id}">
      <button class="modal-button-close" id="button-close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        <use href="./img/icons.svg#icon-close" />
+      <svg class="close-icon-img" width="20" height="20" aria-label="heart-icon">
+        <use href="./img/svg/sprite.svg#icon-close"></use>
       </svg>
     </button>
     <div class="modal-image-vrapper">
@@ -21,7 +23,7 @@ export function getExerciseModal(data) {
     <div class="modal-content-wrapper">
       <div class="card-wrapper">
         <h3 class="title-card-modal">${data.name}</h3>
-        <p class="rating-modal">${data.rating} ${getRating(data.rating)}</p>
+        <div class="rating-modal-container-wrapper"><p>${data.rating.toFixed(1)}</p>${getRating(data.rating)}</div>
       </div>
       <hr class="modal-decoration-line" />
       <ul class="modal-table">
@@ -51,25 +53,36 @@ export function getExerciseModal(data) {
         ${data.description}
       </p>
       <div class="button-section-modal">
-        <button class="add-favorite" type="button">
-          <span>Add to favorites</span><span>❤️</span>
-        </button>
+        <div class="refresh-button-js" data-favorite="false">
+          <button class="add-favorite-js" type="button">
+            <span>Add to favorites</span>
+            <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
+              <use href="./img/svg/sprite.svg#icon-heart"></use>
+            </svg>
+          </button>
+        </div>
         <button class="add-rating" type="button">Give a rating</button>
       </div>`
 }
 
 export function getRatingModal(idExercise) {
-    return `<div class="modal-get-raiting">
+    return `<div class="modal-get-raiting" data-id="${idExercise}">
     <button class="modal-button-close" id="button-close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        <use href="./img/icons.svg#icon-close" />
+      <svg class="close-icon-img" width="20" height="20" aria-label="heart-icon">
+        <use href="./img/svg/sprite.svg#icon-close"></use>
       </svg>
     </button>
     <div class="get-rating-container">
       <div class="get-rating-choise">
         <h3 class="title-card-get-rating">Rating</h3>
-        <p class="rating-modal">4.0 riting ****</p>
-      </div>
+        <div class="rating-container-js" data-rating="" data-id="">
+          <p class="user-rating-js">0.0</p>
+          <span class="star-js" data-value="1">&#9733;</span>
+          <span class="star-js" data-value="2">&#9733;</span>
+          <span class="star-js" data-value="3">&#9733;</span>
+          <span class="star-js" data-value="4">&#9733;</span>
+          <span class="star-js" data-value="5">&#9733;</span>
+        </div>
       <form class="form raiting-form">
         <label class="raiting-form-field">
           <input
@@ -87,7 +100,7 @@ export function getRatingModal(idExercise) {
             placeholder="Your comment"
           ></textarea>
         </label>
-        <button class="raiting-form-submit" type="submit" data-id="${idExercise}">Send</button>
+        <button class="raiting-form-submit" type="submit">Send</button>
       </form>
     </div>
   </div>`

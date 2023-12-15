@@ -1,37 +1,40 @@
-const ratingContainer = document.querySelector('.rating');
-const stars = ratingContainer.querySelectorAll('.star');
+export function createInteractiveRaiting() {
+    const ratingContainer = document.querySelector('.rating-container-js');
+    const stars = ratingContainer.querySelectorAll('.star-js');
+    let userRating = ratingContainer.querySelector('.user-rating-js')
 
-stars.forEach((star, index) => {
-star.addEventListener('mouseover', () => highlightStars(index));
-star.addEventListener('mouseout', resetStars);
-star.addEventListener('click', () => setRating(index + 1));
-});
-
-function highlightStars(selectedIndex) {
-    resetStars();
-    for (let i = 0; i <= selectedIndex; i++) {
-        stars[i].classList.add('hovered');
-    }
-}
-
-function resetStars() {
-    stars.forEach(star => {
-        star.classList.remove('hovered');
-    });
-}
-
-function setRating(selectedRating) {
-    ratingContainer.setAttribute('data-rating', selectedRating);
-
-    // Закрасити обрану зірку та всі попередні зірки
     stars.forEach((star, index) => {
-        if (index + 1 <= selectedRating) {
-        star.classList.add('selected');
-        } else {
-        star.classList.remove('selected');
-        }
+        star.addEventListener('mouseover', () => highlightStars(index));
+        star.addEventListener('mouseout', resetStars);
+        star.addEventListener('click', () => setRating(index + 1));
     });
 
-    console.log(selectedRating);
-    // Тут ви можете додати логіку для відправки рейтингу на сервер чи інші дії
+    function highlightStars(selectedIndex) {
+        resetStars();
+        for (let i = 0; i <= selectedIndex; i++) {
+            stars[i].classList.add('hovered');
+            userRating.textContent = `${i+1}.0`
+        }
+    }
+
+    function resetStars() {
+        stars.forEach(star => {
+            const ratinFromUser = ratingContainer.dataset.rating
+            star.classList.remove('hovered');
+            userRating.textContent = `${ratinFromUser}.0`
+        });
+    }
+
+    function setRating(selectedRating) {
+        ratingContainer.setAttribute('data-rating', selectedRating);
+
+        // Закрасити обрану та всі попередні зірки
+        stars.forEach((star, index) => {
+            if (index + 1 <= selectedRating) {
+                star.classList.add('selected');
+            } else {
+                star.classList.remove('selected');
+            }
+        });
+    }
 }
