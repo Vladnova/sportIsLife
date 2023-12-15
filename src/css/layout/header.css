@@ -1,9 +1,10 @@
 
 .header{
     position: fixed;
+    max-width: 100%;
     top: 0px;
     background-image: linear-gradient(to bottom, var(--primary-color)70%, rgba(244,244,244, 0));
-    padding:20px 20px 20px 20px;
+    padding:20px 0;
     z-index:2;
     width: 100vw;
     display: flex;
@@ -97,7 +98,9 @@ color: var(--primary-color);
         display: none;
     }
     .header{
-        padding:24px 32px ;
+        /* padding:32px ; */
+        max-width: 768px;
+        /* padding: 24px 32px 0 32px */
 }
 }
 @media screen and (max-width: 767px){

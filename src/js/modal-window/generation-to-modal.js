@@ -2,6 +2,12 @@ function getRating(rating) {
     return "*".repeat(rating)
 }
 
+
+
+
+
+
+
 export function getExerciseModal(data) {
     return `<div class="modal-info">
      <button class="modal-button-close" id="button-close">
