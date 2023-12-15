@@ -35,7 +35,6 @@ console.log(target.classList)
   musclesList.innerHTML = '';
   loadSectionOnClick(dataFilter);
   document.querySelector('.filter-list-js').classList.add("muscles-section")
-  // document.getElementById("filter-section").classList.add("muscles-section")
 }
 
 //======================================================
@@ -68,11 +67,12 @@ export async function loadSectionOnClick(dataFilter) {
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
-      console.log(filter)
+
+     
       let filterCurrent = filter.toLocaleLowerCase()
       .replaceAll(' ', '');
-      console.log(filter)
-      console.log(filterCurrent)
+    
+
       if (filterCurrent==="bodyparts"){
         filterCurrent="bodypart"
         }

@@ -9,9 +9,7 @@ const currentUrl = window.location.href.toString();
 let part = currentUrl.slice(-10)
 
 export const onClickPage=()=>{
-   console.log(part)
-// e.preventDefault()
-
+  
  if(part==="index.html"){
     Home.classList.add("active");
     TextHome.classList.add("black");
