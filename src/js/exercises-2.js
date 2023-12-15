@@ -3,62 +3,50 @@ import fetchSportEnergy from './api/apiSport';
 const list = document.querySelector('.filter-list-js');
 // const Exercises = document.querySelector(".exercises_list");
 
-
 list.addEventListener('click', handlerClickFilterCards);
 
 async function handlerClickFilterCards(e) {
-  e.preventDefault()
+  e.preventDefault();
   // list.classList.add("visually-hidden");
-  const {target} = e
+  const { target } = e;
   let nameFilter;
   let nameCard;
-  try{
-  
-  if (target.nodeName === "IMG") {
-    nameFilter = target.parentNode.parentNode.dataset.filter;
-    nameCard = target.parentNode.parentNode.dataset.name;
-
-    
-  } if (target.nodeName === "P" || target.nodeName === "H3") {
-    nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
-    nameCard = target.parentNode.parentNode.parentNode.dataset.name;
-
-
-  }
-  const dataExercises = {
-    [nameFilter]: [nameCard],
-    keyword: 'pull',
-    page: 1,
-    limit: 10,
-  };
-  const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-  if(exercises.results.length){
-    
-    list.innerHTML="";
-    document.querySelector(".muscles-section").classList.remove("muscles-section")
-  list.classList.remove("muscles-list");
-  list.classList.add("exercises_list");
-  list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
-} else {
-alert("Oops. please, try other category this list empty :)")
-}
-   
-    
+  try {
+    if (target.nodeName === 'IMG') {
+      nameFilter = target.parentNode.parentNode.dataset.filter;
+      nameCard = target.parentNode.parentNode.dataset.name;
+    }
+    if (target.nodeName === 'P' || target.nodeName === 'H3') {
+      nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
+      nameCard = target.parentNode.parentNode.parentNode.dataset.name;
+    }
+    const dataExercises = {
+      [nameFilter]: [nameCard],
+      keyword: 'pull',
+      page: 1,
+      limit: 10,
+    };
+    const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+    if (exercises.results.length) {
+      list.innerHTML = '';
+      document.querySelector('.muscles-section').classList.remove('muscles-section');
+      list.classList.remove('muscles-list');
+      list.classList.add('exercises_list');
+      list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+    } else {
+      alert('Oops. please, try other category this list empty :)');
+    }
   } catch (er) {
-    
     console.log(er.message);
   }
 }
 
-
-  export function makeMarkupCards (exercises) {
-
-  if (exercises.results.length){
+export function makeMarkupCards(exercises) {
+  if (exercises.results.length) {
     // console.log("here")
     const markup = exercises.results
-    .map(({_id, target, rating, name, burnedCalories, time }) => {
-
-      return `
+      .map(({ _id, target, rating, name, burnedCalories, time }) => {
+        return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
         <div class="exercises_list_item_up_left">
@@ -74,8 +62,8 @@ alert("Oops. please, try other category this list empty :)")
         <div class="exercises_list_item_up_right">
           <button class="exercises_btn_start">
             <p class="exercises_btn_start_text">start</p>
-            <svg class="exercises_btn_start_icon" width="56px" height="18px">
-              <use xlink:href="../img/icons.svg#icon-arrow"></use>
+            <svg class="exercises_btn_start_icon" width="56px" height="18px" aria-label="arrow">
+              <use xlink:href="./img/svg/sprite.svg#icon-arrow"></use>
               />
             </svg>
           </button>
@@ -83,8 +71,8 @@ alert("Oops. please, try other category this list empty :)")
       </div>
       <div class="exercises_list_item_middle">
         <div class="exercises_list_item_middle_icon">
-          <svg class="exercises_list_item_middle_icon_svg" width="24px" height="24px">
-            <use xlink:href="./img/icons.svg#icon-running-man"></use>
+          <svg class="exercises_list_item_middle_icon_svg" width="24px" height="24px" aria-label="run-man">
+            <use xlink:href="./img/svg/sprite.svg#icon-run-man"></use>
             />
           </svg>
         </div>
@@ -94,19 +82,17 @@ alert("Oops. please, try other category this list empty :)")
         <ul class="exercises_list_item_bottom_list">
           <li class="exercises_list_item_bottom_list_item">
             <p class="exercises_list_item_bottom_list_item_text">
-              Burned calories: <span>${burnedCalories ? burnedCalories : ""} / ${time ? time : "your wish"} min</span>
+              Burned calories: <span>${burnedCalories ? burnedCalories : ''} / ${
+          time ? time : 'your wish'
+        } min</span>
             </p>
           </li>
         </ul>
         </div>
-    </li>`
-    })
-    .join('');
-  //  console.log(markup)
+    </li>`;
+      })
+      .join('');
+    //  console.log(markup)
     return markup;
-
-  } 
+  }
 }
- 
-
-

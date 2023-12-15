@@ -89,6 +89,10 @@
   line-height: 1;
 }
 
+.daily-icon-img{
+  fill: var(--primary-color);
+}
+
 .daily-descr {
   color: rgba(36, 36, 36, 0.6);
   font-size: 14px;
