@@ -6,12 +6,14 @@ const BurgerCloseButton = document.getElementById("burger-button-close")
 
 
 export const openMenu = async() =>{
+    document.getElementById("header").classList.remove("container")
     Burger.classList.remove("visually-hidden");
     document.body.classList.add("disable-scroll");
  
 }
 
 export const closeMenu = async(e) =>{
+    document.getElementById("header").classList.add("container")
     Burger.classList.add("visually-hidden");
     document.body.classList.remove("disable-scroll");
    

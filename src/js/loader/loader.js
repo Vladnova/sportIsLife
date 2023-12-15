@@ -5,7 +5,6 @@ class Loader {
       Loader.loaderEl.style.display = 'block';
     }
   }
-
   close() {
     if (Loader.loaderEl) {
       Loader.loaderEl.style.display = 'none';

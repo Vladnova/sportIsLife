@@ -34,45 +34,47 @@ console.log(target.classList)
   };
   musclesList.innerHTML = '';
   loadSectionOnClick(dataFilter);
-  document.querySelector('.filter-list-js').classList.add("muscles-section")
+
+  
 }
 
 //======================================================
 
 export async function loadSectionOnClick(dataFilter) {
+    document.querySelector('.filter-list-js').classList.remove("exercises_list")
   try {
     const filter = await fetchSportEnergy.getByFilterName(dataFilter);
     const filteredResult = filter.results;
-
+    
     if (!filter || filteredResult.length === 0) {
       console.log("Sorry, we didn't find anything according to your request.");
       return;
     }
-
+    
     musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult));
-
+    
     // Збереження в LocalStorage інформації для пагінації сторінки
     const { totalPages } = filter;
     const data = JSON.stringify({ totalPages, categoryName: dataFilter.filter });
     localStorage.setItem('infoRequest', data);
+    document.querySelector('.filter-list-js').classList.add("muscles-list");
     paginationNumbers.innerHTML = '';
     pagination.getPaginationNumbers();
-
+    
     pagination.setCurrentPage(1);
   } catch (error) {
     console.log(error.message);
   }
 }
 
+
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
-
      
       let filterCurrent = filter.toLocaleLowerCase()
       .replaceAll(' ', '');
     
-
       if (filterCurrent==="bodyparts"){
         filterCurrent="bodypart"
         }
