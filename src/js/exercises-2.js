@@ -52,10 +52,13 @@ alert("Oops. please, try other category this list empty :)")
   export function makeMarkupCards (exercises) {
  
   if (exercises.results.length){
-    // console.log("here")
     const markup = exercises.results
     .map(({_id, target, rating, name, burnedCalories, time }) => {
-      
+      console.log(name)
+      // toString()
+      // length
+    //  const newName= name.toString()
+    //   console.log(name.toString().length)
       return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
@@ -86,7 +89,7 @@ alert("Oops. please, try other category this list empty :)")
             />
           </svg>
         </div>
-        <h3 class="exercises_list_item_middle_title">${name}</h3>
+        <h3 class="exercises_list_item_middle_title" id="name">${(name.toString().length>21)? name.slice(0, 21)+"..." :name} </h3>
       </div>
       <div class="exercises_list_item_bottom">
         <ul class="exercises_list_item_bottom_list">
