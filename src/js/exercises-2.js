@@ -34,7 +34,7 @@ list.classList.remove("muscles-list");
 list.classList.add("exercises_list");
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
    
-    list.insertAdjacentHTML('beforeend', makeMarkupCards(exercises));
+    list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
     
   } catch (er) {
     console.log(er.message);
@@ -47,7 +47,7 @@ list.classList.add("exercises_list");
   if (exercises.results.length){
     // console.log("here")
     const markup = exercises.results
-    .map(({_id, target, rating }) => {
+    .map(({_id, target, rating,name }) => {
       console.log(_id)
       return `
       <li class="exercises_list_item" id=${_id}>
@@ -79,7 +79,7 @@ list.classList.add("exercises_list");
             />
           </svg>
         </div>
-        <h3 class="exercises_list_item_middle_title">Air bike</h3>
+        <h3 class="exercises_list_item_middle_title">${name}</h3>
       </div>
       <div class="exercises_list_item_bottom">
         <ul class="exercises_list_item_bottom_list">
@@ -87,7 +87,10 @@ list.classList.add("exercises_list");
             <p class="exercises_list_item_bottom_list_item_text">
               Burned calories: <span>312 / 3 min</span>
             </p>
-          </li>`
+          </li>
+        </ul>
+        </div>
+    </li>`
     })
     .join('');
   //  console.log(markup)
@@ -99,3 +102,5 @@ list.classList.add("exercises_list");
   }
   // makeMarkupCards(exercises)
   }
+
+
