@@ -35,7 +35,7 @@ console.log(target.classList)
   musclesList.innerHTML = '';
   loadSectionOnClick(dataFilter);
   document.querySelector('.filter-list-js').classList.add("muscles-section")
-  // document.getElementById("filter-section").classList.add("muscles-section")
+  
 }
 
 //======================================================
