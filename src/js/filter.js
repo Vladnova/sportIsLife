@@ -68,11 +68,10 @@ export async function loadSectionOnClick(dataFilter) {
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
-      console.log(filter)
+     
       let filterCurrent = filter.toLocaleLowerCase()
       .replaceAll(' ', '');
-      console.log(filter)
-      console.log(filterCurrent)
+    
       if (filterCurrent==="bodyparts"){
         filterCurrent="bodypart"
         }

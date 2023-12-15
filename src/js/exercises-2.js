@@ -1,6 +1,5 @@
 import fetchSportEnergy from './api/apiSport';
 
-
 const list = document.querySelector('.filter-list-js');
 // const Exercises = document.querySelector(".exercises_list");
 
@@ -18,13 +17,11 @@ async function handlerClickFilterCards(e) {
   if (target.nodeName === "IMG") {
     nameFilter = target.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.dataset.name;
-    console.log(nameFilter)
-    console.log(nameCard)
+    
   } if (target.nodeName === "P" || target.nodeName === "H3") {
     nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.parentNode.dataset.name;
-    console.log(nameFilter)
-    console.log(nameCard)
+
   }
   const dataExercises = {
     [nameFilter]: [nameCard],
@@ -32,27 +29,33 @@ async function handlerClickFilterCards(e) {
     page: 1,
     limit: 10,
   };
-  list.innerHTML="";
-  document.querySelector(".muscles-section").classList.remove("muscles-section")
-list.classList.remove("muscles-list");
-list.classList.add("exercises_list");
-    const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+  const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+  if(exercises.results.length){
+    
+    list.innerHTML="";
+    document.querySelector(".muscles-section").classList.remove("muscles-section")
+  list.classList.remove("muscles-list");
+  list.classList.add("exercises_list");
+  list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+} else {
+alert("Oops. please, try other category this list empty :)")
+}
    
-    list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
     
   } catch (er) {
+    
     console.log(er.message);
   }
 }
 
 
   export function makeMarkupCards (exercises) {
-    console.log(exercises.results)
+ 
   if (exercises.results.length){
     // console.log("here")
     const markup = exercises.results
     .map(({_id, target, rating, name, burnedCalories, time }) => {
-      console.log(_id)
+      
       return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
@@ -99,12 +102,8 @@ list.classList.add("exercises_list");
     .join('');
   //  console.log(markup)
     return markup;
-  } else {
-    const underfinde = "<p>Sorry</p>"
-    console.log("sorry")
-    
-  }
-  // makeMarkupCards(exercises)
-  }
+  } 
+}
+  
 
 
