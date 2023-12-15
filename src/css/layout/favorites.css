@@ -1,5 +1,5 @@
 .favourites_title {
-  color: #242424;
+  color: var(--second-color);
 
   font-family: DM Sans;
   font-size: 44px;
@@ -18,7 +18,7 @@
   width: 494px;
   height: 230px;
   padding: 40px;
-  background: #242424;
+  background: var(--second-color);
   border-radius: 20px;
 }
 
@@ -103,14 +103,12 @@
 }
 
 .favourites_left_bottom_time_svg {
-  width: 20px;
-  height: 20px;
-  fill: #242424;
+  fill: var(--second-color);
 }
 
 .favourites_left_bottom_time_title {
   padding-top: 15px;
-  color: #242424;
+  color: var(--second-color);
   font-family: DM Sans;
   font-size: 24px;
   font-style: normal;
@@ -156,7 +154,7 @@
 .favourites_list::-webkit-scrollbar-thumb {
   width: 8px;
   border-radius: 12px;
-  background: #242424;
+  background: var(--second-color);
 }
 .favourites_list_item {
   width: 371px;
@@ -176,9 +174,9 @@
   width: 76px;
   height: 26px;
   border-radius: 15px;
-  border: 1px solid #242424;
-  color: #242424;
-
+  border: 1px solid var(--second-color);
+  color: var(--second-color);
+  padding: 5px 8px;
   font-family: DM Sans;
   font-size: 12px;
   font-style: normal;
@@ -196,11 +194,13 @@
   cursor: pointer;
   width: 16px;
   height: 16px;
+  transform: scale(1);
+  transition: transform var(--animation)
+
 }
 
-.favourites_btn_trash_icon {
-  width: 16px;
-  height: 16px;
+.favourites_btn_trash:hover {
+  transform: scale(1.2);
 }
 
 .favourites_btn_start {
@@ -211,7 +211,7 @@
 
 .favourites_btn_start_text {
   text-transform: capitalize;
-  color: #242424;
+  color: var(--second-color);
 
   font-family: DM Sans;
   font-size: 16px;
@@ -221,9 +221,9 @@
 }
 
 .favourites_btn_start_icon {
-  width: 16px;
-  height: 16px;
+
   transform: rotate(90deg);
+  fill: var(--second-color);
 }
 
 .favourites_list_item_middle {
@@ -240,7 +240,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #242424;
+  background: var(--second-color);
 }
 .favourites_list_item_middle_icon_svg {
   width: 14px;
@@ -249,7 +249,7 @@
 }
 
 .favourites_list_item_middle_title {
-  color: #242424;
+  color: var(--second-color);
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: DM Sans;
   font-size: 24px;
@@ -279,14 +279,14 @@
 }
 
 .favourites_list_item_bottom_list_item_text span {
-  color: #242424;
+  color: var(--second-color);
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .favourites_title {
     width: 335px;
     margin: 80px auto 20px auto;
-    color: #242424;
+    color: var(--second-color);
 
     font-family: DM Sans;
     font-size: 28px;
