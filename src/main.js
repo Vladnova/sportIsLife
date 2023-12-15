@@ -3,7 +3,7 @@ import './js/burger';
 import './js/authentication.js';
 
 import './js/modal-window/modal.js';
-import './js/muscles.js';
+import './js/filter.js';
 import './js/exercises';
 import './js/pagination/pagination.js';
 import './js/scrollToTopButton';

@@ -1,5 +1,5 @@
 import fetchSportEnergy from '../api/apiSport';
-import * as muscles from '../muscles';
+import * as filterBtn from '../filter';
 
 const paginationNumbers = document.querySelector('.pagination-numbers');
 const musclesList = document.querySelector('.muscles-list');
@@ -25,20 +25,18 @@ try {
 //   setCurrentPage(currentPage + 1);
 // });
 
-
-
 async function handleClick(e) {
-  const {totalPages, categoryName} = JSON.parse(localStorage.getItem('infoRequest')) ;
+  const { totalPages, categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
   const dataFilter = {
     filter: categoryName, // потрібно підтягнути з актуальної сторінки/фільтру
     page: e.target.textContent,
     limit: 12,
-    totalPages // потрібно підтягнути з початкового рендеру
+    totalPages, // потрібно підтягнути з початкового рендеру
   };
 
   const filter = await fetchSportEnergy.getByFilterName(dataFilter);
   const filteredResult = filter.results;
-  musclesList.innerHTML = muscles.makeMarkupMuscles(filteredResult);
+  musclesList.innerHTML = filterBtn.makeMarkupMuscles(filteredResult);
   currentPage = dataFilter.page;
   handlePageNumberClick(currentPage);
 }
@@ -53,8 +51,8 @@ const appendPageNumber = index => {
 };
 
 export function getPaginationNumbers() {
- const {totalPages} = JSON.parse(localStorage.getItem('infoRequest')) ;
- if(totalPages === 1) return;
+  const { totalPages } = JSON.parse(localStorage.getItem('infoRequest'));
+  if (totalPages === 1) return;
   for (let i = 1; i <= totalPages; i++) {
     appendPageNumber(i);
   }
@@ -99,11 +97,11 @@ export function handleActivePageNumber() {
 }
 
 const disableButton = button => {
-
   button.classList.add('disabled');
   button.setAttribute('disabled', true);
 };
 const enableButton = button => {
+  if (!button) return;
   button.classList.remove('disabled');
   button.removeAttribute('disabled');
 };
@@ -120,4 +118,3 @@ const handlePageButtonsStatus = () => {
     enableButton(nextButton);
   }
 };
-
