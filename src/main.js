@@ -7,8 +7,11 @@ import './js/filter.js';
 import './js/exercises';
 import './js/pagination/pagination.js';
 import './js/scrollToTopButton';
+import './js/exercises-right-part-filter.js'
+import './js/raiting.js'
 import './js/exercises-2.js';
 import './js/addSubscription.js';
+
 // How to Use Spinner
 // 1. Import spinner to your js file. (Don't forget about relative path)
 import { showSpinner, hideSpinner } from './js/spinner';
