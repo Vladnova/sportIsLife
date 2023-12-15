@@ -13,11 +13,11 @@ async function handlerClickFilterCards(e) {
   let nameFilter;
   let nameCard;
   try{
-  
+
   if (target.nodeName === "IMG") {
     nameFilter = target.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.dataset.name;
-    
+
   } if (target.nodeName === "P" || target.nodeName === "H3") {
     nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.parentNode.dataset.name;
@@ -30,32 +30,34 @@ async function handlerClickFilterCards(e) {
     limit: 10,
   };
   const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-  
+
   if(exercises?.results.length){
-    
-    list.innerHTML="";
-    
+
+    // list.innerHTML="";
+
     list.classList.add("exercises_list")
   list.classList.remove("muscles-list");
- 
-  list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+
+  // list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+  makeMarkupCards(exercises)
+
 } else {
 alert("Oops. please, try other category this list empty :)")
 }
-   
-    
+
+
   } catch (er) {
-    
+
     console.log(er.message);
   }
 }
 
  export function makeMarkupCards (exercises) {
-   
+
    if (exercises.results.length){
      const markup = exercises.results
      .map(({_id, target, rating, name, burnedCalories, time }) => {
-  
+
       // console.log(name)
       // toString()
       // length
@@ -76,7 +78,7 @@ alert("Oops. please, try other category this list empty :)")
         </div>
         <div class="exercises_list_item_up_right" >
           <button class="exercises_btn_start exercises_btn_start_text" data-id=${_id}>Start
-           
+
             <svg class="exercises_btn_start_icon" width="56px" height="18px">
               <use xlink:href="./img/svg/sprite.svg#icon-arrow"></use>
               />
@@ -105,10 +107,10 @@ alert("Oops. please, try other category this list empty :)")
     </li>`
     })
     .join('');
-  //  console.log(markup)
-    return markup;
-  } 
+    list.innerHTML=markup;
+    // return markup;
+  }
 }
-  
+
 
 
