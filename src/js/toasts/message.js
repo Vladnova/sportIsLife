@@ -1,24 +1,24 @@
 import iziToast from 'izitoast';
 
 iziToast.settings({
-  timeout: 3000,
+  timeout: 6000,
   resetOnHover: true,
   icon: 'material-icons',
   transitionIn: 'flipInX',
   transitionOut: 'flipOutX',
   position: 'topRight',
-  onOpening: function () {
-    console.log('callback abriu!');
-  },
-  onClosing: function () {
-    console.log('callback fechou!');
-  },
+  // onOpening: function () {
+  //   console.log('callback abriu!');
+  // },
+  // onClosing: function () {
+  //   console.log('callback fechou!');
+  // },
 });
 
 class Message {
   error(message) {
     iziToast.error({
-      title: 'Помилка',
+      title: 'Error',
       message,
     });
   }
@@ -32,7 +32,7 @@ class Message {
 
   info(message) {
     iziToast.info({
-      title: 'Привіт',
+      title: 'Info',
       message,
     });
   }
