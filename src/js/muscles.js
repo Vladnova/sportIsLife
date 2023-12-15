@@ -1,8 +1,11 @@
 import fetchSportEnergy from './api/apiSport';
 import * as pagination from './pagination/pagination';
+import Notiflix from 'notiflix';
 const categoryList = document.querySelector('.wrap-button');
 
 const musclesList = document.querySelector('.muscles-list');
+// const list = document.querySelector('.exercises_list');
+const list = document.querySelector('.filter-list-js');
 const paginationNumbers = document.querySelector('.pagination-numbers');
 
 // const musclesBtn = document.querySelector('#Muscles');
@@ -44,6 +47,8 @@ export async function handleCategoryClick(event) {
 
   // Добавление класса 'active' к текущему пункту меню
   target.classList.add('btn-filter-active');
+  list.classList.remove("exercises_list");
+  list.classList.add("muscles-list");
 
   const dataFilter = {
     filter: categoryName,
@@ -57,13 +62,14 @@ export async function handleCategoryClick(event) {
 //======================================================
 
 export async function loadSectionOnClick(dataFilter) {
-  console.log(dataFilter)
   try {
     const filter = await fetchSportEnergy.getByFilterName(dataFilter);
     const filteredResult = filter.results;
 
-    if (!filter || filteredResult.length === 0) {
-      console.log("Sorry, we didn't find anything according to your request.");
+    if(!filter || filteredResult.length === 0) {
+      Notiflix.Notify.failure(
+        "Sorry, we didn't find anything according to your request."
+      );
       return;
     }
 
@@ -95,8 +101,6 @@ export async function loadSectionOnClick(dataFilter) {
     console.log(error.message);
   }
 }
-
-
 
 
 export function makeMarkupMuscles(filteredResult) {

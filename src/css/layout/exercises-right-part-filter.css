@@ -1,9 +1,18 @@
 .exercises_list {
-  width: 780px;
+  /* width: 780px;
   height: 487px;
   display: flex;
   flex-wrap: wrap;
   gap: 32px 16px;
+  overflow-y: scroll; */
+
+  display: flex;
+  width: 335px;
+  height: 141px;
+  gap: 32px 16px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
   overflow-y: scroll;
 }
 .exercises_list::-webkit-scrollbar {
@@ -165,8 +174,8 @@ height: 18px; */
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .exercises_list {
-    min-width: 375px;
-    width: 100%;
+    /* min-width: 375px;
+    width: 100%; */
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
@@ -189,27 +198,34 @@ height: 18px; */
 
 @media screen and (min-width: 768px) {
   .exercises_list {
-    margin: 64px auto 0 auto;
-    max-width: 768px;
-    width: 100%;
-    justify-content: center;
+    width: 704px;
+    /* width: 100%; */
+    /* justify-content: center; */
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 32px 16px;
     height: auto;
     overflow: unset;
   }
 
   .exercises_list_item {
-    width: 344px;
+    flex-basis: calc((100% - 16px) / 2);
+    /* width: 344px; */
   }
 }
 
 @media screen and (min-width: 1280px) {
   .exercises_list {
-    width: 780px;
+    /* max-width: 900px; */
+    width: 900px;
     height: 487px;
     display: flex;
-    flex-wrap: wrap;
     gap: 32px 16px;
     overflow-y: scroll;
+  }
+
+  .exercises_list_item {
+    flex-basis: calc((100% - 16px) / 2);
+    /* width: 442px; */
   }
 }
