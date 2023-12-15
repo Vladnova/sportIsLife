@@ -1,0 +1,19 @@
+.rating {
+  font-size: 24px;
+  cursor: pointer;
+  background-color: var(--second-color);
+}
+
+.star {
+  color: rgba(244, 244, 244, 0.2);
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.rating .hovered {
+  color: var(--stars-background-active-color); /* Цвет выбранных звезд */
+}
+
+.rating .selected {
+  color: var(--stars-background-active-color); /* Цвет выбранных звезд */
+}

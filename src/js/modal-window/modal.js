@@ -1,136 +1,77 @@
-const modalButon = document.querySelector('.modal-js')
-modalButon.addEventListener('click', modalHandler)
+import { getExerciseModal, getRatingModal } from './generation-to-modal'
 
-class Modal {
-    constructor() {
-        this.overlay = document.querySelector('.overlay');
-        this.modal = document.querySelector('.modal-info');
-
-        this.closeButtonHandler = () => this.close();
-        this.escapeKeyHandler = (event) => this.handleEscapeKey(event);
-        this.overlayClickHandler = (event) => this.handleOverlayClick(event);
+export class Modal {
+  constructor() {
+    this.overlay = document.querySelector('.overlay');
+    this.modal = document.querySelector('.modal-info');
+    this.closeButton;
+    
+    this.closeButtonHandler = () => this.close();
+    this.escapeKeyHandler = (event) => this.closeEsc(event);
+    this.overlayClickHandler = (event) => this.closeBack(event);
     }
+    
+  open(content) {
+    this.overlay.innerHTML = content;
+    this.overlay.style.zIndex = 1;
+    this.overlay.style.display = 'flex';
+    this.modal.classList.remove("visually-hidden");
+    this.closeButton = document.querySelector('.modal-button-close');
 
-    open(content) {
-        this.overlay.innerHTML = content;
-        this.overlay.style.display = 'flex';
-        this.modal.classList.remove("visually-hidden");
-        const closeButton = document.querySelector('.modal-button-close');
+    document.body.classList.add('no-scroll')
+    this.closeButton.addEventListener('click', this.closeButtonHandler);
+    document.addEventListener('keydown', this.escapeKeyHandler);
+    this.overlay.addEventListener('click', this.overlayClickHandler);
+  }
 
-        closeButton.addEventListener('click', this.closeButtonHandler);
-        document.addEventListener('keydown', this.escapeKeyHandler);
-        this.overlay.addEventListener('click', this.overlayClickHandler);
+  close() {
+    this.modal = document.querySelector('.modal-info') || document.querySelector('.modal-get-raiting');
+    this.overlay.style.display = 'none';
+    this.overlay.style.zIndex = -1;
+    this.modal.classList.add("visually-hidden");
+    
+    document.body.classList.remove('no-scroll')
+    this.closeButton.removeEventListener('click', this.closeButtonHandler);
+    document.removeEventListener('keydown', this.escapeKeyHandler);
+    this.overlay.removeEventListener('click', this.overlayClickHandler);
+  }
+
+  closeEsc(event) {
+    if (event.key === 'Escape') {
+        this.close();
     }
+  }
 
-    close() {
-        this.modal = document.querySelector('.modal-info') || document.querySelector('.modal-get-raiting');
-        this.overlay.style.display = 'none';
-        this.modal.classList.add("visually-hidden");
-        
-        this.closeButton.removeEventListener('click', this.closeButtonHandler);
-        document.removeEventListener('keydown', this.escapeKeyHandler);
-        this.overlay.removeEventListener('click', this.overlayClickHandler);
-
+  closeBack(event) {
+    if (event.target === this.overlay) {
+        this.close()
     }
-
-    handleEscapeKey(event) {
-        if (event.key === 'Escape') {
-            this.close();
-        }
-    }
-
-    handleOverlayClick(event) {
-        if (event.target === this.overlay) {
-            this.close()
-        }
-    }
+  }
 }
 
 const myModal = new Modal();
 
-const content = `<div class="modal-info">
-     <button class="modal-button-close" id="button-close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        <use href="./img/icons.svg#icon-close" />
-      </svg>
-    </button>
-    <div class="modal-image-vrapper">
-      <img class="modal-img" src="./img/stub-modal.jpg" alt="Example" />
-    </div>
-    <div class="modal-content-wrapper">
-      <div class="card-wrapper">
-        <h3 class="title-card-modal">Air bake</h3>
-        <p class="rating-modal">4.0 riting ****</p>
-      </div>
-      <hr class="modal-decoration-line" />
-      <ul class="modal-table">
-        <li>
-          <h4 class="title-collum">Target</h4>
-          <p class="data-collumn">Abs</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Body Part</h4>
-          <p class="data-collumn">Waist</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Equipment</h4>
-          <p class="data-collumn">Body weight</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Popular</h4>
-          <p class="data-collumn">150</p>
-        </li>
-        <li>
-          <h4 class="title-collum">Burned Calories</h4>
-          <p class="data-collumn">323/3 min</p>
-        </li>
-      </ul>
-      <hr class="modal-decoration-line" />
-      <p class="about-exercise">
-        This refers to your core muscles, which include the rectus abdominis, obliques, and
-        transverse abdominis. They're essential for maintaining posture, stability, and generating
-        force in many movements. Exercises that target the abs include crunches, leg raises, and
-        planks.
-      </p>
-      <div class="button-section-modal">
-        <button class="add-favorite" type="button">
-          <span>Add to favorites</span><span>❤️</span>
-        </button>
-        <button class="add-rating" type="button">Give a rating</button></div>`
+// Приклад дати з бекенду
+const data = {
+  "_id": "64f389465ae26083f39b17c2",
+  "bodyPart": "back",
+  "equipment": "barbell",
+  "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0037.gif",
+  "name": "barbell decline wide-grip pullover",
+  "target": "lats",
+  "description": "These large back muscles are responsible for shoulder adduction and horizontal extension. Pull-ups and lat pulldowns are common exercises targeting the lats.",
+  "rating": 3,
+  "burnedCalories": 307,
+  "time": 3,
+  "popularity": 7416
+}
 
-const content2 = `<div class="modal-get-raiting">
-    <button class="modal-button-close" id="button-close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        <use href="./img/icons.svg#icon-close" />
-      </svg>
-    </button>
-    <div class="get-rating-container">
-      <div class="get-rating-choise">
-        <h3 class="title-card-get-rating">Rating</h3>
-        <p class="rating-modal">4.0 riting ****</p>
-      </div>
-      <form class="form raiting-form">
-        <label class="raiting-form-field">
-          <input
-            type="Email"
-            class="raiting-form-field-input"
-            name="user_email"
-            placeholder="Email"
-            required
-          />
-        </label>
-        <label class="form-comment">
-          <textarea
-            class="raiting-form-field-comment"
-            name="user_comment"
-            placeholder="Your comment"
-          ></textarea>
-        </label>
-        <button class="raiting-form-submit">Send</button>
-      </form>
-    </div>
-  </div>`
+// Приклад модалки форми рейтингу
+// function modalHandler(event) {
+//     myModal.open(getRatingModal(data._id))
+// }
 
+// Приклад модалки вправи
 function modalHandler(event) {
-    myModal.open(content2)
+    myModal.open(getExerciseModal(data))
 }

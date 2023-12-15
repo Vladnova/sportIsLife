@@ -17,10 +17,12 @@ async function handlerClickFilterCards(e) {
   if (target.nodeName === "IMG") {
     nameFilter = target.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.dataset.name;
+
     
   } if (target.nodeName === "P" || target.nodeName === "H3") {
     nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
     nameCard = target.parentNode.parentNode.parentNode.dataset.name;
+
 
   }
   const dataExercises = {
@@ -50,12 +52,12 @@ alert("Oops. please, try other category this list empty :)")
 
 
   export function makeMarkupCards (exercises) {
- 
+
   if (exercises.results.length){
     // console.log("here")
     const markup = exercises.results
     .map(({_id, target, rating, name, burnedCalories, time }) => {
-      
+
       return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
@@ -102,8 +104,9 @@ alert("Oops. please, try other category this list empty :)")
     .join('');
   //  console.log(markup)
     return markup;
+
   } 
 }
-  
+ 
 
 
