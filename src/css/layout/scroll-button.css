@@ -16,6 +16,10 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.button-icon {
+  fill: var(--primary-color);
+}
+
 .scroll-up-button.hidden {
   display: block;
   opacity: 0;

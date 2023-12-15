@@ -50,7 +50,7 @@ function addFavoriteHandler() {
 }
 
 function getStartHandler({ target }) {
-    
+
     if (ifStartButton(target)) {
         myModal.open(getExerciseModal(data))
         addFavoriteButton = document.querySelector('.add-favorite')
@@ -58,5 +58,5 @@ function getStartHandler({ target }) {
         addRaitingButton.addEventListener('click', getRaitingHandler)
         addFavoriteButton.addEventListener('click', addFavoriteHandler)
     }
-    
+
 }
