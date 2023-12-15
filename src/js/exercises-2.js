@@ -47,13 +47,18 @@ alert("Oops. please, try other category this list empty :)")
     console.log(er.message);
   }
 }
-
-
-  export function makeMarkupCards (exercises) {
- 
-  if (exercises.results.length){
-    const markup = exercises.results
-    .map(({_id, target, rating, name, burnedCalories, time }) => {
+ export const oneCard = async(id)=>{
+  let data = await fetchSportEnergy.getOneExercises(id)
+  data.favotite = false;
+  console.log(data)
+ }
+ oneCard("64f389465ae26083f39b197b")
+ export function makeMarkupCards (exercises) {
+   
+   if (exercises.results.length){
+     const markup = exercises.results
+     .map(({_id, target, rating, name, burnedCalories, time }) => {
+  
       console.log(name)
       // toString()
       // length
@@ -72,9 +77,9 @@ alert("Oops. please, try other category this list empty :)")
             </svg>
           </div>
         </div>
-        <div class="exercises_list_item_up_right">
-          <button class="exercises_btn_start">
-            <p class="exercises_btn_start_text">start</p>
+        <div class="exercises_list_item_up_right" id=${_id}>
+          <button class="exercises_btn_start exercises_btn_start_text">Start
+           
             <svg class="exercises_btn_start_icon" width="56px" height="18px">
               <use xlink:href="../img/icons.svg#icon-arrow"></use>
               />
