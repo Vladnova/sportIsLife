@@ -75,11 +75,11 @@ export function makeMarkupMuscles(filteredResult) {
      console.log(name)
       let filterCurrent = filter.toLocaleLowerCase()
       .replaceAll(' ', '');
-    let liName=name.toLocaleLowerCase().replaceAll(' ', '_')
+    // let liName=name.toLocaleLowerCase().replaceAll(' ', '_')
     // let kyky= "ky ke"
-if(liName.includes(" ")){
+if(name.includes(" ")){
 
-  console.log(" я куку")
+  console.log(" -----> я куку")
 }
 
       if (filterCurrent==="bodyparts"){
