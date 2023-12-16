@@ -1,3 +1,5 @@
+import sprite from '../img/svg/sprite.svg';
+
 function scrollToTopButton() {
   const button = document.createElement('button');
   button.className = 'scroll-up-button hidden';
@@ -6,7 +8,7 @@ function scrollToTopButton() {
   svgIcon.setAttribute('class', 'button-icon');
 
   const useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-  useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '/img/svg/sprite.svg#icon-arrow');
+  useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', `${sprite}#icon-arrow`);
   svgIcon.appendChild(useElement);
 
   button.appendChild(svgIcon);

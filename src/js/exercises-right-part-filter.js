@@ -65,7 +65,7 @@ async function addFavoriteHandler(e) {
         favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
                                         <span>Add to favorites</span>
                                         <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
-                                            <use href="./img/svg/sprite.svg#icon-heart"></use>
+                                            <use href="${sprite}#icon-heart"></use>
                                         </svg>
                                     </button>`
         favoriteButton.dataset.favorite = 'false'

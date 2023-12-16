@@ -1,4 +1,4 @@
-import { makeMarkupCards } from './exercises-2';
+import { makeMarkupCards } from './exercises';
 import fetchSportEnergy from './api/apiSport';
 
 const form = document.querySelector('.form-js');
