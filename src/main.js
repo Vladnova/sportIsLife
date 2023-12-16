@@ -3,6 +3,9 @@ import './js/burger';
 import './js/authentication.js';
 import './js/search';
 import'./js/loader/loader.js';
+import './js/favorite.js'
+
+
 import './js/modal-window/modal.js';
 import './js/sendEmail.js';
 import './js/filter.js';

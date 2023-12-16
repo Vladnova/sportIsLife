@@ -27,7 +27,7 @@ export async function handleCategoryClick(event) {
   }
   // Добавление класса 'active' к текущему пункту меню
   target.classList.add('btn-filter-active');
-// console.log(`------>${categoryName}`)
+
   const dataFilter = {
     filter: categoryName,
     page: 1,
@@ -75,6 +75,7 @@ export async function loadSectionOnClick(dataFilter) {
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
+
       let filterCurrent = filter.toLocaleLowerCase()
       .replaceAll(' ', '');
 
@@ -83,7 +84,9 @@ export function makeMarkupMuscles(filteredResult) {
         filterCurrent="bodypart"
         }
       return `
+
         <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
+
         <a href="" class="muscles-link" data-alt="${name}">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">

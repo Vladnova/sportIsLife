@@ -13,7 +13,7 @@ export function createInteractiveRaiting() {
         resetStars();
         for (let i = 0; i <= selectedIndex; i++) {
             stars[i].classList.add('hovered');
-            userRating.textContent = `${i+1}.0`
+            userRating.textContent = `${i+1}`
         }
     }
 
@@ -21,7 +21,7 @@ export function createInteractiveRaiting() {
         stars.forEach(star => {
             const ratinFromUser = ratingContainer.dataset.rating
             star.classList.remove('hovered');
-            userRating.textContent = `${ratinFromUser}.0`
+            userRating.textContent = `${ratinFromUser || 0}`
         });
     }
 

@@ -98,7 +98,7 @@ export function getRatingModal(idExercise) {
       <div class="get-rating-choise">
         <h3 class="title-card-get-rating">Rating</h3>
         <div class="rating-container-js" data-rating="" data-id="">
-          <p class="user-rating-js">0.0</p>
+          <p class="user-rating-js">0</p>
           <span class="star-js" data-value="1">&#9733;</span>
           <span class="star-js" data-value="2">&#9733;</span>
           <span class="star-js" data-value="3">&#9733;</span>
