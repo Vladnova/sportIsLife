@@ -1,37 +1,25 @@
+import { makeMarkupCards } from './exercises-2';
+import fetchSportEnergy from './api/apiSport';
 
-// import {loadSectionOnClick} from './muscles';
+const form = document.querySelector('.form-js');
 
-// const categoryList = document.querySelector('.wrap-button');
+form.addEventListener('submit', handlerSearch);
 
-// const musclesList = document.querySelector('.muscles-list');
+async function handlerSearch(e) {
+  e.preventDefault();
+  const value = e.target.elements.search.value.trim();
+  if (!value) return;
+  const { categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
+  const transformCategoryName = categoryName.toLocaleLowerCase().replaceAll(' ', '');
+  const dataExercises = {
+    [transformCategoryName]: value,
+    keyword: 'pull',
+    page: 1,
+    limit: 10,
+  };
 
-// const musclesBtn = document.querySelector('#Muscles');
+  const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+  form.reset();
 
-// categoryList.addEventListener('click', handleCategoryClick);
-
-// export async function handleCategoryClick(event) {
-//     event.preventDefault();
-//     const target = event.target;
-//     const categoryName = target.textContent;
-  
-//     // Видалення класу btn-filter-active з musclesBtn
-//     musclesBtn.classList.remove('btn-filter-active');
-  
-//     if (target.classList.contains('btn-filter')) {
-//       const categoryItem = document.querySelectorAll('.wrap-list-btn');
-//       categoryItem.forEach(item => {
-//         item.classList.remove('btn-filter-active');
-//       });
-//     }
-  
-//     // Добавление класса 'active' к текущему пункту меню
-//     target.parentNode.classList.add('btn-filter-active');
-  
-//     const dataFilter = {
-//       filter: categoryName,
-//       page: 1,
-//       limit: 12,
-//     };
-//     musclesList.innerHTML = '';
-//     loadSectionOnClick(dataFilter);
-//   }
+  makeMarkupCards(exercises);
+}

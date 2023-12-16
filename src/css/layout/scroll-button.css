@@ -7,7 +7,7 @@
   padding: 10px 15px;
   background-color: var(--second-color);
   color: var(--primary-color);
-  border: none;
+  border: 1px solid var(--primary-color);
   border-radius: 50%;
   cursor: pointer;
   font-size: 16px;

@@ -6,7 +6,7 @@ function scrollToTopButton() {
   svgIcon.setAttribute('class', 'button-icon');
 
   const useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-  useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './img/svg/sprite.svg#icon-arrow');
+  useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '/img/svg/sprite.svg#icon-arrow');
   svgIcon.appendChild(useElement);
 
   button.appendChild(svgIcon);
