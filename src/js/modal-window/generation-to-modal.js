@@ -1,3 +1,5 @@
+import { setButtonFavorite, setFavoriteArr } from "../utils/favorite"
+
 function getRating(rating) {
 
   const lastStar = (rating % 1).toFixed(1)*100
@@ -27,6 +29,7 @@ function getRating(rating) {
 }
 
 export function getExerciseModal(data) {
+    const favoriteStatus = `${!setFavoriteArr().includes(data._id)}`
     return `<div class="modal-info" data-id="${data._id}">
      <button class="modal-button-close" id="button-close">
       <svg class="close-icon-img" width="20" height="20" aria-label="close-icon">
@@ -69,13 +72,8 @@ export function getExerciseModal(data) {
         ${data.description}
       </p>
       <div class="button-section-modal">
-        <div class="refresh-button-js" data-favorite="false">
-          <button class="add-favorite-js" type="button">
-            <span>Add to favorites</span>
-            <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
-              <use href="./img/svg/sprite.svg#icon-heart"></use>
-            </svg>
-          </button>
+        <div class="refresh-button-js" data-favorite="${favoriteStatus}">
+          ${setButtonFavorite(favoriteStatus)}
         </div>
         <button class="add-rating" type="button">Give a rating</button>
       </div>`
