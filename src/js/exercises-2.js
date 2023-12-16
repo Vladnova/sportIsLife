@@ -39,7 +39,9 @@ async function handlerClickFilterCards(e) {
   list.classList.remove("muscles-list");
  
   // list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
-    makeMarkupCards(exercises)
+
+makeMarkupCards(exercises);
+
 } else {
 alert("Oops. please, try other category this list empty :)")
 }
@@ -68,11 +70,8 @@ alert("Oops. please, try other category this list empty :)")
         <div class="exercises_list_item_up_left">
           <div class="exercises_workout">${target}</div>
           <p class="exercises_rating">${rating.toFixed(1)}</p>
-          <div class="exercises_list_item_icon_star">
-            <svg class="exercises_list_item_icon_svg_star" width="18px" height="18px">
-              <use xlink:href="./img/svg/sprite.svg#icon-star" fill=""></use>
-              />
-            </svg>
+          <div class="rating-container">
+            <span class="star selected">&#9733;</span>
           </div>
         </div>
         <div class="exercises_list_item_up_right" >

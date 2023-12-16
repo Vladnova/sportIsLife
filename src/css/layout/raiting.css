@@ -30,3 +30,13 @@
 .selected {
   color: var(--stars-background-active-color); /* Цвет выбранных звезд */
 }
+
+.last-star-js {
+  background: linear-gradient(
+    to right,
+    var(--stars-background-active-color) 70%,
+    rgba(244, 244, 244, 0.2) 30%
+  );
+  display: inline-block;
+  background-clip: text;
+}
