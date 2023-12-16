@@ -1,4 +1,5 @@
 import fetchSportEnergy from './api/apiSport';
+import { loader } from './loader/loader';
 
 const list = document.querySelector('.filter-list-js');
 // const Exercises = document.querySelector(".exercises_list");
@@ -8,43 +9,46 @@ list.addEventListener('click', handlerClickFilterCards);
 
 async function handlerClickFilterCards(e) {
   e.preventDefault()
-  document.querySelector(".form-js").classList.remove("hidden-form")
   const {target} = e
+if(target.nodeName !== "IMG" & target.nodeName !== "P" & target.nodeName !== "H3") {
+    return
+   }
+  // loader.open()
+  document.querySelector(".form-js").classList.remove("hidden-form")
+
   let nameFilter;
   let nameCard;
-  try{
-  
-  if (target.nodeName === "IMG") {
-    nameFilter = target.parentNode.parentNode.dataset.filter;
-    nameCard = target.alt;
-    console.log(target.alt)
-  } if (target.nodeName === "P" || target.nodeName === "H3") {
-    // console.log(target.parentNode.parentNode.dataset.alt)
-    nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
-    nameCard = target.parentNode.parentNode.dataset.alt;
+  try{    
+    if (target.nodeName === "IMG") {
+      nameFilter = target.parentNode.parentNode.dataset.filter;
+      nameCard = target.alt;
+    } if (target.nodeName === "P" || target.nodeName === "H3") {
+      nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
+      nameCard = target.parentNode.parentNode.dataset.alt;
+      
+    }
+    const dataExercises = {
+      [nameFilter]: [nameCard],
+      page: 1,
+      limit: 10,
+    };
 
-    console.log(`----->${nameCard}`)
-  }
-  const dataExercises = {
-    [nameFilter]: [nameCard],
-    keyword: 'pull',
-    page: 1,
-    limit: 10,
-  };
-  const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-  
-  if(exercises?.results.length){
     
-    // list.innerHTML="";
+    const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
     
-    list.classList.add("exercises_list")
-  list.classList.remove("muscles-list");
- 
-  // list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+    if(exercises?.results.length){
+      
+      
+      
+      list.classList.add("exercises_list")
+      list.classList.remove("muscles-list");
+      
+      
+      
+      makeMarkupCards(exercises);
 
-makeMarkupCards(exercises);
-
-} else {
+} 
+else {
 alert("Oops. please, try other category this list empty :)")
 }
    
@@ -53,21 +57,20 @@ alert("Oops. please, try other category this list empty :)")
     
     console.log(er.message);
   }
+  // loader.close()
 }
 
  export function makeMarkupCards (exercises) {
-   
+
    if (exercises.results.length){
      const markup = exercises.results
      .map(({_id, target, rating, name, burnedCalories, time }) => {
-  
-      console.log(target)
- 
+
       return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
         <div class="exercises_list_item_up_left">
-          <div class="exercises_workout">${target}</div>
+          <div class="exercises_workout">${target.toString().length>8 ? target.slice(0, 8)+"..." :target}</div>
           <p class="exercises_rating">${rating.toFixed(1)}</p>
           <div class="rating-container">
             <span class="star selected">&#9733;</span>
@@ -105,8 +108,8 @@ alert("Oops. please, try other category this list empty :)")
     })
     .join('');
      list.innerHTML=markup;
-    // return markup;
   } 
+
 }
   
 

@@ -54,14 +54,13 @@ export class Modal {
 export const myModal = new Modal();
 
 
-
 const list = document.querySelector('.filter-list-js');
 let id="";
 let data;
 
 export const getId = async (e) =>{
   const {target} = e;
-  console.log(target)
+
   if (target.nodeName !== "BUTTON") {
     return;
   }
@@ -74,8 +73,7 @@ export const getId = async (e) =>{
 list.addEventListener("click", getId)
 
 export const oneCard = async(id)=>{
-  // loader.open()
-  console.log("1")
+
   let data = await fetchSportEnergy.getOneExercises(id)
 
   data.favotite = false;
@@ -88,5 +86,4 @@ export const oneCard = async(id)=>{
 // function modalHandler(event) {
 //     myModal.open(getRatingModal(data._id))
 // }
-
 
