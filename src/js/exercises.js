@@ -1,6 +1,6 @@
 import fetchSportEnergy from './api/apiSport';
 import { loader } from './loader/loader';
-import sprite from '.${sprite}';
+import sprite from '../img/svg/sprite.svg';
 
 const list = document.querySelector('.filter-list-js');
 // const Exercises = document.querySelector(".exercises_list");
