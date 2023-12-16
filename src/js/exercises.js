@@ -1,97 +1,117 @@
-// import fetchSportEnergy from "./api/apiSport";
+import fetchSportEnergy from './api/apiSport';
+import { loader } from './loader/loader';
+import sprite from '.${sprite}';
 
-// const dataExercises = {
-//   bodypart: "back",
-//   exercises: "lats",
-//   equipment: "barbell",
-//   keyword: "pull",
-//   page: 1,
-//   limit: 10,
-// };
-
-// const exercisesList = document.querySelector(".exercises-list");
-
-// // window.addEventListener("DOMContentLoaded", getDataExercises);
-
-// export async function getDataExercises() {
-//   try {
-//     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-//     console.log("exercises-->", exercises);
-
-//     const exercisesResult = exercises.results;
-
-//     if (exercises.length === 0 || exercises === undefined) {
-//       console.log("Sorry, we didn't find anything according to your request.");
-//       return;
-//     }
-//     exercisesList.insertAdjacentHTML(
-//       "beforeend",
-//       makeMarkupExercises(exercisesResult)
-//     );
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
-
-// console.log(exercisesList);
-
-// export function makeMarkupExercises(exercisesResult) {
-//   const markup = exercisesResult
-//     .map(
-//       ({
-//         _id,
-//         bodyPart,
-//         equipment,
-//         gifUrl,
-//         name,
-//         target,
-//         description,
-//         rating,
-//         burnedCalories,
-//         time,
-//         popularity,
-//       }) => {
-//         return `
-//         <li class="exercises-item" id="${_id}">
-//         <!-- rating-menu -->
-//         <div class="rating-menu">
-//         <div class="rating-div">
-//         <button type="button" class="rating-menu-text">WORKOUT</button>
-//         <p class="exercises-rating">${rating}</p>
-//         </div>
-//         <button type="button" class="exercises-btn">Start</button>
-//         </div>
-//         <!-- rating-menu -->
+const list = document.querySelector('.filter-list-js');
+// const Exercises = document.querySelector(".exercises_list");
 
 
-//         <!-- box-menu -->
-//           <div class="exercises-box-menu">
-//           <span class="exercises-icon">
-//           <svg
-//             class="quote-icon-img"
-//             width="14"
-//             height="16"
-//             aria-label="running-man-icon"
-//           >
-//             <use href="../img/icons.svg#icon-running-man"></use>
-//           </svg>
-//         </span>
-//              <h3 class="exercises-small-title">${name}</h3>
-//               </div>
-//            <!-- box-menu -->
+list.addEventListener('click', handlerClickFilterCards);
 
-//            <!-- exercises-text-box -->
+async function handlerClickFilterCards(e) {
+  e.preventDefault()
+  const {target} = e
+if(target.nodeName !== "IMG" & target.nodeName !== "P" & target.nodeName !== "H3") {
+    return
+   }
+  // loader.open()
+  document.querySelector(".form-js").classList.remove("hidden-form")
 
-//            <div class="exercises-text-box">
-//            <p class="exercises-text">Burned calories:<span class="exercises-span">${burnedCalories}</span></p>
-//            <p class="exercises-text">Body part:<span class="exercises-span">${bodyPart}</span></p>
-//            <p class="exercises-text">Target:<span class="exercises-span">${target}</span></p>
-//            </div>
-//             <!-- exercises-text-box -->
-//            </li>
-//           `;
-//       }
-//     )
-//     .join("");
-//   return markup;
-// }
+  let nameFilter;
+  let nameCard;
+  try{
+    if (target.nodeName === "IMG") {
+      nameFilter = target.parentNode.parentNode.dataset.filter;
+      nameCard = target.alt;
+    } if (target.nodeName === "P" || target.nodeName === "H3") {
+      nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
+      nameCard = target.parentNode.parentNode.dataset.alt;
+
+    }
+    const dataExercises = {
+      [nameFilter]: [nameCard],
+      page: 1,
+      limit: 10,
+    };
+
+
+    const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+
+    if(exercises?.results.length){
+
+
+
+      list.classList.add("exercises_list")
+      list.classList.remove("muscles-list");
+
+
+
+      makeMarkupCards(exercises);
+
+}
+else {
+alert("Oops. please, try other category this list empty :)")
+}
+
+
+  } catch (er) {
+
+    console.log(er.message);
+  }
+  // loader.close()
+}
+
+ export function makeMarkupCards (exercises) {
+
+   if (exercises.results.length){
+     const markup = exercises.results
+     .map(({_id, target, rating, name, burnedCalories, time }) => {
+
+      return `
+      <li class="exercises_list_item" id=${_id}>
+      <div class="exercises_list_item_up">
+        <div class="exercises_list_item_up_left">
+          <div class="exercises_workout">${target.toString().length>8 ? target.slice(0, 8)+"..." :target}</div>
+          <p class="exercises_rating">${rating.toFixed(1)}</p>
+          <div class="rating-container">
+            <span class="star selected">&#9733;</span>
+          </div>
+        </div>
+        <div class="exercises_list_item_up_right" >
+          <button class="exercises_btn_start exercises_btn_start_text" data-id=${_id}>Start
+
+            <svg class="exercises_btn_start_icon" width="56px" height="18px">
+              <use xlink:href="${sprite}#icon-arrow"></use>
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="exercises_list_item_middle">
+        <div class="exercises_list_item_middle_icon">
+          <svg class="exercises_list_item_middle_icon_svg" width="24px" height="24px">
+            <use xlink:href="${sprite}#icon-run-man"></use>
+            />
+          </svg>
+        </div>
+        <h3 class="exercises_list_item_middle_title" id="name">${(name.toString().length>20)? name.slice(0, 20)+"..." :name} </h3>
+      </div>
+      <div class="exercises_list_item_bottom">
+        <ul class="exercises_list_item_bottom_list">
+          <li class="exercises_list_item_bottom_list_item">
+            <p class="exercises_list_item_bottom_list_item_text">
+              Burned calories: <span>${burnedCalories ? burnedCalories : ""} / ${time ? time : "your wish"} min</span>
+            </p>
+          </li>
+        </ul>
+        </div>
+    </li>`
+    })
+    .join('');
+     list.innerHTML=markup;
+  }
+
+}
+
+
+

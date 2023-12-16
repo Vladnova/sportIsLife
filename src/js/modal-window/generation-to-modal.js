@@ -1,3 +1,5 @@
+import sprite from '../img/svg/sprite.svg';
+
 function getRating(rating) {
 
   const lastStar = (rating % 1).toFixed(1)*100
@@ -32,14 +34,14 @@ function getButtonFavorite(isFavorite) {
     return `<button class="add-favorite-js" type="button" style="font-size: 14px;">
               <span class="remote-favorites">Remove from favorites</span>
               <svg class="trash-icon-img" width="15" height="15" aria-label="trash-icon">
-                  <use href="./img/svg/sprite.svg#icon-trash"></use>
+                  <use href="${sprite}#icon-trash"></use>
               </svg>
           </button>`
     } else {
       return `<button class="add-favorite-js" type="button" style="font-size: 14px;">
                 <span>Add to favorites</span>
                 <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
-                    <use href="./img/svg/sprite.svg#icon-heart"></use>
+                    <use href="${sprite}#icon-heart"></use>
                 </svg>
               </button>`
     }
@@ -50,7 +52,7 @@ export function getExerciseModal(data) {
     return `<div class="modal-info" data-id="${data._id}">
      <button class="modal-button-close" id="button-close">
       <svg class="close-icon-img" width="20" height="20" aria-label="close-icon">
-        <use href="./img/svg/sprite.svg#icon-close"></use>
+        <use href="${sprite}#icon-close"></use>
       </svg>
     </button>
     <div class="modal-image-vrapper">
@@ -100,7 +102,7 @@ export function getRatingModal(idExercise) {
     return `<div class="modal-get-raiting" data-id="${idExercise}">
     <button class="modal-button-close" id="button-close">
       <svg class="close-icon-img" width="20" height="20" aria-label="close-icon">
-        <use href="./img/svg/sprite.svg#icon-close"></use>
+        <use href="${sprite}#icon-close"></use>
       </svg>
     </button>
     <div class="get-rating-container">
