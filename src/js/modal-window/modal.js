@@ -14,7 +14,7 @@ export class Modal {
 
   open(content) {
     this.overlay.innerHTML = content;
-    this.overlay.style.zIndex = 1;
+    this.overlay.style.zIndex = 3;
     this.overlay.style.display = 'flex';
     this.modal.classList.remove("visually-hidden");
     this.closeButton = document.querySelector('.modal-button-close');

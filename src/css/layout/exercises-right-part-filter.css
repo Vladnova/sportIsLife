@@ -1,7 +1,5 @@
 .exercises_list_item:not(:last-child) {
-
   margin-bottom: 20px;
- 
 }
 
 .exercises_list_item {
@@ -72,6 +70,39 @@
   height: 16px;
   transform: rotate(90deg);
   stroke: var(--second-color);
+  position: relative;
+}
+
+.exercises_list_item_up_right:hover .exercises_btn_start_icon {
+  animation: arrowAnimation 500ms linear forwards;
+}
+
+.arrow-container {
+  overflow: hidden;
+  display: flex;
+}
+
+@keyframes arrowAnimation {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    right: 20px;
+    top: 0px;
+  }
+  50% {
+    top: 20px;
+    left: 0;
+  }
+  75% {
+    left: 20px;
+    top: 20px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
 }
 
 .exercises_list_item_middle {
@@ -143,10 +174,10 @@
   color: var(--second-color);
 }
 @media screen and (min-width: 768px) {
-.exercises_list {
-     display: flex;
-  flex-wrap: wrap;
-  gap: 32px 16px;  
+  .exercises_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
     min-width: 375px;
     width: 100%;
     /* flex-direction: column; */
@@ -154,16 +185,12 @@
     /* row-gap: 20px; */
     height: auto;
     overflow: unset;
-  } 
+  }
   .exercises_list_item:not(:last-child) {
-
     margin-bottom: 0px;
-   
   }
 }
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  
-
   .exercises_list_item {
     width: 335px;
     margin-bottom: auto;
@@ -195,7 +222,6 @@
   .exercises_list {
     display: flex;
     flex-wrap: wrap;
-  
   }
   .exercises_list_item {
     width: 441px;
