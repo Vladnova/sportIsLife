@@ -27,7 +27,7 @@ async function handlerClickFilterCards(e) {
   }
   const dataExercises = {
     [nameFilter]: [nameCard],
-    keyword: 'pull',
+   
     page: 1,
     limit: 10,
   };

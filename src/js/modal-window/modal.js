@@ -50,7 +50,7 @@ export class Modal {
   }
 }
 
-const myModal = new Modal();
+export const myModal = new Modal();
 
 
 

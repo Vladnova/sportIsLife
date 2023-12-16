@@ -86,7 +86,7 @@ if(name.includes(" ")){
         filterCurrent="bodypart"
         }
       return `
-        <li class="muscles-item"  alt=${name} data-filter=${filterCurrent}>
+        <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
         <a href="" class="muscles-link" data-alt="${name}">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">
