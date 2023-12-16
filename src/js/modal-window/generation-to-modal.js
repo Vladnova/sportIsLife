@@ -1,14 +1,30 @@
 import { setButtonFavorite, setFavoriteArr } from "../utils/favorite"
 
 function getRating(rating) {
+
+  const lastStar = (rating % 1).toFixed(1)*100
   let result = '<div class="rating-container" data-rating="0">'
-  for (let i = 1; i <= 5; i += 1) {
+  for (let i = 1; i <= rating+1; i += 1) {
     if (i <= rating) {
       result += `<span class="star-js selected" data-value="${i}">&#9733;</span>`
     } else {
-      result += `<span class="star-js" data-value="${i}">&#9733;</span>`
+      if (lastStar > 0) {
+        result += `<span class="star-js last-star-js" style="
+                    background: linear-gradient(
+                      to right,
+                      var(--stars-background-active-color) ${lastStar}%,
+                      rgba(244, 244, 244, 0.2) ${100-lastStar}%
+                    );
+                    display: inline-block;
+                    background-clip: text;
+                  " data-value="${i}">&#9733;</span>`
+      }
     }
   }
+  for (let i = rating+1; i <= 5; i += 1) {
+    result += `<span class="star-js" data-value="${i}">&#9733;</span>`
+  }
+
   return result +'</div>'
 }
 
@@ -16,7 +32,7 @@ export function getExerciseModal(data) {
     const favoriteStatus = `${!setFavoriteArr().includes(data._id)}`
     return `<div class="modal-info" data-id="${data._id}">
      <button class="modal-button-close" id="button-close">
-      <svg class="close-icon-img" width="20" height="20" aria-label="heart-icon">
+      <svg class="close-icon-img" width="20" height="20" aria-label="close-icon">
         <use href="./img/svg/sprite.svg#icon-close"></use>
       </svg>
     </button>
@@ -66,7 +82,7 @@ export function getExerciseModal(data) {
 export function getRatingModal(idExercise) {
     return `<div class="modal-get-raiting" data-id="${idExercise}">
     <button class="modal-button-close" id="button-close">
-      <svg class="close-icon-img" width="20" height="20" aria-label="heart-icon">
+      <svg class="close-icon-img" width="20" height="20" aria-label="close-icon">
         <use href="./img/svg/sprite.svg#icon-close"></use>
       </svg>
     </button>
