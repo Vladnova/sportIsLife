@@ -13,7 +13,7 @@ let currentPage = 1; //
 
 try {
   paginationNumbers.addEventListener('click', handleClick);
-  paginationNumbers.addEventListener('click', handleActivePageNumber);
+  paginationNumbers.addEventListener('click', handlePageNumberClick);
 } catch (error) {
   console.log(error);
 }
@@ -44,7 +44,7 @@ async function handleClick(e) {
   const filteredResult = filter.results;
   musclesList.innerHTML = filterBtn.makeMarkupMuscles(filteredResult);
   currentPage = dataFilter.page;
-  handlePageNumberClick(currentPage);
+  handlePageNumberClick();
 }
 
 const appendPageNumber = index => {
@@ -64,8 +64,8 @@ export function getPaginationNumbers() {
   }
 }
 
-function handlePageNumberClick(page) {
-  setCurrentPage(page);
+function handlePageNumberClick() {
+  // setCurrentPage(page);
   // ============= Стрілки пагінації ================
   // prevButton.addEventListener('click', () => {
   //   setCurrentPage(currentPage - 1);
@@ -85,16 +85,10 @@ function handlePageNumberClick(page) {
 }
 
 export function setCurrentPage(pageNum) {
-  handleActivePageNumber();
+  currentPage = pageNum;
 
-  handlePageButtonsStatus();
+  handlePageNumberClick();
 
-  // ============= Стрілки пагінації ================
-  // const prevRange = (pageNum - 1) * pageCount;
-  // const currRange = pageNum * pageCount;
-}
-
-export function handleActivePageNumber() {
   document.querySelectorAll('.pagination-number').forEach(button => {
     button.classList.remove('active');
 
@@ -103,7 +97,13 @@ export function handleActivePageNumber() {
       button.classList.add('active');
     }
   });
+
+  // ============= Стрілки пагінації ================
+  // const prevRange = (pageNum - 1) * pageCount;
+  // const currRange = pageNum * pageCount;
 }
+
+// export function handleActivePageNumber() {}
 
 // ============= Стрілки пагінації ================
 
