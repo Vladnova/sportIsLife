@@ -5,33 +5,40 @@ const refs = {
   quoteAuthor: document.querySelector('.quote-author'),
 };
 
-document.addEventListener('DOMContentLoaded', quoteLoad);
+document.addEventListener('DOMContentLoaded', loadQuote);
 
-async function quoteLoad() {
-  const currentDate = new Date().toDateString();
-  const {
-    date: locStorDate,
-    quote: locStorQuote,
-    author: locStorAuthor,
-  } = JSON.parse(localStorage.getItem('quote'));
+export async function loadQuote() {
+  const locStor = localStorage.getItem('quote');
 
-  if (currentDate !== locStorDate) {
-    const fetchQuote = await fetchSportEnergy.getQuotes();
+  if (locStor) {
+    const currentDate = new Date().toDateString();
 
-    const { author, quote } = fetchQuote;
+    const { date: locStorDate, quote: locStorQuote, author: locStorAuthor } = JSON.parse(locStor);
 
-    const quoteObj = {
-      author,
-      quote,
-      date: new Date().toDateString(),
-    };
-
-    localStorage.setItem('quote', JSON.stringify(quoteObj));
-
-    refs.quoteText.innerHTML = quote;
-    refs.quoteAuthor.innerHTML = author;
+    if (currentDate !== locStorDate) {
+      fetchQuote();
+    } else {
+      refs.quoteText.innerHTML = locStorQuote;
+      refs.quoteAuthor.innerHTML = locStorAuthor;
+    }
   } else {
-    refs.quoteText.innerHTML = locStorQuote;
-    refs.quoteAuthor.innerHTML = locStorAuthor;
+    fetchQuote();
   }
+}
+
+async function fetchQuote() {
+  const fetchQuote = await fetchSportEnergy.getQuotes();
+
+  const { author, quote } = fetchQuote;
+
+  const quoteObj = {
+    author,
+    quote,
+    date: new Date().toDateString(),
+  };
+
+  localStorage.setItem('quote', JSON.stringify(quoteObj));
+
+  refs.quoteText.innerHTML = quote;
+  refs.quoteAuthor.innerHTML = author;
 }

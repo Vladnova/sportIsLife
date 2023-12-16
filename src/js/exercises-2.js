@@ -8,7 +8,7 @@ list.addEventListener('click', handlerClickFilterCards);
 
 async function handlerClickFilterCards(e) {
   e.preventDefault()
-  // list.classList.add("visually-hidden");
+  document.querySelector(".form-js").classList.remove("hidden-form")
   const {target} = e
   let nameFilter;
   let nameCard;
@@ -39,7 +39,9 @@ async function handlerClickFilterCards(e) {
   list.classList.remove("muscles-list");
  
   // list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+
 makeMarkupCards(exercises);
+
 } else {
 alert("Oops. please, try other category this list empty :)")
 }

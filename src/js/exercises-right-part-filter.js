@@ -59,6 +59,7 @@ function addFavoriteHandler() {
         favoriteButton.dataset.favorite = 'false'
         getRatingButton.style.fontSize = '16px'
     }
+
 }
 
 function getStartHandler({ target }) {

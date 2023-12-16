@@ -1,4 +1,5 @@
 function getRating(rating) {
+
   const lastStar = (rating % 1).toFixed(1)*100
   let result = '<div class="rating-container" data-rating="0">'
   for (let i = 1; i <= rating+1; i += 1) {
@@ -21,6 +22,7 @@ function getRating(rating) {
   for (let i = rating+1; i <= 5; i += 1) {
     result += `<span class="star-js" data-value="${i}">&#9733;</span>`
   }
+
   return result +'</div>'
 }
 
