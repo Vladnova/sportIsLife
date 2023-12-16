@@ -1,7 +1,7 @@
 // import axios from 'axios';
 
 // import { cutString, deleteFavoriteItem, setFavoriteArr } from './utils/favorite';
-import { Modal } from './modal-window/modal';
+import { Modal } from '../modal-window/modal';
 // import { getExerciseModal } from './modal-window/generation-to-modal';
 
 // const listEl = document.querySelector('.favourites_list');
@@ -101,5 +101,18 @@ import { Modal } from './modal-window/modal';
 
 // ============================================
 
+import { markupText } from './markup-text';
+import {markupList} from './markup-list';
 
+function addContent() {
+  const favorites = JSON.parse(localStorage.getItem('favorites'));
 
+  if (!favorites.length) {
+    markupText();
+    return;
+  }
+
+  markupList(favorites);
+}
+
+addContent();

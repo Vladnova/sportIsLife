@@ -6,7 +6,6 @@ import { addLocalFavorites, deleteLocalFavorites } from './utils/localStor';
 import { message } from './toasts/message';
 import sprite from '../img/svg/sprite.svg';
 
-console.log(sprite);
 
 const listExercises = document.querySelector('.filter-list-js');
 let id = '';
