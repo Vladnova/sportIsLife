@@ -2,6 +2,7 @@ import { myModal } from './modal-window/modal'
 import { getExerciseModal, getRatingModal } from './modal-window/generation-to-modal'
 import { createInteractiveRaiting } from '../js/raiting'
 import fetchSportEnergy from '../js/api/apiSport'
+import { message } from './toasts/message'
 
 const listExercises = document.querySelector('.filter-list-js');
 let id="";
@@ -25,7 +26,11 @@ async function sendRaitingHandler(event) {
         review,
     }
     const response = await fetchSportEnergy.addExercisesRate(exerciseID, request)
-    console.log(response) // Додати нотифікацію
+    if (response.message) {
+        message.error(`${response.message}`)
+    } else {
+        message.success(`Thank you for your mark - ${request.rate} for ${response.name}`)
+    }
 }
 
 async function getRaitingHandler() {

@@ -50,41 +50,4 @@ export class Modal {
   }
 }
 
-const myModal = new Modal();
-
-
-
-const list = document.querySelector('.filter-list-js');
-let id="";
-let data;
-
-export const getId = async (e) =>{
-  const {target} = e;
-  console.log(target)
-  if (target.nodeName !== "BUTTON") {
-    return;
-  }
-  if (target.nodeName === "BUTTON"){
-    id= target.dataset.id
-     return data = oneCard(id);
-  }
-}
-
-list.addEventListener("click", getId)
-
-export const oneCard = async(id)=>{
-  // loader.open()
-  console.log("1")
-  let data = await fetchSportEnergy.getOneExercises(id)
-  
-  data.favotite = false;
-  myModal.open(getExerciseModal(data))
-}
-
-
-
-// Приклад модалки форми рейтингу
-// function modalHandler(event) {
-//     myModal.open(getRatingModal(data._id))
-// }
-
+export const myModal = new Modal();
