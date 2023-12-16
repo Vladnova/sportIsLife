@@ -2,6 +2,7 @@ import { myModal } from './modal-window/modal'
 import { getExerciseModal, getRatingModal } from './modal-window/generation-to-modal'
 import { createInteractiveRaiting } from '../js/raiting'
 import fetchSportEnergy from '../js/api/apiSport'
+import {addLocal, deleteFavoriteItem} from './favorite';
 
 const listExercises = document.querySelector('.filter-list-js');
 let id="";
@@ -37,9 +38,10 @@ async function getRaitingHandler() {
     sendRaitingForm.addEventListener('submit', sendRaitingHandler)
 }
 
-function addFavoriteHandler() {
+async function addFavoriteHandler(e) {
     const favoriteButton = document.querySelector('.refresh-button-js')
     const getRatingButton = document.querySelector('.add-rating')
+    const cardId = document.querySelector('.modal-info').dataset.id;
     if (favoriteButton.dataset.favorite === 'false') {
         favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
                                         <span class="remote-favorites">Remove from favorites</span>
@@ -49,6 +51,8 @@ function addFavoriteHandler() {
                                     </button>`
         favoriteButton.dataset.favorite = 'true'
         getRatingButton.style.fontSize = '15px'
+        let data = await fetchSportEnergy.getOneExercises(cardId)
+        addLocal(data);
     } else {
         favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
                                         <span>Add to favorites</span>
@@ -58,6 +62,8 @@ function addFavoriteHandler() {
                                     </button>`
         favoriteButton.dataset.favorite = 'false'
         getRatingButton.style.fontSize = '16px'
+
+        deleteFavoriteItem(cardId)
     }
 
 }
@@ -66,7 +72,7 @@ function getStartHandler({ target }) {
     if (target.nodeName !== "BUTTON") {
         return;
     }
-    
+
     if (target.nodeName === "BUTTON"){
         id= target.dataset.id
         return data = oneCard(id);
