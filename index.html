@@ -25,70 +25,65 @@
     <!-- <link src="https://identitytoolkit.googleapis.com/" referrerpolicy="no-referrer" /> -->
     
     <script type="module" crossorigin src="/sportIsLife/assets/vendor-c6a8d4ef.js"></script>
-    <script type="module" crossorigin src="/sportIsLife/assets/spinner-f4e024a2.js"></script>
-    <link rel="stylesheet" href="/sportIsLife/assets/spinner-00873ee4.css">
+    <script type="module" crossorigin src="/sportIsLife/assets/spinner-2e394528.js"></script>
+    <link rel="stylesheet" href="/sportIsLife/assets/spinner-bc43916b.css">
   </head>
   <body>
     
-    <header class="header" id="header" >
+    <header class="header" id="header">
   <div class="container-header">
-
-
-
-    <div >
-    
-        <a href="./index.html">
-          <svg width="132" height="24" aria-label="logo">
-            <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-logo"></use>
+    <div>
+      <a href="./index.html">
+        <svg width="132" height="24" aria-label="logo">
+          <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-logo"></use>
+        </svg>
+      </a>
+      <p id="user"></p>
+    </div>
+    <nav class="page-navigattion" id="navigation">
+      <a href="./index.html" class="page-navigattion-item active" id="home">
+        <span class="black" id="home-text">Home</span></a
+      >
+      <a href="./favorite.html" class="page-navigattion-item" id="favorites">
+        <span id="favorites-text">Favorites</span></a
+      >
+    </nav>
+    <ul class="social-links">
+      <li class="social-links-items">
+        <a href="https://www.facebook.com/goITclub/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32" aria-label="facebook">
+            <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-facebook" />
           </svg>
         </a>
-        <p id="user"></p>
-      </div>
-      <nav class="page-navigattion" id="navigation">
-        <a href="./index.html" class="page-navigattion-item active" id="home">
-          <span class="black" id="home-text">Home</span></a
-        >
-        <a href="./favorite.html" class="page-navigattion-item" id="favorites">
-          <span id="favorites-text">Favorites</span></a
-        >
-      </nav>
-      <ul class="social-links">
-        <li class="social-links-items">
-          <a href="https://www.facebook.com/goITclub/" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32" aria-label="facebook">
-              <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-facebook" />
-            </svg>
-          </a>
-        </li>
-        <li class="social-links-items">
-          <a href="https://www.instagram.com/goitclub/" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32" aria-label="instagram">
-              <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-instagram" />
-            </svg>
-          </a>
-        </li>
-        <li class="social-links-items">
-          <a href="https://www.youtube.com/c/GoIT" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32" aria-label="youtube">
-              <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-youtube" />
-            </svg>
-          </a>
-        </li>
-        <li class="social-links-items">
-          <button id="sign-in">
-            <img src="/sportIsLife/assets/icon-google-0cf576a5.svg" alt="google" width="18px" height="18" />
-            SignIn
-          </button>
-  
-          <button id="sign-out" class="display-none">Sign out</button>
-        </li>
-      </ul>
-      <button class="burger-button" id="burger-button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
-          <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-menu" stroke="#242424" />
-        </svg>
-      </button>
-    </div>
+      </li>
+      <li class="social-links-items">
+        <a href="https://www.instagram.com/goitclub/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32" aria-label="instagram">
+            <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-instagram" />
+          </svg>
+        </a>
+      </li>
+      <li class="social-links-items">
+        <a href="https://www.youtube.com/c/GoIT" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32" aria-label="youtube">
+            <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-youtube" />
+          </svg>
+        </a>
+      </li>
+      <li class="social-links-items">
+        <button id="sign-in">
+          <img src="/sportIsLife/assets/icon-google-0cf576a5.svg" alt="google" width="18px" height="18" />
+          SignIn
+        </button>
+
+        <button id="sign-out" class="display-none">Sign out</button>
+      </li>
+    </ul>
+    <button class="burger-button" id="burger-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
+        <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-menu" stroke="#242424" />
+      </svg>
+    </button>
   </div>
 </header>
 
@@ -234,12 +229,28 @@
   </div>
 
   <div class="exercise-img">
-    <img
-      class="img-exe"
-      srcset="/sportIsLife/assets/women-sports@2x-a3ebb7b8.jpg 2x"
-      src="/sportIsLife/assets/women-sports-d67ebd1c.jpg"
-      alt="Women talking break"
-    />
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="/sportIsLife/assets/quote-img-mobile-ddd6a63c.png 1x, /sportIsLife/assets/quote-img-mobile@2x-68e4288c.png 2x"
+      />
+      `
+      <source
+        media="(min-width: 768px) and (max-width: 1439px)"
+        srcset="/sportIsLife/assets/quote-img-tablet-69d19961.png 1x, /sportIsLife/assets/quote-img-tablet@2x-bd7445e6.png 2x"
+      />
+      <source
+        media="(min-width: 1440px)"
+        srcset="/sportIsLife/assets/quote-img-desctop-551fca06.png 1x, /sportIsLife/assets/quote-img-desctop@2x-3dbfd759.png 2x"
+      />
+      <!-- Якщо браузер не підтримуе елемент picture -->
+      <img
+        class="img-exe"
+        srcset="/sportIsLife/assets/women-sports@2x-a3ebb7b8.jpg 2x"
+        src="/sportIsLife/assets/women-sports-d67ebd1c.jpg"
+        alt="Women talking break"
+      />
+    </picture>
   </div>
 
   <div class="daily">
@@ -275,8 +286,8 @@
 
     </main>
 
-    <footer class="footer">
-  <div class="container">
+    <footer class="footer container">
+  <div>
     <div class="footer_content">
       <div class="footer_top">
         <div class="footer_top-links">
@@ -293,9 +304,15 @@
                 target="_blank"
                 rel="noopener"
               >
-              <svg class="color-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-label="facebook">
-                <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-facebook" />
-              </svg>
+                <svg
+                  class="color-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  aria-label="facebook"
+                >
+                  <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-facebook" />
+                </svg>
               </a>
             </li>
             <li class="footer_social-item">
@@ -305,9 +322,15 @@
                 target="_blank"
                 rel="noopener"
               >
-              <svg class="color-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-label="instagram">
-                <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-instagram" />
-              </svg>
+                <svg
+                  class="color-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  aria-label="instagram"
+                >
+                  <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-instagram" />
+                </svg>
               </a>
             </li>
             <li class="footer_social-item">
@@ -317,9 +340,15 @@
                 target="_blank"
                 rel="noopener"
               >
-              <svg class="color-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" aria-label="youtube">
-                <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-youtube" />
-              </svg>
+                <svg
+                  class="color-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  aria-label="youtube"
+                >
+                  <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-youtube" />
+                </svg>
               </a>
             </li>
           </ul>
@@ -329,13 +358,7 @@
           <div class="footer_form-wrapper">
             <h6 class="footer_form-title">Subscribe and learn about new exercises!</h6>
             <form class="form footer_form" id="subscribe-form">
-              <input
-                id="email"
-                type="email"
-                class="form_input"
-                placeholder="Email"
-                required
-              />
+              <input id="email" type="email" class="form_input" placeholder="Email" required />
               <button class="form_button" type="submit">Send</button>
             </form>
           </div>
