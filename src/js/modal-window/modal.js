@@ -50,6 +50,7 @@ export class Modal {
   }
 }
 
+
 export const myModal = new Modal();
 
 
@@ -87,4 +88,5 @@ export const oneCard = async(id)=>{
 // function modalHandler(event) {
 //     myModal.open(getRatingModal(data._id))
 // }
+
 
