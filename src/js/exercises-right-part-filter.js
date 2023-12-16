@@ -34,6 +34,7 @@ async function sendRaitingHandler(event) {
         message.error(`${response.message}`)
     } else {
         message.success(`Thank you for your mark - ${request.rate} for ${response.name}`)
+        myModal.close()
     }
 }
 
@@ -48,7 +49,6 @@ async function getRaitingHandler() {
 
 async function addFavoriteHandler(e) {
     const favoriteButton = document.querySelector('.refresh-button-js')
-    const getRatingButton = document.querySelector('.add-rating')
     const cardId = document.querySelector('.modal-info').dataset.id;
     if (favoriteButton.dataset.favorite === 'false') {
         favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
@@ -58,7 +58,6 @@ async function addFavoriteHandler(e) {
                                         </svg>
                                     </button>`
         favoriteButton.dataset.favorite = 'true'
-        getRatingButton.style.fontSize = '15px'
         let data = await fetchSportEnergy.getOneExercises(cardId)
         addLocalFavorites(data);
     } else {
@@ -69,9 +68,11 @@ async function addFavoriteHandler(e) {
                                         </svg>
                                     </button>`
         favoriteButton.dataset.favorite = 'false'
+
         getRatingButton.style.fontSize = '16px'
 
         deleteLocalFavorites(cardId)
+
     }
 
 }
@@ -95,7 +96,19 @@ listExercises.addEventListener("click", getStartHandler)
 
 export const oneCard = async(id)=>{
     let data = await fetchSportEnergy.getOneExercises(id)
-    data.favotite = false;
+    const favoriteData = localStorage.getItem('favorites');
+    console.log(favoriteData);
+    if (favoriteData !== null) {
+        const favoriteObject = JSON.parse(favoriteData);
+        const objectLocal = favoriteObject.find(({ _id }) => _id === id)
+        if (objectLocal) {
+            data.favorite = true
+        } else {
+            data.favorite = false
+        }
+    } else {
+        data.favorite = false
+    }
     myModal.open(getExerciseModal(data))
     addFavoriteButton = document.querySelector('.refresh-button-js')
     addRaitingButton = document.querySelector('.add-rating');

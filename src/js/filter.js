@@ -35,35 +35,33 @@ export async function handleCategoryClick(event) {
   };
   musclesList.innerHTML = '';
   loadSectionOnClick(dataFilter);
-
-  
 }
 
 //======================================================
 
 export async function loadSectionOnClick(dataFilter) {
   // loader.open()
-    document.querySelector('.filter-list-js').classList.remove("exercises_list")
-    document.querySelector(".form-js").classList.add("hidden-form")
+  document.querySelector('.filter-list-js').classList.remove('exercises_list');
+  document.querySelector('.form-js').classList.add('hidden-form');
   try {
     const filter = await fetchSportEnergy.getByFilterName(dataFilter);
     const filteredResult = filter.results;
-    
+
     if (!filter || filteredResult.length === 0) {
       console.log("Sorry, we didn't find anything according to your request.");
       return;
     }
-    
+
     musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult));
-    
+
     // Збереження в LocalStorage інформації для пагінації сторінки
     const { totalPages } = filter;
     const data = JSON.stringify({ totalPages, categoryName: dataFilter.filter });
     localStorage.setItem('infoRequest', data);
-    document.querySelector('.filter-list-js').classList.add("muscles-list");
+    document.querySelector('.filter-list-js').classList.add('muscles-list');
     paginationNumbers.innerHTML = '';
     pagination.getPaginationNumbers();
-    
+
     pagination.setCurrentPage(1);
   } catch (error) {
     console.log(error.message);
@@ -71,18 +69,14 @@ export async function loadSectionOnClick(dataFilter) {
   // loader.close()
 }
 
-
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
+      let filterCurrent = filter.toLocaleLowerCase().replaceAll(' ', '');
 
-      let filterCurrent = filter.toLocaleLowerCase()
-      .replaceAll(' ', '');
-
-
-      if (filterCurrent==="bodyparts"){
-        filterCurrent="bodypart"
-        }
+      if (filterCurrent === 'bodyparts') {
+        filterCurrent = 'bodypart';
+      }
       return `
 
         <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>

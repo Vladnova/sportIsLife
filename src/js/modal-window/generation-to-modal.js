@@ -29,9 +29,23 @@ function getRating(rating) {
 }
 
 
-
-
-
+function getButtonFavorite(isFavorite) {
+  if (isFavorite) {
+    return `<button class="add-favorite-js" type="button" style="font-size: 14px;">
+              <span class="remote-favorites">Remove from favorites</span>
+              <svg class="trash-icon-img" width="15" height="15" aria-label="trash-icon">
+                  <use href="${sprite}#icon-trash"></use>
+              </svg>
+          </button>`
+    } else {
+      return `<button class="add-favorite-js" type="button" style="font-size: 14px;">
+                <span>Add to favorites</span>
+                <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
+                    <use href="${sprite}#icon-heart"></use>
+                </svg>
+              </button>`
+    }
+}
 
 
 export function getExerciseModal(data) {
@@ -77,15 +91,10 @@ export function getExerciseModal(data) {
         ${data.description}
       </p>
       <div class="button-section-modal">
-        <div class="refresh-button-js" data-favorite="false">
-          <button class="add-favorite-js" type="button">
-            <span>Add to favorites</span>
-            <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
-              <use href="${sprite}#icon-heart"></use>
-            </svg>
-          </button>
+        <div class="refresh-button-js" data-favorite="${data.favorite}">
+          ${getButtonFavorite(data.favorite)}
         </div>
-        <button class="add-rating" type="button">Give a rating</button>
+        <button class="add-rating" type="button" style="font-size: 14px;">Give a rating</button>
       </div>`
 }
 
