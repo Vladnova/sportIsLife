@@ -6,6 +6,7 @@ const form = document.querySelector('.form-js');
 form.addEventListener('submit', handlerSearch);
 
 async function handlerSearch(e) {
+  console.log("2")
   e.preventDefault();
   const value = e.target.elements.search.value.trim();
   if (!value) return;
@@ -20,7 +21,6 @@ async function handlerSearch(e) {
 
   const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
   form.reset();
-
   makeMarkupCards(exercises);
 }
 

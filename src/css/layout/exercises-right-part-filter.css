@@ -1,22 +1,9 @@
-.exercises_list {
-  width: 780px;
-  height: 487px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px 16px;
-  overflow-y: scroll;
-}
-.exercises_list::-webkit-scrollbar {
-  width: 8px;
-  border-radius: 12px;
-  background: #24242410;
+.exercises_list_item:not(:last-child) {
+
+  margin-bottom: 20px;
+ 
 }
 
-.exercises_list::-webkit-scrollbar-thumb {
-  width: 8px;
-  border-radius: 12px;
-  background: var(--second-color);
-}
 .exercises_list_item {
   width: 371px;
   height: 141px;
@@ -60,13 +47,6 @@
   width: 16px;
   height: 16px;
 }
-
-/* .exercises_star_icon { */
-/* display: flex;
-fill: #eea10c;
-width: 18px;
-height: 18px; */
-/* } */
 
 .exercises_btn_start {
   display: flex;
@@ -162,20 +142,31 @@ height: 18px; */
 .exercises_list_item_bottom_list_item_text span {
   color: var(--second-color);
 }
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .exercises_list {
+@media screen and (min-width: 768px) {
+.exercises_list {
+     display: flex;
+  flex-wrap: wrap;
+  gap: 32px 16px;  
     min-width: 375px;
     width: 100%;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    row-gap: 20px;
+    /* row-gap: 20px; */
     height: auto;
     overflow: unset;
+  } 
+  .exercises_list_item:not(:last-child) {
+
+    margin-bottom: 0px;
+   
   }
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  
 
   .exercises_list_item {
     width: 335px;
+    margin-bottom: auto;
   }
 
   .exercises_btn_start_text {
@@ -189,9 +180,6 @@ height: 18px; */
 
 @media screen and (min-width: 768px) {
   .exercises_list {
-    margin: 64px auto 0 auto;
-    max-width: 768px;
-    width: 100%;
     justify-content: center;
     gap: 32px 16px;
     height: auto;
@@ -203,13 +191,15 @@ height: 18px; */
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   .exercises_list {
-    width: 780px;
-    height: 487px;
     display: flex;
     flex-wrap: wrap;
-    gap: 32px 16px;
-    overflow-y: scroll;
+  
+  }
+  .exercises_list_item {
+    width: 441px;
+    padding: 16px 18px;
+    border-radius: 15px;
   }
 }

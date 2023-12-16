@@ -1,4 +1,5 @@
 import fetchSportEnergy from './api/apiSport';
+// import { loader } from './loader/loader';
 import * as pagination from './pagination/pagination';
 const categoryList = document.querySelector('.wrap-button');
 
@@ -13,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 export async function handleCategoryClick(event) {
   event.preventDefault();
+
   const { target, currentTarget } = event;
 
   if (target.nodeName !== 'BUTTON') return;
   const categoryName = target.dataset.name;
-console.log(target.classList)
   if (target.classList.contains('btn-filter')) {
     const categoryItem = [...currentTarget.children];
     categoryItem.forEach(item => {
@@ -26,7 +27,7 @@ console.log(target.classList)
   }
   // Добавление класса 'active' к текущему пункту меню
   target.classList.add('btn-filter-active');
-console.log(`------>${categoryName}`)
+
   const dataFilter = {
     filter: categoryName,
     page: 1,
@@ -41,6 +42,7 @@ console.log(`------>${categoryName}`)
 //======================================================
 
 export async function loadSectionOnClick(dataFilter) {
+  // loader.open()
     document.querySelector('.filter-list-js').classList.remove("exercises_list")
     document.querySelector(".form-js").classList.add("hidden-form")
   try {
@@ -66,27 +68,25 @@ export async function loadSectionOnClick(dataFilter) {
   } catch (error) {
     console.log(error.message);
   }
+  // loader.close()
 }
 
 
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
-     console.log(name)
+
       let filterCurrent = filter.toLocaleLowerCase()
       .replaceAll(' ', '');
-    // let liName=name.toLocaleLowerCase().replaceAll(' ', '_')
-    // let kyky= "ky ke"
-if(name.includes(" ")){
 
-  console.log(" -----> я куку")
-}
 
       if (filterCurrent==="bodyparts"){
         filterCurrent="bodypart"
         }
       return `
-        <li class="muscles-item"  alt=${name} data-filter=${filterCurrent}>
+
+        <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
+
         <a href="" class="muscles-link" data-alt="${name}">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">

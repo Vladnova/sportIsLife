@@ -26,6 +26,7 @@ function getRating(rating) {
   return result +'</div>'
 }
 
+
 function getButtonFavorite(isFavorite) {
   if (isFavorite) {
     return `<button class="add-favorite-js" type="button" style="font-size: 14px;">
@@ -43,6 +44,7 @@ function getButtonFavorite(isFavorite) {
               </button>`
     }
 }
+
 
 export function getExerciseModal(data) {
     return `<div class="modal-info" data-id="${data._id}">
