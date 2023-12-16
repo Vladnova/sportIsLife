@@ -23,3 +23,5 @@ async function handlerSearch(e) {
 
   makeMarkupCards(exercises);
 }
+
+console.log('test')
