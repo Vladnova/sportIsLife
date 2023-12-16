@@ -2,9 +2,11 @@ import { myModal } from './modal-window/modal'
 import { getExerciseModal, getRatingModal } from './modal-window/generation-to-modal'
 import { createInteractiveRaiting } from '../js/raiting'
 import fetchSportEnergy from '../js/api/apiSport'
-import {addLocal, deleteFavoriteItem} from './favorite';
+import {addLocalFavorites, deleteLocalFavorites} from './utils/localStor';
 import { message } from './toasts/message'
+import sprite from '../img/svg/sprite.svg';
 
+console.log(sprite)
 
 const listExercises = document.querySelector('.filter-list-js');
 let id="";
@@ -52,13 +54,13 @@ async function addFavoriteHandler(e) {
         favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
                                         <span class="remote-favorites">Remove from favorites</span>
                                         <svg class="trash-icon-img" width="18" height="18" aria-label="trash-icon">
-                                            <use href="./img/svg/sprite.svg#icon-trash"></use>
+                                            <use href="${sprite}#icon-trash"></use>
                                         </svg>
                                     </button>`
         favoriteButton.dataset.favorite = 'true'
         getRatingButton.style.fontSize = '15px'
         let data = await fetchSportEnergy.getOneExercises(cardId)
-        addLocal(data);
+        addLocalFavorites(data);
     } else {
         favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
                                         <span>Add to favorites</span>
@@ -69,7 +71,7 @@ async function addFavoriteHandler(e) {
         favoriteButton.dataset.favorite = 'false'
         getRatingButton.style.fontSize = '16px'
 
-        deleteFavoriteItem(cardId)
+        deleteLocalFavorites(cardId)
     }
 
 }

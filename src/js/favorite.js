@@ -101,18 +101,4 @@ import { Modal } from './modal-window/modal';
 
 // ============================================
 
-const favoriteCards = [];
 
-export function addLocal(card) {
-  favoriteCards.push(card);
-  localStorage.setItem('favorites', JSON.stringify(favoriteCards));
-}
-
-
-export const deleteFavoriteItem = (id) => {
-  console.log(favoriteCards);
-  console.log(id)
-      localStorage.setItem('favorites', JSON.stringify([
-          ...favoriteCards.filter(item => item._id !== id)
-      ]))
-  }
