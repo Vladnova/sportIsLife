@@ -1,62 +1,90 @@
-import { Modal } from './modal-window/modal'
+import { myModal } from './modal-window/modal'
 import { getExerciseModal, getRatingModal } from './modal-window/generation-to-modal'
+import { createInteractiveRaiting } from '../js/raiting'
+import fetchSportEnergy from '../js/api/apiSport'
 
-const myModal = new Modal()
-
-const startButtons = document.querySelector('.exercises_list')
+const listExercises = document.querySelector('.filter-list-js');
+let id="";
+let data;
 let addRaitingButton;
 let addFavoriteButton;
 let sendRaitingForm;
 let sendRaitingButton;
 
-startButtons.addEventListener('click', getStartHandler)
 
-function ifStartButton(element) {
-    return element.classList.contains('exercises_btn_start') || element.classList.contains('exercises_btn_start_text') || element.classList.contains('exercises_btn_start_icon')
-}
-
-// Замінити на запит з бека
-const data = {
-  "_id": "64f389465ae26083f39b17c2",
-  "bodyPart": "back",
-  "equipment": "barbell",
-  "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0037.gif",
-  "name": "barbell decline wide-grip pullover",
-  "target": "lats",
-  "description": "These large back muscles are responsible for shoulder adduction and horizontal extension. Pull-ups and lat pulldowns are common exercises targeting the lats.",
-  "rating": 3,
-  "burnedCalories": 307,
-  "time": 3,
-  "popularity": 7416
-}
-
-function sendRaitingHandler(event) {
+async function sendRaitingHandler(event) {
     event.preventDefault();
-    sendRaitingButton = document.querySelector('.raiting-form-submit')
-    const exerciseID = sendRaitingButton.dataset.id // Відправь цей id на бек https://your-energy.b.goit.study/api/exercises/ {exerciseID} /rating
-    console.log('Add send raiting logic');
-    console.log('exerciseID example =>', exerciseID);
+    const exerciseID = document.querySelector('.modal-get-raiting').dataset.id
+    const ratingContainer = document.querySelector('.rating-container-js');
+    const ratinFromUser = ratingContainer.dataset.rating
+    const email = document.querySelector('.raiting-form-field-input').value
+    const review = document.querySelector('.raiting-form-field-comment').value
+    const request = {
+        rate: Number(ratinFromUser),
+        email,
+        review,
+    }
+    const response = await fetchSportEnergy.addExercisesRate(exerciseID, request)
+    console.log(response) // Додати нотифікацію
 }
 
-function getRaitingHandler() {
+async function getRaitingHandler() {
+    const exerciseID = document.querySelector('.modal-info').dataset.id
     myModal.close()
-    myModal.open(getRatingModal(data._id))
+    myModal.open(getRatingModal(exerciseID))
+    createInteractiveRaiting()
     sendRaitingForm = document.querySelector('.raiting-form')
     sendRaitingForm.addEventListener('submit', sendRaitingHandler)
 }
 
 function addFavoriteHandler() {
-    console.log('Add favorite logic');
+    const favoriteButton = document.querySelector('.refresh-button-js')
+    const getRatingButton = document.querySelector('.add-rating')
+    if (favoriteButton.dataset.favorite === 'false') {
+        favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
+                                        <span class="remote-favorites">Remove from favorites</span>
+                                        <svg class="trash-icon-img" width="18" height="18" aria-label="trash-icon">
+                                            <use href="./img/svg/sprite.svg#icon-trash"></use>
+                                        </svg>
+                                    </button>`
+        favoriteButton.dataset.favorite = 'true'
+        getRatingButton.style.fontSize = '15px'
+    } else {
+        favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
+                                        <span>Add to favorites</span>
+                                        <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
+                                            <use href="./img/svg/sprite.svg#icon-heart"></use>
+                                        </svg>
+                                    </button>`
+        favoriteButton.dataset.favorite = 'false'
+        getRatingButton.style.fontSize = '16px'
+    }
+    console.log(favoriteButton.dataset.favorite);
 }
 
 function getStartHandler({ target }) {
+    if (target.nodeName !== "BUTTON") {
+        return;
+    }
+    
+    if (target.nodeName === "BUTTON"){
+        id= target.dataset.id
+        return data = oneCard(id);
+    }
 
     if (ifStartButton(target)) {
         myModal.open(getExerciseModal(data))
-        addFavoriteButton = document.querySelector('.add-favorite')
-        addRaitingButton = document.querySelector('.add-rating');
-        addRaitingButton.addEventListener('click', getRaitingHandler)
-        addFavoriteButton.addEventListener('click', addFavoriteHandler)
     }
+}
 
+listExercises.addEventListener("click", getStartHandler)
+
+export const oneCard = async(id)=>{
+    let data = await fetchSportEnergy.getOneExercises(id)
+    data.favotite = false;
+    myModal.open(getExerciseModal(data))
+    addFavoriteButton = document.querySelector('.refresh-button-js')
+    addRaitingButton = document.querySelector('.add-rating');
+    addRaitingButton.addEventListener('click', getRaitingHandler)
+    addFavoriteButton.addEventListener('click', addFavoriteHandler)
 }
