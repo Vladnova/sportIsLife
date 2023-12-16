@@ -23,3 +23,5 @@ async function handlerSearch(e) {
   form.reset();
   makeMarkupCards(exercises);
 }
+
+console.log('test2')

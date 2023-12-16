@@ -18,8 +18,7 @@ if(target.nodeName !== "IMG" & target.nodeName !== "P" & target.nodeName !== "H3
 
   let nameFilter;
   let nameCard;
-  try{
-    
+  try{    
     if (target.nodeName === "IMG") {
       nameFilter = target.parentNode.parentNode.dataset.filter;
       nameCard = target.alt;
@@ -33,6 +32,7 @@ if(target.nodeName !== "IMG" & target.nodeName !== "P" & target.nodeName !== "H3
       page: 1,
       limit: 10,
     };
+
     
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
     
@@ -65,6 +65,7 @@ alert("Oops. please, try other category this list empty :)")
    if (exercises.results.length){
      const markup = exercises.results
      .map(({_id, target, rating, name, burnedCalories, time }) => {
+
       return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
