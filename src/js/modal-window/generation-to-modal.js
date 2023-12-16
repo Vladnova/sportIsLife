@@ -1,4 +1,4 @@
-import sprite from '../img/svg/sprite.svg';
+import sprite from '../../img/svg/sprite.svg';
 
 function getRating(rating) {
 
