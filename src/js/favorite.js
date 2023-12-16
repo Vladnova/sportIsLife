@@ -110,8 +110,6 @@ export function addLocal(card) {
 
 
 export const deleteFavoriteItem = (id) => {
-  console.log(favoriteCards);
-  console.log(id)
       localStorage.setItem('favorites', JSON.stringify([
           ...favoriteCards.filter(item => item._id !== id)
       ]))
