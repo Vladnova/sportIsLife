@@ -9,41 +9,46 @@ list.addEventListener('click', handlerClickFilterCards);
 
 async function handlerClickFilterCards(e) {
   e.preventDefault()
+if(e.target.nodeName !== "IMG" & e.target.nodeName !== "P" & e.target.nodeName !== "H3") {
+    return
+   }
   // loader.open()
   document.querySelector(".form-js").classList.remove("hidden-form")
   const {target} = e
+  console.log(target.nodeName)
   let nameFilter;
   let nameCard;
   try{
-  
-  if (target.nodeName === "IMG") {
-    nameFilter = target.parentNode.parentNode.dataset.filter;
-    nameCard = target.alt;
-  } if (target.nodeName === "P" || target.nodeName === "H3") {
-    nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
-    nameCard = target.parentNode.parentNode.dataset.alt;
-
-  }
-  const dataExercises = {
-    [nameFilter]: [nameCard],
-    page: 1,
-    limit: 10,
-  };
-
-  const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-  
-  if(exercises?.results.length){
     
-
+    if (target.nodeName === "IMG") {
+      nameFilter = target.parentNode.parentNode.dataset.filter;
+      nameCard = target.alt;
+    } if (target.nodeName === "P" || target.nodeName === "H3") {
+      nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
+      nameCard = target.parentNode.parentNode.dataset.alt;
+      
+    }
+    const dataExercises = {
+      [nameFilter]: [nameCard],
+      page: 1,
+      limit: 10,
+    };
     
-    list.classList.add("exercises_list")
-  list.classList.remove("muscles-list");
- 
+    const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+    
+    if(exercises?.results.length){
+      
+      
+      
+      list.classList.add("exercises_list")
+      list.classList.remove("muscles-list");
+      
+      
+      
+      makeMarkupCards(exercises);
 
-
-makeMarkupCards(exercises);
-
-} else {
+} 
+else {
 alert("Oops. please, try other category this list empty :)")
 }
    
@@ -56,7 +61,7 @@ alert("Oops. please, try other category this list empty :)")
 }
 
  export function makeMarkupCards (exercises) {
-console.log("1")
+
    if (exercises.results.length){
      const markup = exercises.results
      .map(({_id, target, rating, name, burnedCalories, time }) => {
