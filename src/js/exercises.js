@@ -79,11 +79,12 @@ alert("Oops. please, try other category this list empty :)")
         </div>
         <div class="exercises_list_item_up_right" >
           <button class="exercises_btn_start exercises_btn_start_text" data-id=${_id}>Start
-
-            <svg class="exercises_btn_start_icon" width="56px" height="18px">
-              <use xlink:href="${sprite}#icon-arrow"></use>
+          <div class="arrow-container">
+            <svg class="exercises_btn_start_icon" width="56px" height="18px" data-id=${_id}>
+              <use xlink:href="${sprite}#icon-arrow" data-id=${_id}></use>
               />
             </svg>
+            </div>
           </button>
         </div>
       </div>

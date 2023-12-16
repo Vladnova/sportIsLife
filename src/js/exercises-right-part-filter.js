@@ -73,17 +73,9 @@ async function addFavoriteHandler(e) {
 }
 
 function getStartHandler({ target }) {
-  if (target.nodeName !== 'BUTTON') {
-    return;
-  }
-
-  if (target.nodeName === 'BUTTON') {
+  if (target.nodeName === 'BUTTON' || target.nodeName === 'svg' || target.nodeName === 'use') {
     id = target.dataset.id;
     return (data = oneCard(id));
-  }
-
-  if (ifStartButton(target)) {
-    myModal.open(getExerciseModal(data));
   }
 }
 
