@@ -1,6 +1,6 @@
 <section class="favourites">
   <h2 class="favourites_title">Favorites</h2>
-  <div class="favourites_wrapper">
+  <div class="favourites_wrapper wrap-js">
     <div class="favourites_left">
       <div class="favourites_left_quote">
         <div class="favourites_left_quote_top">
@@ -37,20 +37,31 @@
           <p class="favourites_left_bottom_time_text">Daily norm of sports</p>
         </div>
         <div class="favourites_left_bottom_img">
-          <img src="./img/favorite-img/favorit_tablet.png" alt="women-bicycle">
+          <img
+            srcset="
+              ./img/favorite-img/favorit_mobile.png     335w,
+              ./img/favorite-img/favorit_mobile@2x.png  670w,
+              ./img/favorite-img/favorit_tablet.png     344w,
+              ./img/favorite-img/favorit_tablet@2x.png  688w,
+              ./img/favorite-img/favorit_desctop.png    239w,
+              ./img/favorite-img/favorit_desctop@2x.png 478w
+            "
+            sizes="(min-width: 1440px) 239px, (max-width:767px) 335px, (min-width: 768px) 344px"
+            src="./img/favorite-img/favorit_desctop.png"
+            alt="women-bicycle"
+          />
         </div>
       </div>
     </div>
-    <ul class="favourites_list">
-    </ul>
+    <ul class="favourites_list filter-list-js"></ul>
   </div>
   <div class="overlay">
-    <div class="modal-info modal-get-raiting visually-hidden">
+    <!-- <div class="modal-info modal-get-raiting visually-hidden">
       <button class="modal-button-close" id="button-close">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
           <use href="./img/svg/sprite.svg#icon-close"></use>
         </svg>
       </button>
-    </div>
+    </div> -->
   </div>
 </section>
