@@ -33,12 +33,13 @@ async function handlerClickFilterCards(e) {
   
   if(exercises?.results.length){
     
-    list.innerHTML="";
+    // list.innerHTML="";
     
     list.classList.add("exercises_list")
   list.classList.remove("muscles-list");
  
-  list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+  // list.insertAdjacentHTML('afterbegin', makeMarkupCards(exercises));
+makeMarkupCards(exercises);
 } else {
 alert("Oops. please, try other category this list empty :)")
 }
@@ -102,8 +103,8 @@ alert("Oops. please, try other category this list empty :)")
     </li>`
     })
     .join('');
-  //  console.log(markup)
-    return markup;
+     list.innerHTML=markup;
+    // return markup;
   } 
 }
   
