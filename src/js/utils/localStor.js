@@ -6,8 +6,8 @@ export function addLocalFavorites(card) {
 }
 
 export const deleteLocalFavorites = id => {
-  console.log(favoriteCards);
-  console.log(id);
+  const deletedItem = favoriteCards.find(({ _id }) => _id === id)
+  favoriteCards.splice(favoriteCards.indexOf(deletedItem), 1)
   localStorage.setItem(
     'favorites',
     JSON.stringify([...favoriteCards.filter(item => item._id !== id)])
