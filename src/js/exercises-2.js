@@ -8,7 +8,7 @@ list.addEventListener('click', handlerClickFilterCards);
 
 async function handlerClickFilterCards(e) {
   e.preventDefault()
-  // list.classList.add("visually-hidden");
+  document.querySelector(".form-js").classList.remove("hidden-form")
   const {target} = e
   let nameFilter;
   let nameCard;
