@@ -10,6 +10,12 @@ function getRating(rating) {
   return result +'</div>'
 }
 
+
+
+
+
+
+
 export function getExerciseModal(data) {
     return `<div class="modal-info" data-id="${data._id}">
      <button class="modal-button-close" id="button-close">
