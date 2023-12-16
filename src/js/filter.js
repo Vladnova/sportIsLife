@@ -26,7 +26,7 @@ console.log(target.classList)
   }
   // Добавление класса 'active' к текущему пункту меню
   target.classList.add('btn-filter-active');
-
+console.log(`------>${categoryName}`)
   const dataFilter = {
     filter: categoryName,
     page: 1,
@@ -72,16 +72,22 @@ export async function loadSectionOnClick(dataFilter) {
 export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
-     
+     console.log(name)
       let filterCurrent = filter.toLocaleLowerCase()
       .replaceAll(' ', '');
-    
+    let liName=name.toLocaleLowerCase().replaceAll(' ', '_')
+    // let kyky= "ky ke"
+if(liName.includes(" ")){
+
+  console.log(" я куку")
+}
+
       if (filterCurrent==="bodyparts"){
         filterCurrent="bodypart"
         }
       return `
-        <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
-        <a href="" class="muscles-link">
+        <li class="muscles-item"  alt=${name} data-filter=${filterCurrent}>
+        <a href="" class="muscles-link" data-alt="${name}">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">
            <h3 class="muscles-small-title">${filter}</h3>

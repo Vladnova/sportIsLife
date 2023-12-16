@@ -127,7 +127,14 @@ color: var(--primary-color);
 
   @media screen and (min-width: 768px) {
     .container-header {
-      width: 768px;
+      min-width: 768px;
+      padding: 24px 32px 24px 32px;
+     /* padding: 32px 0 32px; */
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .container-header {
+      min-width: 1440px;
       padding: 24px 32px 24px 32px;
      /* padding: 32px 0 32px; */
     }

@@ -24,6 +24,7 @@ class ApiSportEnergy {
     }
 
     async getByFilterName(data) {
+    
         const wrappedMethod = ApiSportEnergy.handleErrors(async () => {
             const params = new URLSearchParams({ ...data });
             return await ApiSportEnergy.fetchJson(`${ApiSportEnergy.BASE_URL}/filters?${params}`);
