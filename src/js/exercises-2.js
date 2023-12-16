@@ -16,12 +16,14 @@ async function handlerClickFilterCards(e) {
   
   if (target.nodeName === "IMG") {
     nameFilter = target.parentNode.parentNode.dataset.filter;
-    nameCard = target.parentNode.parentNode.dataset.name;
-    
+    nameCard = target.alt;
+    console.log(target.alt)
   } if (target.nodeName === "P" || target.nodeName === "H3") {
+    // console.log(target.parentNode.parentNode.dataset.alt)
     nameFilter = target.parentNode.parentNode.parentNode.dataset.filter;
-    nameCard = target.parentNode.parentNode.parentNode.dataset.name;
+    nameCard = target.parentNode.parentNode.dataset.alt;
 
+    console.log(`----->${nameCard}`)
   }
   const dataExercises = {
     [nameFilter]: [nameCard],
@@ -59,11 +61,8 @@ alert("Oops. please, try other category this list empty :)")
      const markup = exercises.results
      .map(({_id, target, rating, name, burnedCalories, time }) => {
   
-      // console.log(name)
-      // toString()
-      // length
-    //  const newName= name.toString()
-    //   console.log(name.toString().length)
+      console.log(target)
+ 
       return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
@@ -91,7 +90,7 @@ alert("Oops. please, try other category this list empty :)")
             />
           </svg>
         </div>
-        <h3 class="exercises_list_item_middle_title" id="name">${(name.toString().length>21)? name.slice(0, 21)+"..." :name} </h3>
+        <h3 class="exercises_list_item_middle_title" id="name">${(name.toString().length>20)? name.slice(0, 20)+"..." :name} </h3>
       </div>
       <div class="exercises_list_item_bottom">
         <ul class="exercises_list_item_bottom_list">
