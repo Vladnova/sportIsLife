@@ -24,4 +24,4 @@ async function handlerSearch(e) {
   makeMarkupCards(exercises);
 }
 
-console.log('test')
+console.log('test2')

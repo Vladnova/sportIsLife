@@ -2,7 +2,6 @@ import { myModal } from './modal-window/modal'
 import { getExerciseModal, getRatingModal } from './modal-window/generation-to-modal'
 import { createInteractiveRaiting } from '../js/raiting'
 import fetchSportEnergy from '../js/api/apiSport'
-import { setButtonFavorite, setFavoriteArr } from './utils/favorite'
 
 const listExercises = document.querySelector('.filter-list-js');
 let id="";
@@ -38,34 +37,29 @@ async function getRaitingHandler() {
     sendRaitingForm.addEventListener('submit', sendRaitingHandler)
 }
 
-const toggleFavoritesList = (status) => { 
-    console.log(status)
-    console.log(id)
-    let favoriteList = setFavoriteArr()
-    if (status === 'true') { 
-        favoriteList = [
-            ...favoriteList,
-            id
-        ]
-    } else { 
-        favoriteList = favoriteList.filter(item => item !== id)
-    }
-    localStorage.setItem('favorites', JSON.stringify(favoriteList))
-}
 function addFavoriteHandler() {
     const favoriteButton = document.querySelector('.refresh-button-js')
     const getRatingButton = document.querySelector('.add-rating')
     if (favoriteButton.dataset.favorite === 'false') {
-        favoriteButton.innerHTML = setButtonFavorite('false')
+        favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
+                                        <span class="remote-favorites">Remove from favorites</span>
+                                        <svg class="trash-icon-img" width="18" height="18" aria-label="trash-icon">
+                                            <use href="./img/svg/sprite.svg#icon-trash"></use>
+                                        </svg>
+                                    </button>`
         favoriteButton.dataset.favorite = 'true'
         getRatingButton.style.fontSize = '15px'
     } else {
-        favoriteButton.innerHTML = setButtonFavorite('true')
+        favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
+                                        <span>Add to favorites</span>
+                                        <svg class="heart-icon-img" width="20" height="20" aria-label="heart-icon">
+                                            <use href="./img/svg/sprite.svg#icon-heart"></use>
+                                        </svg>
+                                    </button>`
         favoriteButton.dataset.favorite = 'false'
         getRatingButton.style.fontSize = '16px'
     }
-    console.log(favoriteButton.dataset.favorite);
-    toggleFavoritesList(favoriteButton.dataset.favorite)
+
 }
 
 function getStartHandler({ target }) {
