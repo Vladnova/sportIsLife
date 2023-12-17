@@ -35,7 +35,7 @@
 
 .social-links {
   display: flex;
-  direction: row;
+  flex-direction: row;
 }
 .social-links li:not(:last-child) {
   margin-right: 12px;
