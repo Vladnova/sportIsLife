@@ -61,8 +61,8 @@ if (localStorage.getItem("user")){
         await signOut(auth).then(() => {
             User.innerHTML =  "";
             localStorage.removeItem("user")
-            console.log ("Sign-out successful.")
-            // localStorage.removeItem("favotitesCurentUser")
+        
+        
             
             let part = currentUrl.slice(-14)
             console.log(part)
