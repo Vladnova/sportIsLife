@@ -74,21 +74,20 @@ export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
       let filterCurrent = filter.toLocaleLowerCase().replaceAll(' ', '');
-
       if (filterCurrent === 'bodyparts') {
         filterCurrent = 'bodypart';
       }
       return `
-        <li class="muscles-item" data-name=${name} data-filter=${filterCurrent}>
-        <a href="" class="muscles-link" data-alt="${name}">
-        <img loading="lazy" class="muscles-image" src="${imgURL}" alt="${name}" width="335"  >
+      <li class="muscles-item" data-name=${name} data-filter=${filterCurrent}>
+      <a href="" class="muscles-link" data-alt="${name}">
+        <img loading="lazy" class="muscles-image" src="${imgURL}" alt="${name}" >
         <div class="muscles-box-menu">
-           <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
-           <p class="muscles-text">${filter}</p>
-            </div>
-            </a>
-           </li>
-          `;
+          <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
+          <p class="muscles-text">${filter}</p>
+        </div>
+      </a>
+    </li>
+    `;
     })
     .join('');
     return markup;
