@@ -21,7 +21,7 @@ console.log(er.message)
     };
 
 export const deleteFavorites = async(id)=> {
-    const user = auth.currentUser;
+    const user = localStorage.getItem("user");
         if (user) {
            
             try{

@@ -1,4 +1,4 @@
-import { updateFirestore } from "./firebase";
+import { deleteFavorites, updateFirestore } from "./firebase";
 
 let favoriteCards = [];
 const localStorFavorites = JSON.parse(localStorage.getItem('favorites'));
@@ -17,6 +17,10 @@ export function addLocalFavorites(card) {
 }
 
 export const deleteLocalFavorites = id => {
+  const user=localStorage.getItem("user");
+  if(user){
+    deleteFavorites(id)
+  }
   favoriteCards = favoriteCards.filter(item => item._id !== id);
 
   localStorage.setItem(

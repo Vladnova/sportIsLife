@@ -1,4 +1,5 @@
 import sprite from '../../img/svg/sprite.svg';
+import { capitalizeFirstLetter } from '../utils/firstLater';
 
 function getRating(rating) {
 
@@ -60,7 +61,7 @@ export function getExerciseModal(data) {
     </div>
     <div class="modal-content-wrapper">
       <div class="card-wrapper">
-        <h3 class="title-card-modal">${data.name}</h3>
+        <h3 class="title-card-modal">${capitalizeFirstLetter(data.name)}</h3>
         <div class="rating-modal-container-wrapper"><p>${data.rating.toFixed(1)}</p>${getRating(data.rating)}</div>
       </div>
       <hr class="modal-decoration-line" />
