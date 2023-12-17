@@ -63,7 +63,7 @@ export function getExerciseModal(data) {
       </svg>
     </button>
     <div class="modal-image-vrapper">
-      <img class="modal-img" src="${data.gifUrl}" alt="${data.name}" />
+      <img loading="lazy" class="modal-img" src="${data.gifUrl}" alt="${data.name}" />
     </div>
     <div class="modal-content-wrapper">
       <div class="card-wrapper">
