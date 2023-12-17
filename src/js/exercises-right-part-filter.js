@@ -6,14 +6,12 @@ import { addLocalFavorites, deleteLocalFavorites } from './utils/localStor';
 import { message } from './toasts/message';
 import sprite from '../img/svg/sprite.svg';
 
-
 const listExercises = document.querySelector('.filter-list-js');
 let id = '';
-let data;
+const validNodeNames = ['BUTTON', 'svg', 'use', 'P'];
 let addRaitingButton;
 let addFavoriteButton;
 let sendRaitingForm;
-let sendRaitingButton;
 
 async function sendRaitingHandler(event) {
   event.preventDefault();
@@ -66,15 +64,18 @@ async function addFavoriteHandler(e) {
                                         </svg>
                                     </button>`;
     favoriteButton.dataset.favorite = 'false';
-
     deleteLocalFavorites(cardId);
   }
 }
 
 function getStartHandler({ target }) {
-  if (target.nodeName === 'BUTTON' || target.nodeName === 'svg' || target.nodeName === 'use') {
+  console.log(target.classList[0] === 'favourites_btn_trash_icon' , target.classList[0]);
+  if (validNodeNames.includes(target.nodeName) && target.classList[0] !== 'favourites_btn_trash_icon' && target.classList[0] !== undefined) {
     id = target.dataset.id;
-    return (data = oneCard(id));
+    return (oneCard(id));
+  } else if (target.classList[0] === 'favourites_btn_trash_icon') {
+    const cardId = target.dataset.id;
+    deleteLocalFavorites(cardId);
   }
 }
 

@@ -69,7 +69,7 @@ export function makeMarkupCards(exercises) {
           <div class="arrow-container">
             <svg class="exercises_btn_start_icon" width="56px" height="18px" data-id=${_id}>
               <use xlink:href="${sprite}#icon-arrow" data-id=${_id}></use>
-              />
+              /> 
             </svg>
             </div>
           </button>

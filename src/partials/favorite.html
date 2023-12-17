@@ -36,20 +36,37 @@
           <h3 class="favourites_left_bottom_time_title">110 min</h3>
           <p class="favourites_left_bottom_time_text">Daily norm of sports</p>
         </div>
-        <div class="favourites_left_bottom_img">
-          <img
-            srcset="
-              ./img/favorite-img/favorit_mobile.png     335w,
-              ./img/favorite-img/favorit_mobile@2x.png  670w,
-              ./img/favorite-img/favorit_tablet.png     344w,
-              ./img/favorite-img/favorit_tablet@2x.png  688w,
-              ./img/favorite-img/favorit_desctop.png    239w,
-              ./img/favorite-img/favorit_desctop@2x.png 478w
-            "
-            sizes="(min-width: 1440px) 239px, (max-width:767px) 335px, (min-width: 768px) 344px"
-            src="./img/favorite-img/favorit_desctop.png"
-            alt="women-bicycle"
-          />
+        <div>
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                ./img/quote-img/favorites/quote-img-mobile.png    1x,
+                ./img/quote-img/favorites/quote-img-mobile@2x.png 2x
+              "
+            />
+            <source
+              media="(min-width: 768px) and (max-width: 1439px)"
+              srcset="
+                ./img/quote-img/favorites/quote-img-tablet.png    1x,
+                ./img/quote-img/favorites/quote-img-tablet@2x.png 2x
+              "
+            />
+            <source
+              media="(min-width: 1440px)"
+              srcset="
+                ./img/quote-img/favorites/quote-img-desctop.png    1x,
+                ./img/quote-img/favorites/quote-img-desctop@2x.png 2x
+              "
+            />
+            <!-- Якщо браузер не підтримуе елемент picture -->
+            <img
+              class="img-exe"
+              srcset="./img/exercises-img/women-sports@2x.jpg 2x"
+              src="./img/exercises-img/women-sports.jpg"
+              alt="Women talking break"
+            />
+          </picture>
         </div>
       </div>
     </div>
