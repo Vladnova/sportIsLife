@@ -1,5 +1,7 @@
 import fetchSportEnergy from '../api/apiSport';
 import * as filterBtn from '../filter';
+import { makeMarkupCards } from '../exercises';
+
 
 const paginationNumbers = document.querySelector('.pagination-numbers');
 const musclesList = document.querySelector('.muscles-list');
@@ -26,23 +28,32 @@ try {
 // nextButton.addEventListener('click', () => {
 //   setCurrentPage(currentPage + 1);
 // });
+let dataRequest;
+let totalPages;
 
 async function handleClick(e) {
-  const { totalPages, categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
+  // const {totalPages, categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
   const dataFilter = {
-    filter: categoryName,
+    ...dataRequest,
     page: e.target.textContent,
-    limit: 12,
-    totalPages,
   };
-
+  if (e.target.nodeName !== 'BUTTON') return;
   if (dataFilter.page === currentPage) {
     return;
   }
+  if (dataFilter.filter) {
+    const filter = await fetchSportEnergy.getByFilterName(dataFilter);
+    const filteredResult = filter.results;
+    musclesList.innerHTML = filterBtn.makeMarkupMuscles(filteredResult);
+  }else {
+    const exercises = await fetchSportEnergy.getByFilterCategory(dataFilter);
+    makeMarkupCards(exercises);
+  }
 
-  const filter = await fetchSportEnergy.getByFilterName(dataFilter);
-  const filteredResult = filter.results;
-  musclesList.innerHTML = filterBtn.makeMarkupMuscles(filteredResult);
+  // loadSectionOnClick(dataFilter);
+  // handlerClickFilterCards();
+  // const exercises = await fetchSportEnergy.getByFilterCategory(dataFilter);
+
   currentPage = dataFilter.page;
   handlePageNumberClick();
 }
@@ -56,10 +67,11 @@ const appendPageNumber = index => {
   paginationNumbers.appendChild(pageNumber);
 };
 
-export function getPaginationNumbers() {
-  const { totalPages } = JSON.parse(localStorage.getItem('infoRequest'));
-  if (totalPages === 1) return;
-  for (let i = 1; i <= totalPages; i++) {
+export function getPaginationNumbers(pages, data) {
+  totalPages = pages;
+  dataRequest = data;
+  if (pages === 1) return;
+  for (let i = 1; i <= pages; i++) {
     appendPageNumber(i);
   }
 }
