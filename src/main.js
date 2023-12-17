@@ -22,3 +22,14 @@ import './js/raiting.js';
 import { showSpinner, hideSpinner } from './js/spinner';
 //2. Call showSpinner() in your req func
 //3. Call hideSpinner() in .finally (in .then.finally chaining method) or finally{} block if use try-catch block
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const windowWidth = window.innerWidth; // Отримання ширини вікна
+
+
+
+// // window.addEventListener('resize', function() {
+// //   const windowWidth = window.innerWidth; // Отримання ширини вікна
+
+// //   console.log('Ширина вікна:', windowWidth);
+// // });
