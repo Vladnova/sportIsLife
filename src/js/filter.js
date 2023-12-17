@@ -74,7 +74,6 @@ export function makeMarkupMuscles(filteredResult) {
   const markup = filteredResult
     .map(({ filter, name, imgURL }) => {
       let filterCurrent = filter.toLocaleLowerCase().replaceAll(' ', '');
-
       if (filterCurrent === 'bodyparts') {
         filterCurrent = 'bodypart';
       }
