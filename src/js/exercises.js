@@ -15,8 +15,7 @@ async function handlerClickFilterCards(e) {
   if ((target.nodeName !== 'IMG') & (target.nodeName !== 'P') & (target.nodeName !== 'H3')) {
     return;
   }
-  console.log('here');
-
+ 
   // loader.open()
   document.querySelector('.form-js').classList.remove('hidden-form');
 
