@@ -27,19 +27,29 @@
   object-fit: cover;
   filter: brightness(50%)
 }
+.muscles-link {
+  display: flex; 
+  align-items: center;
+}
 
+.muscles-box-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
    
 .muscles-link img{
   display: block;
 }
 
-
+/* 
 
 .muscles-box-menu {
   position: absolute;
   top: 40%;
   left: 30%;
-}
+} */
 .muscles-small-title {
   color: var(--primary-color);
   font-family: var(--primary-font);

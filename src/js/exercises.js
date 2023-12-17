@@ -1,6 +1,7 @@
 import fetchSportEnergy from './api/apiSport';
 import { loader } from './loader/loader';
 import sprite from '../img/svg/sprite.svg';
+import { cutString } from './favorite/slice-string';
 
 const list = document.querySelector('.filter-list-js');
 
@@ -51,7 +52,7 @@ async function handlerClickFilterCards(e) {
 export function makeMarkupCards(exercises) {
   if (exercises.results.length) {
     const markup = exercises.results
-      .map(({ _id, target, rating, name, burnedCalories, time }) => {
+      .map(({ _id, target, rating, name, burnedCalories, time,bodyPart }) => {
         return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
@@ -91,11 +92,21 @@ export function makeMarkupCards(exercises) {
           <li class="exercises_list_item_bottom_list_item">
             <p class="exercises_list_item_bottom_list_item_text">
               Burned calories: <span>${burnedCalories ? burnedCalories : ''} / ${
-          time ? time : 'your wish'
-        } min</span>
+          time ? time : 'your wish' } min</span>
             </p>
           </li>
-        </ul>
+          <li class="exercises_list_item_bottom_list_item">
+          <p class="exercises_list_item_bottom_list_item_text">
+            Body part: <span>${cutString(bodyPart, 5)}</span>
+          </p>
+          </li>
+          <li class="exercises_list_item_bottom_list_item">
+<p class="exercises_list_item_bottom_list_item_text"">Target: <span>${cutString(
+  target,
+  7
+)}</span></p>
+</li>
+      </ul>
         </div>
     </li>`;
       })
@@ -103,3 +114,6 @@ export function makeMarkupCards(exercises) {
     list.innerHTML = markup;
   }
 }
+
+   
+

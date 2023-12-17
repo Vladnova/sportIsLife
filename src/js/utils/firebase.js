@@ -39,17 +39,19 @@ console.log(er.message)
 
 
  export const listOfFavorites= async()=>{
-    const user = auth.currentUser;
+    const user = localStorage.getItem("user");
+   
     const favorites = []
-    console.log(user.email)
-                const querySnapshot = await getDocs(collection(db, user.email));
+    // console.log(user.email)
+                const querySnapshot = await getDocs(collection(db, user));
                 // const querySnapshot = getDocs(collection(db, user.email));
                 // console.log(querySnapshot)
                 querySnapshot.forEach((doc) => {
                   // doc.data() is never undefined for query doc snapshots
-                  console.log(doc.id, " => ", doc.data());
+                  // console.log(doc.id, " => ", doc.data());
                   favorites.push(doc.data())
                 });
+                console.log("----->kjhkhkj")
  localStorage.setItem("favotitesCurentUser", JSON.stringify(favorites))
     };
  

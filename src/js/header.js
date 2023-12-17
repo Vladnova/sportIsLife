@@ -1,3 +1,5 @@
+import { listOfFavorites } from "./utils/firebase"
+
 const Home = document.getElementById("home")
 const Favorites = document.getElementById("favorites")
 const TextHome = document.getElementById("home-text")
@@ -8,6 +10,7 @@ const currentUrl = window.location.href.toString();
 let part = currentUrl.slice(-14)
 
 export const onClickPage = () => {
+   listOfFavorites();
   
    if (part === "favorites.html") {
     Home.classList.remove("active");

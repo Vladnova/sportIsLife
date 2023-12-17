@@ -84,8 +84,8 @@ export function makeMarkupMuscles(filteredResult) {
         <a href="" class="muscles-link" data-alt="${name}">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">
-           <h3 class="muscles-small-title">${filter}</h3>
-           <p class="muscles-text">${name}</p>
+           <h3 class="muscles-small-title">${name}</h3>
+           <p class="muscles-text">${filter}</p>
             </div>
             </a>
            </li>
