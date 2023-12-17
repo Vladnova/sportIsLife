@@ -1,5 +1,6 @@
 import { getApp, getApps,initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 // TODO: Replace the following with your app's Firebase project configuration
 // const firebaseConfig = {
@@ -22,8 +23,8 @@ const firebaseConfig = {
     appId: "1:882269537085:web:b0e1d25d79d88d76b4bb54"
   };
 
-export const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-// const app = initializeApp(firebaseConfig);
+// export const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 // export const auth = initializeAuth(app, {errorMap: debugErrorMap})
 
@@ -31,6 +32,6 @@ export const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 // const analytics = getAnalytics(app);
-// export const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export default firebaseConfig;
