@@ -1,5 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup, signOut} from "firebase/auth";
 import { auth } from "../../firebase";
+import { listOfFavorites } from "./utils/firebase";
 
 const provider = new GoogleAuthProvider();
 
@@ -17,17 +18,18 @@ if (localStorage.getItem("user")){
         
         await signInWithPopup(auth, provider)
         .then((result) => {
-            
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-          
+            
             const user = result.user;
-        
+            
             
             localStorage.user= user.email;
+            listOfFavorites()
             User.innerHTML = user.email;
             SignOut.classList.remove("display-none")
             SingIn.classList.add("display-none")
+            localStorage.removeItem("favotites")
        
         }).catch((error) => {
             // Handle Errors here.
@@ -47,6 +49,7 @@ if (localStorage.getItem("user")){
             User.innerHTML =  "";
             localStorage.removeItem("user")
             console.log ("Sign-out successful.")
+            localStorage.removeItem("favotitesCurentUser")
         }).catch((error) => {
             console.log(error.message)// An error happened.
         });
