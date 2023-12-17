@@ -1,15 +1,21 @@
 import fetchSportEnergy from './api/apiSport';
 import { loader } from './loader/loader';
 import sprite from '../img/svg/sprite.svg';
+
+import * as pagination from './pagination/pagination';
+import { message } from './toasts/message';
 import { cutString } from './favorite/slice-string';
 import { capitalizeFirstLetter } from './utils/firstLater';
 
+
+
+const paginationNumbers = document.querySelector('.pagination-numbers');
 const list = document.querySelector('.filter-list-js');
 
 const exercisesTag = document.querySelector('.title-exercises');
 list.addEventListener('click', handlerClickFilterCards);
 
-async function handlerClickFilterCards(e) {
+export async function handlerClickFilterCards(e) {
   e.preventDefault();
   const { target } = e;
   if ((target.nodeName !== 'IMG') & (target.nodeName !== 'P') & (target.nodeName !== 'H3')) {
@@ -31,7 +37,7 @@ async function handlerClickFilterCards(e) {
       nameCard = target.parentNode.parentNode.dataset.alt;
     }
     const dataExercises = {
-      [nameFilter]: [nameCard],
+      [nameFilter]: nameCard,
       page: 1,
       limit: 10,
     };
@@ -42,16 +48,22 @@ async function handlerClickFilterCards(e) {
 
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
 
+
     if (exercises?.results.length) {
       list.classList.add('exercises_list');
       list.classList.remove('muscles-list');
 
       makeMarkupCards(exercises);
+      paginationNumbers.innerHTML = '';
+      const {totalPages} = exercises
+      pagination.getPaginationNumbers(totalPages, dataExercises);
+
+      pagination.setCurrentPage(1);
     } else {
-      alert('Oops. please, try other category this list empty :)');
+      message.info('Oops. please, try other category this list empty :(');
     }
   } catch (er) {
-    console.log(er.message);
+    message.error(er.message);
   }
   // loader.close()
 }
@@ -80,7 +92,7 @@ export function makeMarkupCards(exercises) {
           <div class="arrow-container">
             <svg class="exercises_btn_arrow_icon" width="56px" height="18px" data-id=${_id}>
               <use xlink:href="${sprite}#icon-arrow" data-id=${_id}></use>
-              /> 
+              />
             </svg>
             </div>
           </button>

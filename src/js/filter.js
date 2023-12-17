@@ -1,4 +1,5 @@
 import fetchSportEnergy from './api/apiSport';
+import { message } from './toasts/message';
 // import { loader } from './loader/loader';
 import * as pagination from './pagination/pagination';
 import { capitalizeFirstLetter } from './utils/firstLater';
@@ -39,8 +40,6 @@ export async function handleCategoryClick(event) {
   loadSectionOnClick(dataFilter);
 }
 
-//======================================================
-
 export async function loadSectionOnClick(dataFilter) {
   // loader.open()
   document.querySelector('.filter-list-js').classList.remove('exercises_list');
@@ -50,11 +49,11 @@ export async function loadSectionOnClick(dataFilter) {
     const filteredResult = filter.results;
 
     if (!filter || filteredResult.length === 0) {
-      console.log("Sorry, we didn't find anything according to your request.");
+      message.error("Sorry, we didn't find anything according to your request.");
       return;
     }
-
-    musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult));
+    musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult))
+    makeMarkupMuscles(filteredResult);
 
     // Збереження в LocalStorage інформації для пагінації сторінки
     const { totalPages } = filter;
@@ -62,7 +61,7 @@ export async function loadSectionOnClick(dataFilter) {
     localStorage.setItem('infoRequest', data);
     document.querySelector('.filter-list-js').classList.add('muscles-list');
     paginationNumbers.innerHTML = '';
-    pagination.getPaginationNumbers();
+    pagination.getPaginationNumbers(totalPages,  dataFilter);
 
     pagination.setCurrentPage(1);
   } catch (error) {
@@ -80,7 +79,6 @@ export function makeMarkupMuscles(filteredResult) {
         filterCurrent = 'bodypart';
       }
       return `
-
         <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
 
         <a href="" class="muscles-link" data-alt="${name}">
@@ -94,5 +92,5 @@ export function makeMarkupMuscles(filteredResult) {
           `;
     })
     .join('');
-  return markup;
+    return markup;
 }
