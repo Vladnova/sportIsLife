@@ -5,11 +5,11 @@ const TextFavorite = document.getElementById("favorites-text")
 const Nav = document.getElementById("navigation")
 const currentUrl = window.location.href.toString();
 
-let part = currentUrl.slice(-13)
+let part = currentUrl.slice(-14)
 
-export const onClickPage=()=>{
+export const onClickPage = () => {
   
-   if (part === "favorite.html") {
+   if (part === "favorites.html") {
     Home.classList.remove("active");
     TextHome.classList.remove("black");
     Favorites.classList.add("active");
