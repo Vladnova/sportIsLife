@@ -14,9 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
     rel="stylesheet" />
   
-  <script type="module" crossorigin src="/sportIsLife/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/sportIsLife/assets/vendor-c6a8d4ef.js">
-  <link rel="modulepreload" crossorigin href="/sportIsLife/assets/exercises-right-part-filter-acd12156.js">
+  <script type="module" crossorigin src="/sportIsLife/assets/vendor-c6a8d4ef.js"></script>
+  <script type="module" crossorigin src="/sportIsLife/assets/exercises-right-part-filter-f9550723.js"></script>
   <link rel="stylesheet" href="/sportIsLife/assets/exercises-right-part-filter-436ebf4b.css">
 </head>
 
@@ -79,39 +78,40 @@
 </header>
 
   <div class="burger-modal visually-hidden" id="burger">
-   <button class="burger-button-close" id ="burger-button-close">
-       <svg  xmlns="http://www.w3.org/2000/svg" width="16px" height="16" stroke="white">
-           <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-close"  />
-         </svg>
-   </button>
-      <nav class="burger-pages-list">
-        <a  href="./index.html" class="burger-pages-list-item">Home</a>
-        <a href="./favorite.html" class="burger-pages-list-item">Favorites</a>
-      </nav>
-      <ul class ="social-links-list">
-          <li >
-          <a class="social-links-list-item" href="https://www.facebook.com/goITclub/" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
-                <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-facebook"  />
-              </svg>
-            </a>
-        </li >
-        <li >
-        <a  class="social-links-list-item" href="https://www.instagram.com/goitclub/" target="_blank">
-          <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
-            <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-instagram"  />
-          </svg>
-        </a>
+  <button class="burger-button-close" id="burger-button-close">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16" stroke="white">
+      <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-close" />
+    </svg>
+  </button>
+  <nav class="burger-pages-list">
+    <a href="./index.html" class="burger-pages-list-item">Home</a>
+    <a href="./favorites.html" class="burger-pages-list-item">Favorites</a>
+  </nav>
+  <ul class="social-links-list">
+    <li>
+      <a class="social-links-list-item" href="https://www.facebook.com/goITclub/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
+          <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-facebook" />
+        </svg>
+      </a>
     </li>
-    <li >
-        <a class="social-links-list-item" href="https://www.youtube.com/c/GoIT" target="_blank">
-          <svg  xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
-            <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-youtube" />
-          </svg>
-        </a>
+    <li>
+      <a class="social-links-list-item" href="https://www.instagram.com/goitclub/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
+          <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-instagram" />
+        </svg>
+      </a>
     </li>
-      </ul>
+    <li>
+      <a class="social-links-list-item" href="https://www.youtube.com/c/GoIT" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32">
+          <use href="/sportIsLife/assets/sprite-ffba578a.svg#icon-youtube" />
+        </svg>
+      </a>
+    </li>
+  </ul>
 </div>
+
 
   <section class="container pd-top">
   <h2 class="favourites_title">Favorites</h2>
@@ -151,20 +151,28 @@
           <h3 class="favourites_left_bottom_time_title">110 min</h3>
           <p class="favourites_left_bottom_time_text">Daily norm of sports</p>
         </div>
-        <div class="favourites_left_bottom_img">
-          <img
-            srcset="
-              ./img/favorite-img/favorit_mobile.png     335w,
-              ./img/favorite-img/favorit_mobile@2x.png  670w,
-              ./img/favorite-img/favorit_tablet.png     344w,
-              ./img/favorite-img/favorit_tablet@2x.png  688w,
-              ./img/favorite-img/favorit_desctop.png    239w,
-              ./img/favorite-img/favorit_desctop@2x.png 478w
-            "
-            sizes="(min-width: 1440px) 239px, (max-width:767px) 335px, (min-width: 768px) 344px"
-            src="./img/favorite-img/favorit_desctop.png"
-            alt="women-bicycle"
-          />
+        <div>
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="/sportIsLife/assets/quote-img-mobile-71151144.png 1x, /sportIsLife/assets/quote-img-mobile@2x-26fe3691.png 2x"
+            />
+            <source
+              media="(min-width: 768px) and (max-width: 1439px)"
+              srcset="/sportIsLife/assets/quote-img-tablet-0e3d985f.png 1x, /sportIsLife/assets/quote-img-tablet@2x-619efdc7.png 2x"
+            />
+            <source
+              media="(min-width: 1440px)"
+              srcset="/sportIsLife/assets/quote-img-desctop-2739cff1.png 1x, /sportIsLife/assets/quote-img-desctop@2x-752e4a97.png 2x"
+            />
+            <!-- Якщо браузер не підтримуе елемент picture -->
+            <img
+              class="img-exe"
+              srcset="/sportIsLife/assets/women-sports@2x-a3ebb7b8.jpg 2x"
+              src="/sportIsLife/assets/women-sports-d67ebd1c.jpg"
+              alt="Women talking break"
+            />
+          </picture>
         </div>
       </div>
     </div>

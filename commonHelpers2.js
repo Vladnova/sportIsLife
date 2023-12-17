@@ -1,4 +1,4 @@
-import{f as i,s as p,m as y}from"./assets/exercises-right-part-filter-acd12156.js";import{S as w}from"./assets/vendor-c6a8d4ef.js";const c=document.querySelector(".filter-list-js");c.addEventListener("click",C);async function C(t){t.preventDefault();const{target:e}=t;if(e.nodeName!=="IMG"&e.nodeName!=="P"&e.nodeName!=="H3")return;document.querySelector(".form-js").classList.remove("hidden-form");let a,s;try{e.nodeName==="IMG"&&(a=e.parentNode.parentNode.dataset.filter,s=e.alt),(e.nodeName==="P"||e.nodeName==="H3")&&(a=e.parentNode.parentNode.parentNode.dataset.filter,s=e.parentNode.parentNode.dataset.alt);const n={[a]:[s],page:1,limit:10},r=await i.getByFilterCategory(n);r!=null&&r.results.length?(c.classList.add("exercises_list"),c.classList.remove("muscles-list"),_(r)):alert("Oops. please, try other category this list empty :)")}catch(n){console.log(n.message)}}function _(t){if(t.results.length){const e=t.results.map(({_id:a,target:s,rating:n,name:r,burnedCalories:o,time:f})=>`
+import{f as i,s as p,m as y}from"./assets/exercises-right-part-filter-f9550723.js";import{S as w}from"./assets/vendor-c6a8d4ef.js";const c=document.querySelector(".filter-list-js");c.addEventListener("click",C);async function C(t){t.preventDefault();const{target:e}=t;if(e.nodeName!=="IMG"&e.nodeName!=="P"&e.nodeName!=="H3")return;document.querySelector(".form-js").classList.remove("hidden-form");let a,s;try{e.nodeName==="IMG"&&(a=e.parentNode.parentNode.dataset.filter,s=e.alt),(e.nodeName==="P"||e.nodeName==="H3")&&(a=e.parentNode.parentNode.parentNode.dataset.filter,s=e.parentNode.parentNode.dataset.alt);const n={[a]:[s],page:1,limit:10},r=await i.getByFilterCategory(n);r!=null&&r.results.length?(c.classList.add("exercises_list"),c.classList.remove("muscles-list"),_(r)):alert("Oops. please, try other category this list empty :)")}catch(n){console.log(n.message)}}function _(t){if(t.results.length){const e=t.results.map(({_id:a,target:s,rating:n,name:r,burnedCalories:o,time:f})=>`
       <li class="exercises_list_item" id=${a}>
       <div class="exercises_list_item_up">
         <div class="exercises_list_item_up_left">
@@ -13,7 +13,7 @@ import{f as i,s as p,m as y}from"./assets/exercises-right-part-filter-acd12156.j
           <div class="arrow-container">
             <svg class="exercises_btn_start_icon" width="56px" height="18px" data-id=${a}>
               <use xlink:href="${p}#icon-arrow" data-id=${a}></use>
-              />
+              /> 
             </svg>
             </div>
           </button>
