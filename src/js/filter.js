@@ -79,10 +79,11 @@ export function makeMarkupMuscles(filteredResult) {
         filterCurrent = 'bodypart';
       }
       return `
-        <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
+
+        <li class="muscles-item" data-name=${name} data-filter=${filterCurrent}>
 
         <a href="" class="muscles-link" data-alt="${name}">
-        <img class="muscles-image" src="${imgURL}" alt="${name}"  >
+        <img class="muscles-image" src="${imgURL}" alt="${name}" width="335"  >
         <div class="muscles-box-menu">
            <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
            <p class="muscles-text">${filter}</p>
