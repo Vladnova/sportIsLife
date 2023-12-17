@@ -10,7 +10,8 @@ User.innerHTML = localStorage.getItem("user");
 if (localStorage.getItem("user")){
     
         SignOut.classList.remove("display-none")
-        SingIn.classList.add("display-none")
+    SingIn.classList.add("display-none")
+    SingIn.style.display = 'none'
     }
     // let user;
     export const googleSignin = async ()=>{
@@ -28,6 +29,7 @@ if (localStorage.getItem("user")){
             User.innerHTML = user.email;
             SignOut.classList.remove("display-none")
             SingIn.classList.add("display-none")
+            SingIn.style.display = 'none'
        
         }).catch((error) => {
             // Handle Errors here.
@@ -52,6 +54,7 @@ if (localStorage.getItem("user")){
         });
         SignOut.classList.add("display-none")
         SingIn.classList.remove("display-none")
+        SingIn.style.display = 'flex'
     }
     
     SingIn.addEventListener("click", googleSignin);
