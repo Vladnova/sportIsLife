@@ -68,6 +68,13 @@
 .exercises_btn_start_icon {
   width: 16px;
   height: 16px;
+  fill: var(--stars-background-active-color);
+  stroke: var(--stars-background-active-color);
+}
+
+.exercises_btn_arrow_icon {
+  width: 16px;
+  height: 16px;
   transform: rotate(90deg);
   stroke: var(--second-color);
   position: relative;
