@@ -23,20 +23,24 @@
   padding-right: 10px;
 }
 
+.exercises_btn_start_icon_rating {
+  fill: rgba(244, 244, 244, 0.2);
+}
+
 .hovered {
+  fill: var(--stars-background-active-color);
   color: var(--stars-background-active-color); /* Цвет выбранных звезд */
 }
 
 .selected {
+  fill: var(--stars-background-active-color);
   color: var(--stars-background-active-color); /* Цвет выбранных звезд */
 }
 
+.star-js {
+  width: 15px;
+}
+
 .last-star-js {
-  background: linear-gradient(
-    to right,
-    var(--stars-background-active-color) 70%,
-    rgba(244, 244, 244, 0.2) 30%
-  );
-  display: inline-block;
-  background-clip: text;
+  fill: linear-gradient(to right, var(--stars-background-active-color), rgba(244, 244, 244, 0.2));
 }
