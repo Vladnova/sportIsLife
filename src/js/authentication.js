@@ -27,11 +27,11 @@ if (localStorage.getItem("user")){
             
             
             localStorage.user= user.email;
+            addContent(); 
             listOfFavorites()
 
-            let part = currentUrl.slice(-14)         
+            // let part = currentUrl.slice(-14)         
             
-             addContent(); 
 
            
             User.innerHTML = user.email;
@@ -41,7 +41,7 @@ if (localStorage.getItem("user")){
             SingIn.style.display = 'none'
 
 
-            localStorage.removeItem("favotites")
+            // localStorage.removeItem("favotites")
        
         }).catch((error) => {
             // Handle Errors here.
@@ -62,8 +62,7 @@ if (localStorage.getItem("user")){
             User.innerHTML =  "";
             localStorage.removeItem("user")
             console.log ("Sign-out successful.")
-            localStorage.removeItem("favotitesCurentUser")
-            localStorage.removeItem("favotites")
+            // localStorage.removeItem("favotitesCurentUser")
             
             let part = currentUrl.slice(-14)
             console.log(part)
@@ -76,6 +75,7 @@ if (localStorage.getItem("user")){
         SignOut.classList.add("display-none")
         SingIn.classList.remove("display-none")
         SingIn.style.display = 'flex'
+        localStorage.removeItem("favorites");
     }
     
     SingIn.addEventListener("click", googleSignin);

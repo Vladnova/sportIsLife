@@ -1,6 +1,6 @@
 // import { FieldPath, doc, updateDoc } from "firebase/firestore";
 import { collection, doc, setDoc, deleteDoc, getDocs } from "firebase/firestore"; 
-import { onAuthStateChanged } from "firebase/auth";
+// import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from '../../../firebase';
 
 export const updateFirestore = async(card) =>{
@@ -25,7 +25,7 @@ export const deleteFavorites = async(id)=> {
         if (user) {
            
             try{
-             deleteDoc(doc(db, user.email, id));
+             deleteDoc(doc(db, user, id));
   console.log("delete")
             } catch (er){
 console.log(er.message)
@@ -51,8 +51,8 @@ console.log(er.message)
                   // console.log(doc.id, " => ", doc.data());
                   favorites.push(doc.data())
                 });
-                console.log("----->kjhkhkj")
- localStorage.setItem("favotitesCurentUser", JSON.stringify(favorites))
+                
+ localStorage.setItem("favorites", JSON.stringify(favorites))
     };
  
 
