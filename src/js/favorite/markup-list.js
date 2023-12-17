@@ -6,6 +6,7 @@ export function markupList(arr) {
   list.classList.remove('hidden-form');
   if(arr.length > 6){
     list.style.overflowY = 'scroll';
+    list.style.maxHeight = '600px';
   }
 
   const markup = arr

@@ -1,4 +1,5 @@
 import fetchSportEnergy from './api/apiSport';
+import { message } from './toasts/message';
 // import { loader } from './loader/loader';
 import * as pagination from './pagination/pagination';
 import { capitalizeFirstLetter } from './utils/firstLater';
@@ -7,6 +8,7 @@ const categoryList = document.querySelector('.wrap-button');
 const musclesList = document.querySelector('.muscles-list');
 const paginationNumbers = document.querySelector('.pagination-numbers');
 
+const exercisesTag = document.querySelector('.title-exercises');
 categoryList.addEventListener('click', handleCategoryClick);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 export async function handleCategoryClick(event) {
   event.preventDefault();
-
+  exercisesTag.innerHTML = 'Exercises';
   const { target, currentTarget } = event;
 
   if (target.nodeName !== 'BUTTON') return;
@@ -38,8 +40,6 @@ export async function handleCategoryClick(event) {
   loadSectionOnClick(dataFilter);
 }
 
-//======================================================
-
 export async function loadSectionOnClick(dataFilter) {
   // loader.open()
   document.querySelector('.filter-list-js').classList.remove('exercises_list');
@@ -49,11 +49,11 @@ export async function loadSectionOnClick(dataFilter) {
     const filteredResult = filter.results;
 
     if (!filter || filteredResult.length === 0) {
-      console.log("Sorry, we didn't find anything according to your request.");
+      message.error("Sorry, we didn't find anything according to your request.");
       return;
     }
-
-    musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult));
+    musclesList.insertAdjacentHTML('beforeend', makeMarkupMuscles(filteredResult))
+    makeMarkupMuscles(filteredResult);
 
     // Збереження в LocalStorage інформації для пагінації сторінки
     const { totalPages } = filter;
@@ -61,7 +61,7 @@ export async function loadSectionOnClick(dataFilter) {
     localStorage.setItem('infoRequest', data);
     document.querySelector('.filter-list-js').classList.add('muscles-list');
     paginationNumbers.innerHTML = '';
-    pagination.getPaginationNumbers();
+    pagination.getPaginationNumbers(totalPages,  dataFilter);
 
     pagination.setCurrentPage(1);
   } catch (error) {
@@ -79,9 +79,11 @@ export function makeMarkupMuscles(filteredResult) {
         filterCurrent = 'bodypart';
       }
       return `
-        <li class="muscles-item" width="335" data-name=${name} data-filter=${filterCurrent}>
+
+        <li class="muscles-item" data-name=${name} data-filter=${filterCurrent}>
+
         <a href="" class="muscles-link" data-alt="${name}">
-        <img class="muscles-image" src="${imgURL}" alt="${name}"  >
+        <img class="muscles-image" src="${imgURL}" alt="${name}" width="335"  >
         <div class="muscles-box-menu">
            <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
            <p class="muscles-text">${filter}</p>
@@ -91,5 +93,5 @@ export function makeMarkupMuscles(filteredResult) {
           `;
     })
     .join('');
-  return markup;
+    return markup;
 }
