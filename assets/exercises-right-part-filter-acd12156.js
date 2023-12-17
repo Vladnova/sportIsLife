@@ -110,4 +110,4 @@ var H=Object.defineProperty;var A=(t,e,s)=>e in t?H(t,e,{enumerable:!0,configura
                                             <use href="${d}#icon-heart"></use>
                                         </svg>
                                     </button>`,e.dataset.favorite="false",pe(s)}function Ee({target:t}){if(t.nodeName==="BUTTON"||t.nodeName==="svg"||t.nodeName==="use")return q=t.dataset.id,Le(q)}fe.addEventListener("click",Ee);const Le=async t=>{let e=await y.getOneExercises(t);const s=localStorage.getItem("favorites");s!==null&&JSON.parse(s).find(({_id:r})=>r===t)?e.favorite=!0:e.favorite=!1,m.open(T(e)),M=document.querySelector(".refresh-button-js"),O=document.querySelector(".add-rating"),O.addEventListener("click",ye),M.addEventListener("click",be)};export{y as f,x as m,d as s};
-//# sourceMappingURL=exercises-right-part-filter-0029268d.js.map
+//# sourceMappingURL=exercises-right-part-filter-acd12156.js.map
