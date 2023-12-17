@@ -42,7 +42,3 @@
 .star-js {
   width: 15px;
 }
-
-.last-star-js {
-  fill: linear-gradient(to right, var(--stars-background-active-color), rgba(244, 244, 244, 0.2));
-}
