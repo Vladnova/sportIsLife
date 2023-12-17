@@ -5,15 +5,15 @@ import fetchSportEnergy from '../js/api/apiSport';
 import { addLocalFavorites, deleteLocalFavorites } from './utils/localStor';
 import { message } from './toasts/message';
 import sprite from '../img/svg/sprite.svg';
+import { addContent } from '../js/favorite/favorite'
 
 
 const listExercises = document.querySelector('.filter-list-js');
 let id = '';
-let data;
+const validNodeNames = ['BUTTON', 'svg', 'use', 'P'];
 let addRaitingButton;
 let addFavoriteButton;
 let sendRaitingForm;
-let sendRaitingButton;
 
 async function sendRaitingHandler(event) {
   event.preventDefault();
@@ -66,15 +66,24 @@ async function addFavoriteHandler(e) {
                                         </svg>
                                     </button>`;
     favoriteButton.dataset.favorite = 'false';
-
     deleteLocalFavorites(cardId);
+    const currentUrl = window.location.href.toString();
+    let part = currentUrl.slice(-14)
+    console.log(part);
+    if (part === 'favorites.html') {
+      addContent()
+    }
   }
 }
 
 function getStartHandler({ target }) {
-  if (target.nodeName === 'BUTTON' || target.nodeName === 'svg' || target.nodeName === 'use') {
+  if (validNodeNames.includes(target.nodeName) && target.classList[0] !== 'favourites_btn_trash_icon' && target.classList[0] !== 'favourites_btn_workout') {
     id = target.dataset.id;
-    return (data = oneCard(id));
+    return (oneCard(id));
+  } else if (target.classList[0] === 'favourites_btn_trash_icon') {
+    const cardId = target.dataset.id;
+    deleteLocalFavorites(cardId);
+    addContent()
   }
 }
 

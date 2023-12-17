@@ -1,6 +1,6 @@
 export function createInteractiveRaiting() {
     const ratingContainer = document.querySelector('.rating-container-js');
-    const stars = ratingContainer.querySelectorAll('.star-js');
+    const stars = ratingContainer.querySelectorAll('.exercises_btn_start_icon_rating');
     let userRating = ratingContainer.querySelector('.user-rating-js')
 
     stars.forEach((star, index) => {

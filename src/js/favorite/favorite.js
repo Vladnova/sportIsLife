@@ -4,6 +4,7 @@ import { listOfFavorites } from '../utils/firebase';
 
 export function addContent() {
   listOfFavorites()
+
   const favorites = JSON.parse(localStorage.getItem('favorites'));
   const favotitesCurentUser= JSON.parse(localStorage.getItem('favotitesCurentUser'));
   const list = favotitesCurentUser ? favotitesCurentUser : favorites;
