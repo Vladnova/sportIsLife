@@ -79,9 +79,7 @@ export function makeMarkupMuscles(filteredResult) {
         filterCurrent = 'bodypart';
       }
       return `
-
-        <li class="muscles-item"  data-name=${name} data-filter=${filterCurrent}>
-
+        <li class="muscles-item" width="335" data-name=${name} data-filter=${filterCurrent}>
         <a href="" class="muscles-link" data-alt="${name}">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">
