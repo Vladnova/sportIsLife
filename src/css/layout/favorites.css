@@ -1,3 +1,7 @@
+.pd-top {
+  padding-top: 132px;
+}
+
 .favourites_title {
   color: var(--second-color);
 
@@ -51,7 +55,7 @@
 }
 
 .favourites_left_quote_top_left_text {
-  color: #f4f4f4;
+  color: var(--primary-color);
   font-family: DM Sans;
   font-size: 24px;
   font-style: normal;
@@ -78,7 +82,7 @@
 .favourites_left_quote_author {
   margin-top: 18px;
   padding-left: 50px;
-  color: #f4f4f4;
+  color: var(--primary-color);
   font-family: DM Sans;
   font-size: 16px;
   font-style: normal;
@@ -137,18 +141,10 @@
   height: 100%;
 }
 
-.favourites_list {
-  width: 780px;
-  height: 487px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px 16px;
-  overflow-y: scroll;
-}
 .favourites_list::-webkit-scrollbar {
   width: 8px;
   border-radius: 12px;
-  background: #24242410;
+  background: var(--second-color);
 }
 
 .favourites_list::-webkit-scrollbar-thumb {
@@ -195,8 +191,7 @@
   width: 16px;
   height: 16px;
   transform: scale(1);
-  transition: transform var(--animation)
-
+  transition: transform var(--animation);
 }
 
 .favourites_btn_trash:hover {
@@ -221,7 +216,6 @@
 }
 
 .favourites_btn_start_icon {
-
   transform: rotate(90deg);
   fill: var(--second-color);
 }
@@ -245,7 +239,7 @@
 .favourites_list_item_middle_icon_svg {
   width: 14px;
   height: 16px;
-  fill: #f4f4f4;
+  fill: var(--primary-color);
 }
 
 .favourites_list_item_middle_title {
@@ -282,10 +276,29 @@
   color: var(--second-color);
 }
 
-@media screen and (min-width: 375px) and (max-width: 767px) {
+.favourites_list {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 375px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  padding-top: 40px;
+}
+
+.favorite-text {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 318px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.28;
+}
+
+@media screen and (max-width: 767px) {
   .favourites_title {
-    width: 335px;
-    margin: 80px auto 20px auto;
     color: var(--second-color);
 
     font-family: DM Sans;
@@ -298,7 +311,6 @@
   .favourites_wrapper {
     flex-direction: column;
     align-items: center;
-    row-gap: 40px;
   }
   .favourites_left_quote {
     width: 335px;
@@ -336,23 +348,6 @@
     font-size: 20px;
     line-height: 20px;
   }
-  .favourites_left_bottom_img {
-    width: 100%;
-    height: 119px;
-    background: url('../../img/favorit_tablet.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  .favourites_list {
-    min-width: 375px;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-    height: auto;
-    overflow: unset;
-  }
 
   .favourites_list_item {
     width: 335px;
@@ -368,16 +363,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .favourites {
-    max-width: 704px;
-    margin: 0 auto;
+  .pd-top {
+    padding-top: 176px;
   }
-  .favourites_title {
-    margin-top: 100px;
-    margin-bottom: 32px;
-  }
+
   .favourites_wrapper {
-    row-gap: 64px;
     flex-direction: column;
   }
 
@@ -393,36 +383,33 @@
     width: 344px;
   }
 
-  .favourites_left_bottom_img {
-    background: url('../../img/favorit_tablet.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 344px;
-  }
   .favourites_list {
     margin: 0 auto 0 auto;
     max-width: 768px;
     width: 100%;
-    justify-content: center;
-    gap: 32px 16px;
-    height: auto;
-    overflow: unset;
+    column-gap: 16px;
+    row-gap: 32px;
+    flex-direction: row;
+    padding-top: 64px;
   }
 
   .favourites_list_item {
     width: 344px;
   }
+
+  .favorite-text {
+    padding-top: 132px;
+    max-width: 554px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-  .favourites {
-    max-width: none;
+  .pd-top {
+    padding-top: 170px;
   }
 
-  .favourites_title {
-    width: 1376px;
-    margin: 90px auto 32px auto;
-  }
   .favourites_wrapper {
     display: flex;
     flex-direction: row;
@@ -453,20 +440,19 @@
     margin: 0;
     width: 850px;
     max-width: 850px;
-    height: 487px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 32px 16px;
-    overflow-y: scroll;
+
+    padding-top: 0;
+    align-items: start;
   }
 
   .favourites_list_item {
     width: 405px;
   }
-  .favourites_left_bottom_img {
-    background: url('../../img/favorit_desctop.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+
+  .favorite-text {
+    padding-top: 0;
+    margin: auto;
   }
 }

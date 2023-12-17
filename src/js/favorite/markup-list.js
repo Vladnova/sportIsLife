@@ -3,6 +3,10 @@ import {cutString} from './slice-string';
 
 export function markupList(arr) {
   const list = document.querySelector('.filter-list-js');
+  list.classList.remove('hidden-form');
+  if(arr.length > 6){
+    list.style.overflowY = 'scroll';
+  }
 
   const markup = arr
     .map(

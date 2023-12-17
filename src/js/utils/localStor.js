@@ -1,4 +1,6 @@
-const favoriteCards = [];
+let favoriteCards = [];
+const localStorFavorites = JSON.parse(localStorage.getItem('favorites'));
+localStorFavorites?.length && favoriteCards.push(...localStorFavorites);
 
 export function addLocalFavorites(card) {
   favoriteCards.push(card);
@@ -6,10 +8,11 @@ export function addLocalFavorites(card) {
 }
 
 export const deleteLocalFavorites = id => {
-  const deletedItem = favoriteCards.find(({ _id }) => _id === id)
-  favoriteCards.splice(favoriteCards.indexOf(deletedItem), 1)
+  favoriteCards = favoriteCards.filter(item => item._id !== id);
+
   localStorage.setItem(
     'favorites',
-    JSON.stringify([...favoriteCards.filter(item => item._id !== id)])
+    JSON.stringify([...favoriteCards])
   );
+
 };

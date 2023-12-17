@@ -16,7 +16,7 @@
   align-items: center;
 
   min-width: 335px;
-  /* padding:20px; */
+  padding:20px;
 }
 .active {
   background-color: var(--primary-color);
@@ -95,10 +95,7 @@
   .burger-button {
     display: none;
   }
-  .header {
-    /* padding:32px ; */
-    /* max-width: 768px; */
-  }
+
 }
 @media screen and (max-width: 767px) {
   .social-links {
