@@ -179,6 +179,9 @@
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .favourites_list_item_up_left {
   display: flex;

@@ -29,7 +29,9 @@
 
 .hovered {
   fill: var(--stars-background-active-color);
-  color: var(--stars-background-active-color); /* Цвет выбранных звезд */
+  color: var(--stars-background-active-color);
+  transition: background-color fill var(--animation);
+  transition: background-color color var(--animation);
 }
 
 .selected {

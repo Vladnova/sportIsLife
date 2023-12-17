@@ -2,11 +2,13 @@ import fetchSportEnergy from './api/apiSport';
 import { message } from './toasts/message';
 // import { loader } from './loader/loader';
 import * as pagination from './pagination/pagination';
+import { capitalizeFirstLetter } from './utils/firstLater';
 const categoryList = document.querySelector('.wrap-button');
 
 const musclesList = document.querySelector('.muscles-list');
 const paginationNumbers = document.querySelector('.pagination-numbers');
 
+const exercisesTag = document.querySelector('.title-exercises');
 categoryList.addEventListener('click', handleCategoryClick);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 export async function handleCategoryClick(event) {
   event.preventDefault();
-
+  exercisesTag.innerHTML = 'Exercises';
   const { target, currentTarget } = event;
 
   if (target.nodeName !== 'BUTTON') return;
@@ -82,8 +84,8 @@ export function makeMarkupMuscles(filteredResult) {
         <a href="" class="muscles-link" data-alt="${name}">
         <img class="muscles-image" src="${imgURL}" alt="${name}"  >
         <div class="muscles-box-menu">
-           <h3 class="muscles-small-title">${filter}</h3>
-           <p class="muscles-text">${name}</p>
+           <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
+           <p class="muscles-text">${filter}</p>
             </div>
             </a>
            </li>

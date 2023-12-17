@@ -48,6 +48,8 @@ async function getRaitingHandler() {
 async function addFavoriteHandler(e) {
   const favoriteButton = document.querySelector('.refresh-button-js');
   const cardId = document.querySelector('.modal-info').dataset.id;
+  const currentUrl = window.location.href.toString();
+  let part = currentUrl.slice(-14)
   if (favoriteButton.dataset.favorite === 'false') {
     favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
                                         <span class="remote-favorites">Remove from favorites</span>
@@ -58,6 +60,9 @@ async function addFavoriteHandler(e) {
     favoriteButton.dataset.favorite = 'true';
     let data = await fetchSportEnergy.getOneExercises(cardId);
     addLocalFavorites(data);
+    if (part === 'favorites.html') {
+      addContent()
+    }
   } else {
     favoriteButton.innerHTML = `<button class="add-favorite-js" type="button">
                                         <span>Add to favorites</span>
@@ -67,9 +72,6 @@ async function addFavoriteHandler(e) {
                                     </button>`;
     favoriteButton.dataset.favorite = 'false';
     deleteLocalFavorites(cardId);
-    const currentUrl = window.location.href.toString();
-    let part = currentUrl.slice(-14)
-    console.log(part);
     if (part === 'favorites.html') {
       addContent()
     }

@@ -1,13 +1,18 @@
 import fetchSportEnergy from './api/apiSport';
 import { loader } from './loader/loader';
 import sprite from '../img/svg/sprite.svg';
+
 import * as pagination from './pagination/pagination';
 import { message } from './toasts/message';
+import { cutString } from './favorite/slice-string';
+import { capitalizeFirstLetter } from './utils/firstLater';
+
 
 
 const paginationNumbers = document.querySelector('.pagination-numbers');
 const list = document.querySelector('.filter-list-js');
 
+const exercisesTag = document.querySelector('.title-exercises');
 list.addEventListener('click', handlerClickFilterCards);
 
 export async function handlerClickFilterCards(e) {
@@ -16,6 +21,7 @@ export async function handlerClickFilterCards(e) {
   if ((target.nodeName !== 'IMG') & (target.nodeName !== 'P') & (target.nodeName !== 'H3')) {
     return;
   }
+ 
   // loader.open()
   document.querySelector('.form-js').classList.remove('hidden-form');
 
@@ -35,6 +41,10 @@ export async function handlerClickFilterCards(e) {
       page: 1,
       limit: 10,
     };
+    exercisesTag.innerHTML = `Exercises / <spam class="search-target" id="tagret-js">${capitalizeFirstLetter(
+      nameCard
+    )}</spam>`;
+    // searchCategory.innerHTML=`${capitalizeFirstLetter(nameCard)}`
 
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
 
@@ -61,7 +71,7 @@ export async function handlerClickFilterCards(e) {
 export function makeMarkupCards(exercises) {
   if (exercises.results.length) {
     const markup = exercises.results
-      .map(({ _id, target, rating, name, burnedCalories, time }) => {
+      .map(({ _id, target, rating, name, burnedCalories, time, bodyPart }) => {
         return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
@@ -70,8 +80,8 @@ export function makeMarkupCards(exercises) {
             target.toString().length > 8 ? target.slice(0, 8) + '...' : target
           }</div>
           <p class="exercises_rating">${rating.toFixed(1)}</p>
-          <div class="rating-container">
-            <svg class="exercises_btn_start_icon" width="56px" height="18px" data-id=${_id}>
+          <div class="rating-container-not-cursore">
+            <svg class="exercises_start_icon" width="56px" height="18px" data-id=${_id}>
               <use xlink:href="${sprite}#icon-star" data-id=${_id}></use>
               />
             </svg>
@@ -108,7 +118,18 @@ export function makeMarkupCards(exercises) {
         } min</span>
             </p>
           </li>
-        </ul>
+          <li class="exercises_list_item_bottom_list_item">
+          <p class="exercises_list_item_bottom_list_item_text">
+            Body part: <span>${cutString(bodyPart, 5)}</span>
+          </p>
+          </li>
+          <li class="exercises_list_item_bottom_list_item">
+<p class="exercises_list_item_bottom_list_item_text"">Target: <span>${cutString(
+          target,
+          7
+        )}</span></p>
+</li>
+      </ul>
         </div>
     </li>`;
       })
