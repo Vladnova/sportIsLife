@@ -3,7 +3,7 @@ import './js/burger.js';
 import './js/authentication.js';
 import './js/favorite/favorite.js'
 import './js/modal-window/modal.js';
-// import './js/quote.js';
+import './js/quote.js';
 
 // import './js/pagination/pagination.js';
 import './js/scrollToTopButton.js';

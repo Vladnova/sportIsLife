@@ -11,21 +11,21 @@ export function markupList(arr) {
   const markup = arr
     .map(
       ({ _id, target, name, bodyPart, burnedCalories, time }) => `
-  <li class="favourites_list_item">
+  <li class="favourites_list_item" id=${_id}>
     <div class="favourites_list_item_up">
       <div class="favourites_list_item_up_left">
         <span class="favourites_btn_workout">${cutString(target, 6)}</span>
-        <button id="btnTrash" class="favourites_btn_trash" data-id="${_id}">
-          <svg class="favourites_btn_trash_icon" width="16" height="16" aria-label="trash">
-            <use href="${sprite}#icon-trash"></use>
+        <button id="btnTrash" class="favourites_btn_trash_icon favourites_btn_trash" data-id=${_id}>
+          <svg class="favourites_btn_trash_icon" width="16" height="16" aria-label="trash" data-id=${_id}>
+            <use class="favourites_btn_trash_icon" href="${sprite}#icon-trash" data-id=${_id}></use>
           </svg>
         </button>
       </div>
       <div class="favourites_list_item_up_right">
         <button class="favourites_btn_start" data-id=${_id}>
-          <p class="favourites_btn_start_text">start</p>
-          <svg class="favourites_btn_start_icon" width="16" height="16" aria-label="arrow">
-            <use href="${sprite}#icon-arrow"></use>
+          <p class="favourites_btn_start_text" data-id=${_id}>start</p>
+          <svg class="favourites_btn_start_icon" width="16" height="16" aria-label="arrow" data-id=${_id}>
+            <use href="${sprite}#icon-arrow" data-id=${_id}></use>
           </svg>
         </button>
       </div>

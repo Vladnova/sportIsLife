@@ -41,7 +41,6 @@
   margin-left: 16px;
 }
 .exercises_star {
-  cursor: pointer;
   width: 16px;
   height: 16px;
 }
@@ -65,7 +64,26 @@
   line-height: 24px;
 }
 
+.rating-container-js {
+  cursor: pointer;
+}
+
 .exercises_btn_start_icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--stars-background-active-color);
+  stroke: var(--stars-background-active-color);
+  cursor: pointer;
+}
+
+.exercises_start_icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--stars-background-active-color);
+  stroke: var(--stars-background-active-color);
+}
+
+.exercises_btn_arrow_icon {
   width: 16px;
   height: 16px;
   transform: rotate(90deg);
@@ -73,36 +91,32 @@
   position: relative;
 }
 
-.exercises_list_item_up_right:hover .exercises_btn_start_icon {
-  animation: arrowAnimation 500ms linear forwards;
-}
-
-.arrow-container {
-  overflow: hidden;
+.exercises_list_item_up_right,
+.favourites_btn_start_text {
   display: flex;
 }
 
-@keyframes arrowAnimation {
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  25% {
-    right: 20px;
-    top: 0px;
-  }
-  50% {
-    top: 20px;
-    left: 0;
-  }
-  75% {
-    left: 20px;
-    top: 20px;
-  }
-  100% {
-    left: 0px;
-    top: 0px;
-  }
+.exercises_btn_start .exercises_btn_arrow_icon,
+.favourites_btn_start .favourites_btn_start_icon {
+  position: relative;
+  top: -1px;
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+}
+
+.exercises_btn_start .arrow-container {
+  transition: stroke-dashoffset 0.3s ease;
+  stroke-dasharray: 95;
+  stroke-dashoffset: 95;
+}
+
+.exercises_btn_start:hover .exercises_btn_arrow_icon,
+.favourites_btn_start:hover .favourites_btn_start_icon {
+  transform: translate3d(5px, 0, 0);
+}
+
+.exercises_btn_start:hover .arrow-container {
+  stroke-dashoffset: 0;
 }
 
 .exercises_list_item_middle {

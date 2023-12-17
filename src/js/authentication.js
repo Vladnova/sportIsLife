@@ -12,7 +12,8 @@ const currentUrl = window.location.href.toString();
 if (localStorage.getItem("user")){
     
         SignOut.classList.remove("display-none")
-        SingIn.classList.add("display-none")
+    SingIn.classList.add("display-none")
+    SingIn.style.display = 'none'
     }
     // let user;
     export const googleSignin = async ()=>{
@@ -27,14 +28,19 @@ if (localStorage.getItem("user")){
             
             localStorage.user= user.email;
             listOfFavorites()
-            let part = currentUrl.slice(-14)
-            console.log(part)
+
+            let part = currentUrl.slice(-14)         
             
-                addContent(part); 
+             addContent(); 
+
            
             User.innerHTML = user.email;
             SignOut.classList.remove("display-none")
             SingIn.classList.add("display-none")
+
+            SingIn.style.display = 'none'
+
+
             localStorage.removeItem("favotites")
        
         }).catch((error) => {
@@ -69,6 +75,7 @@ if (localStorage.getItem("user")){
         });
         SignOut.classList.add("display-none")
         SingIn.classList.remove("display-none")
+        SingIn.style.display = 'flex'
     }
     
     SingIn.addEventListener("click", googleSignin);

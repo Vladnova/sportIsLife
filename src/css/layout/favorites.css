@@ -179,6 +179,9 @@
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .favourites_list_item_up_left {
   display: flex;
@@ -442,7 +445,7 @@
     max-width: 850px;
     display: flex;
     flex-wrap: wrap;
-
+    align-content: flex-start;
     padding-top: 0;
     align-items: start;
   }
