@@ -17,7 +17,7 @@ export function markupList(arr) {
         <span class="favourites_btn_workout">${cutString(target, 6)}</span>
         <button id="btnTrash" class="favourites_btn_trash_icon favourites_btn_trash" data-id=${_id}>
           <svg class="favourites_btn_trash_icon" width="16" height="16" aria-label="trash" data-id=${_id}>
-            <use href="${sprite}#icon-trash" data-id=${_id}></use>
+            <use class="favourites_btn_trash_icon" href="${sprite}#icon-trash" data-id=${_id}></use>
           </svg>
         </button>
       </div>
