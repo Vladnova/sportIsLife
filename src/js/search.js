@@ -1,8 +1,9 @@
 import { makeMarkupCards } from './exercises';
 import fetchSportEnergy from './api/apiSport';
+import * as pagination from './pagination/pagination';
 
 const form = document.querySelector('.form-js');
-
+const paginationNumbers = document.querySelector('.pagination-numbers');
 form.addEventListener('submit', handlerSearch);
 
 async function handlerSearch(e) {
@@ -16,8 +17,18 @@ async function handlerSearch(e) {
     page: 1,
     limit: 10,
   };
-
+try {
   const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+  paginationNumbers.innerHTML = '';
+  const {totalPages} = exercises
+  pagination.getPaginationNumbers(totalPages, dataExercises);
+
+
+  pagination.setCurrentPage(1);
   form.reset();
   makeMarkupCards(exercises);
+} catch (err) {
+
+}
+
 }
