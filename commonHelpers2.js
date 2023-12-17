@@ -1,22 +1,33 @@
-import{c as y,f as n,s as d,a as f,m as _}from"./assets/exercises-right-part-filter-d277d377.js";import{S as E}from"./assets/vendor-79031006.js";const c=document.querySelector(".filter-list-js"),q=document.querySelector(".title-exercises");c.addEventListener("click",w);async function w(t){t.preventDefault();const{target:e}=t;if(e.nodeName!=="IMG"&e.nodeName!=="P"&e.nodeName!=="H3")return;document.querySelector(".form-js").classList.remove("hidden-form");let i,s;try{e.nodeName==="IMG"&&(i=e.parentNode.parentNode.dataset.filter,s=e.alt),(e.nodeName==="P"||e.nodeName==="H3")&&(i=e.parentNode.parentNode.parentNode.dataset.filter,s=e.parentNode.parentNode.dataset.alt);const r={[i]:[s],page:1,limit:10};q.innerHTML=`Exercises / <spam class="search-target" id="tagret-js">${y(s)}</spam>`;const a=await n.getByFilterCategory(r);a!=null&&a.results.length?(c.classList.add("exercises_list"),c.classList.remove("muscles-list"),h(a)):alert("Oops. please, try other category this list empty :)")}catch(r){console.log(r.message)}}function h(t){if(t.results.length){const e=t.results.map(({_id:i,target:s,rating:r,name:a,burnedCalories:l,time:g,bodyPart:k})=>`
-      <li class="exercises_list_item" id=${i}>
+import{f as c,m as l,c as v,s as m,a as h}from"./assets/exercises-right-part-filter-4aac166a.js";import{S as q}from"./assets/vendor-79031006.js";const w=document.querySelector(".wrap-button"),b=document.querySelector(".muscles-list"),T=document.querySelector(".pagination-numbers"),M=document.querySelector(".title-exercises");w.addEventListener("click",A);document.addEventListener("DOMContentLoaded",()=>{N({filter:"Muscles",page:1,limit:12})});async function A(t){t.preventDefault(),M.innerHTML="Exercises";const{target:e,currentTarget:s}=t;if(e.nodeName!=="BUTTON")return;const i=e.dataset.name;e.classList.contains("btn-filter")&&[...s.children].forEach(n=>{n.firstElementChild.classList.remove("btn-filter-active")}),e.classList.add("btn-filter-active");const a={filter:i,page:1,limit:12};b.innerHTML="",N(a)}async function N(t){document.querySelector(".filter-list-js").classList.remove("exercises_list"),document.querySelector(".form-js").classList.add("hidden-form");try{const e=await c.getByFilterName(t),s=e.results;if(!e||s.length===0){l.error("Sorry, we didn't find anything according to your request.");return}b.insertAdjacentHTML("beforeend",p(s)),p(s);const{totalPages:i}=e,a=JSON.stringify({totalPages:i,categoryName:t.filter});localStorage.setItem("infoRequest",a),document.querySelector(".filter-list-js").classList.add("muscles-list"),T.innerHTML="",S(i,t),_(1)}catch(e){console.log(e.message)}}function p(t){return t.map(({filter:s,name:i,imgURL:a})=>{let r=s.toLocaleLowerCase().replaceAll(" ","");return r==="bodyparts"&&(r="bodypart"),`
+        <li class="muscles-item"  data-name=${i} data-filter=${r}>
+
+        <a href="" class="muscles-link" data-alt="${i}">
+        <img class="muscles-image" src="${a}" alt="${i}"  >
+        <div class="muscles-box-menu">
+           <h3 class="muscles-small-title">${v(i)}</h3>
+           <p class="muscles-text">${s}</p>
+            </div>
+            </a>
+           </li>
+          `}).join("")}const g=document.querySelector(".pagination-numbers"),P=document.querySelector(".muscles-list");let o=1;try{g.addEventListener("click",H),g.addEventListener("click",f)}catch(t){console.log(t)}let L;async function H(t){const e={...L,page:t.target.textContent};if(t.target.nodeName==="BUTTON"&&e.page!==o){if(e.filter){const i=(await c.getByFilterName(e)).results;P.innerHTML=p(i)}else{const s=await c.getByFilterCategory(e);y(s)}o=e.page,f()}}const I=t=>{const e=document.createElement("button");e.className="pagination-number",e.innerHTML=t,e.setAttribute("page-index",t),e.setAttribute("aria-label","Page "+t),g.appendChild(e)};function S(t,e){if(L=e,t!==1)for(let s=1;s<=t;s++)I(s)}function f(){document.querySelectorAll(".pagination-number").forEach(t=>{const e=Number(t.getAttribute("page-index"));e&&t.addEventListener("click",()=>{_(e)})})}function _(t){o=t,f(),document.querySelectorAll(".pagination-number").forEach(e=>{e.classList.remove("active"),Number(e.getAttribute("page-index"))==o&&e.classList.add("active")})}const j=document.querySelector(".pagination-numbers"),d=document.querySelector(".filter-list-js"),B=document.querySelector(".title-exercises");d.addEventListener("click",F);async function F(t){t.preventDefault();const{target:e}=t;if(e.nodeName!=="IMG"&e.nodeName!=="P"&e.nodeName!=="H3")return;document.querySelector(".form-js").classList.remove("hidden-form");let s,i;try{e.nodeName==="IMG"&&(s=e.parentNode.parentNode.dataset.filter,i=e.alt),(e.nodeName==="P"||e.nodeName==="H3")&&(s=e.parentNode.parentNode.parentNode.dataset.filter,i=e.parentNode.parentNode.dataset.alt);const a={[s]:i,page:1,limit:10};B.innerHTML=`Exercises / <spam class="search-target" id="tagret-js">${v(i)}</spam>`;const r=await c.getByFilterCategory(a);if(r!=null&&r.results.length){d.classList.add("exercises_list"),d.classList.remove("muscles-list"),y(r),j.innerHTML="";const{totalPages:n}=r;S(n,a),_(1)}else l.info("Oops. please, try other category this list empty :(")}catch(a){l.error(a.message)}}function y(t){if(t.results.length){const e=t.results.map(({_id:s,target:i,rating:a,name:r,burnedCalories:n,time:x,bodyPart:k})=>`
+      <li class="exercises_list_item" id=${s}>
       <div class="exercises_list_item_up">
         <div class="exercises_list_item_up_left">
-          <div class="exercises_workout">${s.toString().length>8?s.slice(0,8)+"...":s}</div>
-          <p class="exercises_rating">${r.toFixed(1)}</p>
+          <div class="exercises_workout">${i.toString().length>8?i.slice(0,8)+"...":i}</div>
+          <p class="exercises_rating">${a.toFixed(1)}</p>
           <div class="rating-container-not-cursore">
-            <svg class="exercises_start_icon" width="56px" height="18px" data-id=${i}>
-              <use xlink:href="${d}#icon-star" data-id=${i}></use>
+            <svg class="exercises_start_icon" width="56px" height="18px" data-id=${s}>
+              <use xlink:href="${m}#icon-star" data-id=${s}></use>
               />
             </svg>
           </div>
         </div>
         <div class="exercises_list_item_up_right" >
-          <button class="exercises_btn_start exercises_btn_start_text" data-id=${i}>Start
+          <button class="exercises_btn_start exercises_btn_start_text" data-id=${s}>Start
           <div class="arrow-container">
-            <svg class="exercises_btn_arrow_icon" width="56px" height="18px" data-id=${i}>
-              <use xlink:href="${d}#icon-arrow" data-id=${i}></use>
-              /> 
+            <svg class="exercises_btn_arrow_icon" width="56px" height="18px" data-id=${s}>
+              <use xlink:href="${m}#icon-arrow" data-id=${s}></use>
+              />
             </svg>
             </div>
           </button>
@@ -25,40 +36,28 @@ import{c as y,f as n,s as d,a as f,m as _}from"./assets/exercises-right-part-fil
       <div class="exercises_list_item_middle">
         <div class="exercises_list_item_middle_icon">
           <svg class="exercises_list_item_middle_icon_svg" width="24px" height="24px">
-            <use xlink:href="${d}#icon-run-man"></use>
+            <use xlink:href="${m}#icon-run-man"></use>
             />
           </svg>
         </div>
-        <h3 class="exercises_list_item_middle_title" id="name">${a.toString().length>20?a.slice(0,20)+"...":a} </h3>
+        <h3 class="exercises_list_item_middle_title" id="name">${r.toString().length>20?r.slice(0,20)+"...":r} </h3>
       </div>
       <div class="exercises_list_item_bottom">
         <ul class="exercises_list_item_bottom_list">
           <li class="exercises_list_item_bottom_list_item">
             <p class="exercises_list_item_bottom_list_item_text">
-              Burned calories: <span>${l||""} / ${g||"your wish"} min</span>
+              Burned calories: <span>${n||""} / ${x||"your wish"} min</span>
             </p>
           </li>
           <li class="exercises_list_item_bottom_list_item">
           <p class="exercises_list_item_bottom_list_item_text">
-            Body part: <span>${f(k,5)}</span>
+            Body part: <span>${h(k,5)}</span>
           </p>
           </li>
           <li class="exercises_list_item_bottom_list_item">
-<p class="exercises_list_item_bottom_list_item_text"">Target: <span>${f(s,7)}</span></p>
+<p class="exercises_list_item_bottom_list_item_text"">Target: <span>${h(i,7)}</span></p>
 </li>
       </ul>
         </div>
-    </li>`).join("");c.innerHTML=e}}const x=document.querySelector(".form-js");x.addEventListener("submit",C);async function C(t){console.log("2"),t.preventDefault();const e=t.target.elements.search.value.trim();if(!e)return;const{categoryName:i}=JSON.parse(localStorage.getItem("infoRequest")),r={[i.toLocaleLowerCase().replaceAll(" ","")]:e,keyword:"pull",page:1,limit:10},a=await n.getByFilterCategory(r);x.reset(),h(a)}const v=document.querySelector("#subscribe-form"),m=v.querySelector("#email");v.addEventListener("submit",T);async function T(t){t.preventDefault();const{value:e}=m;if(!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(e)){_.info("Enter the following sample email - 'test@gmail.com'"),m.value="";return}try{const s=await n.addSubscription({email:e});_.success(s.message)}catch(s){console.log(s)}finally{m.value=""}}const u=document.querySelector(".pagination-numbers"),M=document.querySelector(".muscles-list");let o=1;try{u.addEventListener("click",A),u.addEventListener("click",p)}catch(t){console.log(t)}async function A(t){const{totalPages:e,categoryName:i}=JSON.parse(localStorage.getItem("infoRequest")),s={filter:i,page:t.target.textContent,limit:12,totalPages:e};if(s.page===o)return;const a=(await n.getByFilterName(s)).results;M.innerHTML=L(a),o=s.page,p()}const I=t=>{const e=document.createElement("button");e.className="pagination-number",e.innerHTML=t,e.setAttribute("page-index",t),e.setAttribute("aria-label","Page "+t),u.appendChild(e)};function P(){const{totalPages:t}=JSON.parse(localStorage.getItem("infoRequest"));if(t!==1)for(let e=1;e<=t;e++)I(e)}function p(){document.querySelectorAll(".pagination-number").forEach(t=>{const e=Number(t.getAttribute("page-index"));e&&t.addEventListener("click",()=>{b(e)})})}function b(t){o=t,p(),document.querySelectorAll(".pagination-number").forEach(e=>{e.classList.remove("active"),Number(e.getAttribute("page-index"))==o&&e.classList.add("active")})}const j=document.querySelector(".wrap-button"),N=document.querySelector(".muscles-list"),H=document.querySelector(".pagination-numbers"),F=document.querySelector(".title-exercises");j.addEventListener("click",B);document.addEventListener("DOMContentLoaded",()=>{S({filter:"Muscles",page:1,limit:12})});async function B(t){t.preventDefault(),F.innerHTML="Exercises";const{target:e,currentTarget:i}=t;if(e.nodeName!=="BUTTON")return;const s=e.dataset.name;e.classList.contains("btn-filter")&&[...i.children].forEach(l=>{l.firstElementChild.classList.remove("btn-filter-active")}),e.classList.add("btn-filter-active");const r={filter:s,page:1,limit:12};N.innerHTML="",S(r)}async function S(t){document.querySelector(".filter-list-js").classList.remove("exercises_list"),document.querySelector(".form-js").classList.add("hidden-form");try{const e=await n.getByFilterName(t),i=e.results;if(!e||i.length===0){console.log("Sorry, we didn't find anything according to your request.");return}N.insertAdjacentHTML("beforeend",L(i));const{totalPages:s}=e,r=JSON.stringify({totalPages:s,categoryName:t.filter});localStorage.setItem("infoRequest",r),document.querySelector(".filter-list-js").classList.add("muscles-list"),H.innerHTML="",P(),b(1)}catch(e){console.log(e.message)}}function L(t){return t.map(({filter:i,name:s,imgURL:r})=>{let a=i.toLocaleLowerCase().replaceAll(" ","");return a==="bodyparts"&&(a="bodypart"),`
-
-        <li class="muscles-item"  data-name=${s} data-filter=${a}>
-
-        <a href="" class="muscles-link" data-alt="${s}">
-        <img class="muscles-image" src="${r}" alt="${s}"  >
-        <div class="muscles-box-menu">
-           <h3 class="muscles-small-title">${y(s)}</h3>
-           <p class="muscles-text">${i}</p>
-            </div>
-            </a>
-           </li>
-          `}).join("")}const $=document.createElement("div");$.id="spinner-container";document.body.appendChild($);const O={lines:13,length:20,width:3,radius:30,scale:1,corners:1,speed:1,rotate:0,animation:"spinner-line-fade-quick",direction:1,color:"#f4f4f4",fadeColor:"transparent",top:"50%",left:"50%",shadow:"0 0 1px transparent",zIndex:2e9,className:"spinner",position:"absolute"};document.getElementById("spinner-container");new E(O);
+    </li>`).join("");d.innerHTML=e}}const $=document.querySelector(".form-js");$.addEventListener("submit",O);async function O(t){t.preventDefault();const e=t.target.elements.search.value.trim();if(!e)return;const{categoryName:s}=JSON.parse(localStorage.getItem("infoRequest")),a={[s.toLocaleLowerCase().replaceAll(" ","")]:e,page:1,limit:10},r=await c.getByFilterCategory(a);$.reset(),y(r)}const C=document.querySelector("#subscribe-form"),u=C.querySelector("#email");C.addEventListener("submit",R);async function R(t){t.preventDefault();const{value:e}=u;if(!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(e)){l.info("Enter the following sample email - 'test@gmail.com'"),u.value="";return}try{const i=await c.addSubscription({email:e});l.success(i.message)}catch(i){console.log(i)}finally{u.value=""}}const E=document.createElement("div");E.id="spinner-container";document.body.appendChild(E);const D={lines:13,length:20,width:3,radius:30,scale:1,corners:1,speed:1,rotate:0,animation:"spinner-line-fade-quick",direction:1,color:"#f4f4f4",fadeColor:"transparent",top:"50%",left:"50%",shadow:"0 0 1px transparent",zIndex:2e9,className:"spinner",position:"absolute"};document.getElementById("spinner-container");new q(D);
 //# sourceMappingURL=commonHelpers2.js.map
