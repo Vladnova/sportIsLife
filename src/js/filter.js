@@ -7,6 +7,7 @@ const categoryList = document.querySelector('.wrap-button');
 const musclesList = document.querySelector('.muscles-list');
 const paginationNumbers = document.querySelector('.pagination-numbers');
 
+const exercisesTag = document.querySelector('.title-exercises');
 categoryList.addEventListener('click', handleCategoryClick);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 export async function handleCategoryClick(event) {
   event.preventDefault();
-
+  exercisesTag.innerHTML = 'Exercises';
   const { target, currentTarget } = event;
 
   if (target.nodeName !== 'BUTTON') return;
