@@ -16,7 +16,7 @@
   align-items: center;
 
   min-width: 335px;
-  padding:20px;
+  padding: 20px;
 }
 .active {
   background-color: var(--primary-color);
@@ -48,21 +48,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(36, 36, 36, 0.1);
+  border: 1px solid var(--color-text-subtitle);
   width: 44px;
   height: 44px;
-  fill: var(--primary-color);
+  fill: var(--color-text-subtitle);
   padding: 8px;
+  transition: background-color fill var(--animation);
 }
+
+#sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sign-in img {
+  width: 18px;
+  height: 18px;
+}
+
+.social-links-items:hover {
+  fill: var(--primary-color);
+  background-color: var(--color-text-subtitle);
+  border: none;
+}
+
 .social-links li:hover {
   border: 1px solid rgba(36, 36, 36, 0.5);
-  transition: 300ms;
 }
+
 .social-links-items svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: rgba(36, 36, 36, 1);
 }
 
 .page-navigattion {
@@ -85,6 +104,7 @@
   font-weight: 400;
   line-height: 24px;
   color: var(--primary-color);
+  transition: background-color fill var(--animation);
 }
 
 .page-navigattion a:hover {
@@ -95,7 +115,6 @@
   .burger-button {
     display: none;
   }
-
 }
 @media screen and (max-width: 767px) {
   .social-links {

@@ -4,7 +4,7 @@ import { capitalizeFirstLetter } from '../utils/firstLater';
 function getRating(rating) {
 
   const lastStar = (rating % 1).toFixed(1)*100
-  let result = '<div class="rating-container" data-rating="0">'
+  let result = '<div class="rating-container-not-cursore" data-rating="0">'
   for (let i = 1; i <= rating+1; i += 1) {
     if (i <= rating) {
       result += `<span class="star-js selected" data-value="${i}"><svg class="exercises_btn_start_icon_modal star-js selected">
@@ -115,7 +115,7 @@ export function getRatingModal(idExercise) {
     <div class="get-rating-container">
       <div class="get-rating-choise">
         <h3 class="title-card-get-rating">Rating</h3>
-        <div class="rating-container-js" data-rating="" data-id="">
+        <div class="rating-container-js rating-container" data-rating="" data-id="">
           <p class="user-rating-js">0</p>
           <span class="star-js" data-value="1"><svg class="exercises_btn_start_icon_rating star-js" wirth="15px" height="15px">
               <use xlink:href="${sprite}#icon-star"></use>

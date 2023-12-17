@@ -61,8 +61,8 @@ export function makeMarkupCards(exercises) {
             target.toString().length > 8 ? target.slice(0, 8) + '...' : target
           }</div>
           <p class="exercises_rating">${rating.toFixed(1)}</p>
-          <div class="rating-container">
-            <svg class="exercises_btn_start_icon" width="56px" height="18px" data-id=${_id}>
+          <div class="rating-container-not-cursore">
+            <svg class="exercises_start_icon" width="56px" height="18px" data-id=${_id}>
               <use xlink:href="${sprite}#icon-star" data-id=${_id}></use>
               />
             </svg>
