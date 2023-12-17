@@ -79,15 +79,17 @@ export function makeMarkupMuscles(filteredResult) {
         filterCurrent = 'bodypart';
       }
       return `
-        <li class="muscles-item" data-name=${name} data-filter=${filterCurrent}>
-        <a href="" class="muscles-link" data-alt="${name}">
-        <img loading="lazy" class="muscles-image" src="${imgURL}" alt="${name}" >
+      <li class="muscles-item" data-name=${name} data-filter=${filterCurrent}>
+      <button type="button" class="muscles-link"  alt="${name}" style='background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%), url(${imgURL}), lightgray -69.24px -3px / 129.788% 103.306% no-repeat;
+        background-size: cover;
+        background-position: center;'
+
         <div class="muscles-box-menu">
-           <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
-           <p class="muscles-text">${filter}</p>
-            </div>
-            </a>
-           </li>
+         <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
+         <p class="muscles-text">${filter}</p>
+          </div>
+      </button>
+    </li>
           `;
     })
     .join('');
