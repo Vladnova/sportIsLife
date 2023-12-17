@@ -51,7 +51,7 @@ if (localStorage.getItem("user")){
             const email = error.customData.email;
             
             const credential = GoogleAuthProvider.credentialFromError(error);
-            console.log(credential)
+            // console.log(credential)
             // ...
         });
         

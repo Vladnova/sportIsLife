@@ -3,6 +3,16 @@
   padding-bottom: 80px;
 
 }
+.search-target{
+  color: rgba(36, 36, 36, 0.50);
+
+font-family: DM Sans;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px; /* 133.333% */
+letter-spacing: -0.48px;
+}
 
 .wrap-search-section{
   margin-bottom: 20px;

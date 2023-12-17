@@ -2,9 +2,11 @@ import fetchSportEnergy from './api/apiSport';
 import { loader } from './loader/loader';
 import sprite from '../img/svg/sprite.svg';
 import { cutString } from './favorite/slice-string';
+import { capitalizeFirstLetter } from './utils/firstLater';
 
 const list = document.querySelector('.filter-list-js');
 
+const exercisesTag = document.querySelector('.title-exercises')
 list.addEventListener('click', handlerClickFilterCards);
 
 async function handlerClickFilterCards(e) {
@@ -13,6 +15,8 @@ async function handlerClickFilterCards(e) {
   if ((target.nodeName !== 'IMG') & (target.nodeName !== 'P') & (target.nodeName !== 'H3')) {
     return;
   }
+  console.log("here")
+
   // loader.open()
   document.querySelector('.form-js').classList.remove('hidden-form');
 
@@ -32,6 +36,8 @@ async function handlerClickFilterCards(e) {
       page: 1,
       limit: 10,
     };
+    exercisesTag.innerHTML=`Exercises / <spam class="search-target" id="tagret-js">${capitalizeFirstLetter(nameCard)}</spam>`
+    // searchCategory.innerHTML=`${capitalizeFirstLetter(nameCard)}`
 
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
 
