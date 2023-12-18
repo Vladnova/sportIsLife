@@ -18,7 +18,9 @@ list.addEventListener('click', handlerClickFilterCards);
 export async function handlerClickFilterCards(e) {
   e.preventDefault();
   const { target } = e;
-  if ((target.nodeName !== 'IMG') & (target.nodeName !== 'P') & (target.nodeName !== 'H3')) {
+  console.log(target.nodeName)
+  console.log(target.parentNode.nodeName)
+  if ((target.nodeName !== 'IMG') & (target.parentNode.nodeName !== 'BUTTON')) {
     return;
   }
  
