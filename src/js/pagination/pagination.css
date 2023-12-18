@@ -28,7 +28,9 @@
     color var(--transition-timing) var(--transition-function);
 }
 .pagination-number:hover:not(.active),
-.pagination-button:not(.disabled):hover {
+.pagination-number:focus:not(.active),
+.pagination-button:not(.disabled):hover,
+.pagination-button:not(.disabled):focus {
   transform: scale(1.2);
   color: var(--second-color);
 }

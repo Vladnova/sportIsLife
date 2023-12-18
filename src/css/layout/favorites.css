@@ -197,7 +197,8 @@
   transition: transform var(--animation);
 }
 
-.favourites_btn_trash:hover {
+.favourites_btn_trash:hover,
+.favourites_btn_trash:focus {
   transform: scale(1.2);
 }
 
@@ -460,7 +461,7 @@
   }
 
   .scroll {
-    overflow-y : scroll;
-    max-height : 600px;
+    overflow-y: scroll;
+    max-height: 600px;
   }
 }
