@@ -44,7 +44,9 @@ export async function loadSectionOnClick(dataFilter) {
   // loader.open()
   document.querySelector('.filter-list-js').classList.remove('exercises_list');
   document.querySelector('.form-js').classList.add('hidden-form');
+
   try {
+
     const filter = await fetchSportEnergy.getByFilterName(dataFilter);
     const filteredResult = filter.results;
 

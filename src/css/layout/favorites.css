@@ -458,4 +458,9 @@
     padding-top: 0;
     margin: auto;
   }
+
+  .scroll {
+    overflow-y : scroll;
+    max-height : 600px;
+  }
 }

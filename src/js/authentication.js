@@ -22,17 +22,17 @@ if (localStorage.getItem("user")){
         .then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-            
+
             const user = result.user;
-    
+
             localStorage.user= user.email;
-            addContent(); 
+            addContent();
             listOfFavorites()
 
-            // let part = currentUrl.slice(-14)         
-            
+            // let part = currentUrl.slice(-14)
 
-           
+
+
             User.innerHTML = user.email;
             SignOut.classList.remove("display-none")
             SingIn.classList.add("display-none")
@@ -55,17 +55,17 @@ if (localStorage.getItem("user")){
 
     }
     export const logOut = async()=>{
-        
+
         await signOut(auth).then(() => {
             User.innerHTML =  "";
             localStorage.removeItem("user")
-        
-        
-            
+
+
+
             let part = currentUrl.slice(-14)
-            console.log(part)
+
             if(part===favorites.html ){
-                addContent(); 
+                addContent();
             }
         }).catch((error) => {
             console.log(error.message)// An error happened.
