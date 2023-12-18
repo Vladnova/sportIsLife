@@ -4,7 +4,6 @@
 }
 .search-target {
   color: rgba(36, 36, 36, 0.5);
-
   font-family: DM Sans;
   font-size: 24px;
   font-style: normal;
@@ -12,6 +11,7 @@
   line-height: 32px; /* 133.333% */
   letter-spacing: -0.48px;
 }
+
 
 .wrap-search-section {
   margin-bottom: 20px;
@@ -81,6 +81,10 @@
   padding: 0;
   border: none;
   transition: transform var(--animation);
+}
+
+.btn-filter:hover {
+  color: var(--second-color);
 }
 
 .btn-filter:hover {

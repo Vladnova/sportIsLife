@@ -15,13 +15,16 @@
 .muscles-item {
   position: relative;
   border-radius: 12px;
-  transition: transform var(--animation);
   display: inline-block;
   transition: scale var(--transition-timing);
 }
 
 .muscles-item:hover {
   transform: scale(1.05);
+}
+
+.muscles-item:hover {
+  scale: 1.05;
 }
 
 .muscles-image {
