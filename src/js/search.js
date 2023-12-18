@@ -11,8 +11,13 @@ async function handlerSearch(e) {
   e.preventDefault();
   const value = e.target.elements.search.value.trim();
   if (!value) return;
-  const { categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
-  const transformCategoryName = categoryName.toLocaleLowerCase().replaceAll(' ', '');
+  let { categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
+
+  let transformCategoryName = categoryName.toLocaleLowerCase().replaceAll(' ', '');
+  
+  if (transformCategoryName === 'bodyparts') {
+    transformCategoryName = 'bodypart';
+  }
   const dataExercises = {
     [transformCategoryName]: value,
     page: 1,
