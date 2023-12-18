@@ -2,7 +2,8 @@
   position: fixed;
   top: 0px;
   background-image: linear-gradient(to bottom, var(--primary-color) 75%, rgba(244, 244, 244, 0));
-
+  left: 50%;
+  transform: translate(-50%, 0%);
   z-index: 2;
   width: 100%;
   display: flex;
