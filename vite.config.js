@@ -9,14 +9,14 @@ export default defineConfig(({ command }) => {
       [command === 'serve' ? 'global' : '_global']: {},
     },
     root: 'src',
+    headers: [
+      {
+        "key": "Cross-Origin-Embedder-Policy",
+        "value": "unsafe-none"
+      }
+    ],
     build: {
       sourcemap: true,
-      headers: [
-        {
-          "key": "Cross-Origin-Embedder-Policy",
-          "value": "unsafe-none"
-        }
-      ],
 
       rollupOptions: {
         input: glob.sync('./src/*.html'),
