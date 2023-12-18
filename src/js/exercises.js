@@ -18,13 +18,9 @@ list.addEventListener('click', handlerClickFilterCards);
 export async function handlerClickFilterCards(e) {
   e.preventDefault();
   const { target } = e;
-  console.log(target.nodeName)
-  console.log(target.parentNode.nodeName)
   if ((target.nodeName !== 'IMG') & (target.parentNode.nodeName !== 'BUTTON')) {
     return;
   }
- 
-  // loader.open()
   document.querySelector('.form-js').classList.remove('hidden-form');
 
   let nameFilter;
