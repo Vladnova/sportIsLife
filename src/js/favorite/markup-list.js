@@ -9,6 +9,7 @@ export function markupList(arr) {
     list.classList.add('scroll');
   } else {
     list.classList.remove('scroll');
+
   }
 
   const markup = arr

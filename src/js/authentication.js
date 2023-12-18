@@ -9,6 +9,7 @@ const SignOut = document.getElementById('sign-out');
 const User = document.getElementById('user');
 User.innerHTML = localStorage.getItem('user');
 const currentUrl = window.location.href.toString();
+
 if (localStorage.getItem('user')) {
   SignOut.classList.remove('display-none');
   SingIn.classList.add('display-none');
@@ -61,3 +62,4 @@ export const logOut = async () => {
 
 SingIn.addEventListener('click', googleSignin);
 SignOut.addEventListener('click', logOut);
+
