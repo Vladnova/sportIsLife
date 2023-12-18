@@ -82,6 +82,10 @@
   border: none;
 }
 
+.btn-filter:hover {
+  color: var(--second-color);
+}
+
 .btn-filter-active {
   position: relative;
   color: var(--second-color);
