@@ -124,7 +124,8 @@
   line-height: 1.5;
 }
 
-.form_button:hover {
+.form_button:hover,
+.form_button:focus {
   color: var(--primary-color);
   background-color: transparent;
 }

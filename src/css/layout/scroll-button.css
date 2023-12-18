@@ -31,7 +31,8 @@
   visibility: visible;
 }
 
-.scroll-up-button:hover {
+.scroll-up-button:hover,
+.scroll-up-button:focus {
   background-color: var(--stars-background-active-color);
 }
 

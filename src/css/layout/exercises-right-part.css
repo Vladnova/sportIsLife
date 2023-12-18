@@ -19,13 +19,11 @@
   transition: scale var(--transition-timing);
 }
 
-.muscles-item:hover {
+.muscles-item:hover, .muscles-item:focus {
   transform: scale(1.05);
 }
 
-.muscles-item:hover {
-  scale: 1.05;
-}
+
 
 .muscles-image {
   border-radius: 12px;
@@ -48,7 +46,7 @@
   display: block;
 }
 
-/* 
+/*
 
 .muscles-box-menu {
   position: absolute;

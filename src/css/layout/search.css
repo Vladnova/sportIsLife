@@ -12,7 +12,6 @@
   letter-spacing: -0.48px;
 }
 
-
 .wrap-search-section {
   margin-bottom: 20px;
 }
@@ -83,11 +82,13 @@
   transition: transform var(--animation);
 }
 
-.btn-filter:hover {
+.btn-filter:hover,
+.btn-filter:focus {
   color: var(--second-color);
 }
 
-.btn-filter:hover {
+.btn-filter:hover,
+.btn-filter:focus {
   color: var(--second-color);
 }
 

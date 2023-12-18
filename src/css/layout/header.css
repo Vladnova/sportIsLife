@@ -68,13 +68,15 @@
   height: 18px;
 }
 
-.social-links-items:hover {
+.social-links-items:hover,
+.social-links-items:focus {
   fill: var(--primary-color);
   background-color: var(--color-text-subtitle);
   border: none;
 }
 
-.social-links li:hover {
+.social-links li:hover,
+.social-links li:focus {
   border: 1px solid rgba(36, 36, 36, 0.5);
 }
 
@@ -107,7 +109,8 @@
   transition: background-color fill var(--animation);
 }
 
-.page-navigattion a:hover {
+.page-navigattion a:hover,
+.page-navigattion a:focus {
   border: 1px solid var(--primary-color);
   transition: 300ms;
 }

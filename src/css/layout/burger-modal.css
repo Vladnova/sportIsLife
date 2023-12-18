@@ -34,12 +34,12 @@
   font-size: 14px;
   line-height: 18px;
 }
-.burger-pages-list a:hover {
+.burger-pages-list a:hover, .burger-pages-list a:focus{
   border-bottom: 1px solid var(--primary-color);
   transform: scale(1.1);
   transition: 300ms;
 }
-.burger-button-close:hover {
+.burger-button-close:hover, .burger-button-close:focus {
   transform: scale(1.2);
   transition: 300ms;
 }
@@ -67,7 +67,7 @@
 .social-links-list li:not(:last-child) {
   margin-right: 12px;
 }
-.social-links-list :hover {
+.social-links-list:hover, .social-links-list:focus {
   transform: scale(1.05);
   transition: 300ms;
 }

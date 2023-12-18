@@ -82,7 +82,7 @@ export function makeMarkupMuscles(filteredResult) {
       return `
       <li class="muscles-item" data-name=${name} data-filter=${filterCurrent}>
       <a href="" class="muscles-link" data-alt="${name}">
-        <img loading="lazy" class="muscles-image" src="${imgURL}" alt="${name}" >
+        <img loading="lazy" class="muscles-image" src="${imgURL}" alt="${name}" width="290" height="242" >
         <button class="muscles-box-menu">
           <h3 class="muscles-small-title">${capitalizeFirstLetter(name)}</h3>
           <p class="muscles-text">${filter}</p>

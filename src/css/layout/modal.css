@@ -196,29 +196,34 @@
   justify-content: space-between;
 }
 
-.add-rating:hover {
+.add-rating:hover,
+.add-rating:focus {
   border: 1px var(--primary-color);
   color: var(--second-color);
   background-color: var(--primary-color);
 }
 
-.add-favorite-js:hover {
+.add-favorite-js:hover,
+.add-favorite-js:focus {
   border: 1px solid var(--primary-color);
   background-color: transparent;
   color: var(--primary-color);
 }
 
-.add-favorite-js:hover .heart-icon-img {
+.add-favorite-js:hover .heart-icon-img,
+.add-favorite-js:focus .heart-icon-img {
   fill: var(--primary-color);
   stroke: var(--primary-color);
 }
 
-.add-favorite-js:hover .trash-icon-img {
+.add-favorite-js:hover .trash-icon-img,
+.add-favorite-js:focus .trash-icon-img {
   fill: var(--primary-color);
   stroke: var(--primary-color);
 }
 
-.raiting-form-submit:hover {
+.raiting-form-submit:hover,
+.raiting-form-submit:focus {
   background-color: var(--second-color);
   color: var(--primary-color);
 }
@@ -227,7 +232,8 @@
   transition: transform 0.5s ease-out;
 }
 
-.modal-button-close .close-icon-img:hover {
+.modal-button-close .close-icon-img:hover,
+.modal-button-close .close-icon-img:focus {
   transform: rotate(180deg);
 }
 

@@ -111,11 +111,14 @@
 }
 
 .exercises_btn_start:hover .exercises_btn_arrow_icon,
-.favourites_btn_start:hover .favourites_btn_start_icon {
+.exercises_btn_start:focus .exercises_btn_arrow_icon,
+.favourites_btn_start:hover .favourites_btn_start_icon,
+.favourites_btn_start:focus .favourites_btn_start_icon {
   transform: translate3d(5px, 0, 0);
 }
 
-.exercises_btn_start:hover .arrow-container {
+.exercises_btn_start:hover .arrow-container,
+.exercises_btn_start:focus .arrow-container {
   stroke-dashoffset: 0;
 }
 
