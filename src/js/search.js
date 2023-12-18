@@ -1,12 +1,13 @@
 import { makeMarkupCards } from './exercises';
 import fetchSportEnergy from './api/apiSport';
+import * as pagination from './pagination/pagination';
+import { message } from './toasts/message';
 
 const form = document.querySelector('.form-js');
-
+const paginationNumbers = document.querySelector('.pagination-numbers');
 form.addEventListener('submit', handlerSearch);
 
 async function handlerSearch(e) {
-  console.log("2")
   e.preventDefault();
   const value = e.target.elements.search.value.trim();
   if (!value) return;
@@ -14,12 +15,24 @@ async function handlerSearch(e) {
   const transformCategoryName = categoryName.toLocaleLowerCase().replaceAll(' ', '');
   const dataExercises = {
     [transformCategoryName]: value,
-    keyword: 'pull',
     page: 1,
     limit: 10,
   };
-
+try {
   const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+  if(!exercises.results.length){
+    message.info('Nothing was found for this query')
+  }
+  paginationNumbers.innerHTML = '';
+  const {totalPages} = exercises
+  pagination.getPaginationNumbers(totalPages, dataExercises);
+
+
+  pagination.setCurrentPage(1);
   form.reset();
   makeMarkupCards(exercises);
+} catch (err) {
+  console.log(err)
+}
+
 }

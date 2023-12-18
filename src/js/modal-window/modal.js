@@ -1,6 +1,3 @@
-import { getExerciseModal, getRatingModal } from './generation-to-modal'
-import fetchSportEnergy from '../api/apiSport.js';
-import { loader } from '../loader/loader';
 export class Modal {
   constructor() {
     this.overlay = document.querySelector('.overlay');
@@ -52,38 +49,3 @@ export class Modal {
 
 
 export const myModal = new Modal();
-
-
-const list = document.querySelector('.filter-list-js');
-let id="";
-let data;
-
-export const getId = async (e) =>{
-  const {target} = e;
-
-  if (target.nodeName !== "BUTTON") {
-    return;
-  }
-  if (target.nodeName === "BUTTON"){
-    id= target.dataset.id
-     return data = oneCard(id);
-  }
-}
-
-list.addEventListener("click", getId)
-
-export const oneCard = async(id)=>{
-
-  let data = await fetchSportEnergy.getOneExercises(id)
-
-  data.favotite = false;
-  myModal.open(getExerciseModal(data))
-}
-
-
-
-// Приклад модалки форми рейтингу
-// function modalHandler(event) {
-//     myModal.open(getRatingModal(data._id))
-// }
-

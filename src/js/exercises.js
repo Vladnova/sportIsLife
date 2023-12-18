@@ -1,22 +1,27 @@
 import fetchSportEnergy from './api/apiSport';
 import { loader } from './loader/loader';
 import sprite from '../img/svg/sprite.svg';
+
+import * as pagination from './pagination/pagination';
+import { message } from './toasts/message';
 import { cutString } from './favorite/slice-string';
 import { capitalizeFirstLetter } from './utils/firstLater';
 
+
+
+const paginationNumbers = document.querySelector('.pagination-numbers');
 const list = document.querySelector('.filter-list-js');
 
-const exercisesTag = document.querySelector('.title-exercises')
+const exercisesTag = document.querySelector('.title-exercises');
 list.addEventListener('click', handlerClickFilterCards);
 
-async function handlerClickFilterCards(e) {
+export async function handlerClickFilterCards(e) {
   e.preventDefault();
   const { target } = e;
   if ((target.nodeName !== 'IMG') & (target.nodeName !== 'P') & (target.nodeName !== 'H3')) {
     return;
   }
-  console.log("here")
-
+ 
   // loader.open()
   document.querySelector('.form-js').classList.remove('hidden-form');
 
@@ -32,25 +37,33 @@ async function handlerClickFilterCards(e) {
       nameCard = target.parentNode.parentNode.dataset.alt;
     }
     const dataExercises = {
-      [nameFilter]: [nameCard],
+      [nameFilter]: nameCard,
       page: 1,
       limit: 10,
     };
-    exercisesTag.innerHTML=`Exercises / <spam class="search-target" id="tagret-js">${capitalizeFirstLetter(nameCard)}</spam>`
+    exercisesTag.innerHTML = `Exercises / <spam class="search-target" id="tagret-js">${capitalizeFirstLetter(
+      nameCard
+    )}</spam>`;
     // searchCategory.innerHTML=`${capitalizeFirstLetter(nameCard)}`
 
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+
 
     if (exercises?.results.length) {
       list.classList.add('exercises_list');
       list.classList.remove('muscles-list');
 
       makeMarkupCards(exercises);
+      paginationNumbers.innerHTML = '';
+      const {totalPages} = exercises
+      pagination.getPaginationNumbers(totalPages, dataExercises);
+
+      pagination.setCurrentPage(1);
     } else {
-      alert('Oops. please, try other category this list empty :)');
+      message.info('Oops. please, try other category this list empty :(');
     }
   } catch (er) {
-    console.log(er.message);
+    message.error(er.message);
   }
   // loader.close()
 }
@@ -58,7 +71,7 @@ async function handlerClickFilterCards(e) {
 export function makeMarkupCards(exercises) {
   if (exercises.results.length) {
     const markup = exercises.results
-      .map(({ _id, target, rating, name, burnedCalories, time,bodyPart }) => {
+      .map(({ _id, target, rating, name, burnedCalories, time, bodyPart }) => {
         return `
       <li class="exercises_list_item" id=${_id}>
       <div class="exercises_list_item_up">
@@ -68,7 +81,7 @@ export function makeMarkupCards(exercises) {
           }</div>
           <p class="exercises_rating">${rating.toFixed(1)}</p>
           <div class="rating-container-not-cursore">
-            <svg class="exercises_start_icon" width="56px" height="18px" data-id=${_id}>
+            <svg class="exercises_start_icon" width="56" height="18" data-id=${_id}>
               <use xlink:href="${sprite}#icon-star" data-id=${_id}></use>
               />
             </svg>
@@ -77,9 +90,9 @@ export function makeMarkupCards(exercises) {
         <div class="exercises_list_item_up_right" >
           <button class="exercises_btn_start exercises_btn_start_text" data-id=${_id}>Start
           <div class="arrow-container">
-            <svg class="exercises_btn_arrow_icon" width="56px" height="18px" data-id=${_id}>
+            <svg class="exercises_btn_arrow_icon" width="56" height="18" data-id=${_id}>
               <use xlink:href="${sprite}#icon-arrow" data-id=${_id}></use>
-              /> 
+              />
             </svg>
             </div>
           </button>
@@ -87,7 +100,7 @@ export function makeMarkupCards(exercises) {
       </div>
       <div class="exercises_list_item_middle">
         <div class="exercises_list_item_middle_icon">
-          <svg class="exercises_list_item_middle_icon_svg" width="24px" height="24px">
+          <svg class="exercises_list_item_middle_icon_svg" width="24" height="24">
             <use xlink:href="${sprite}#icon-run-man"></use>
             />
           </svg>
@@ -101,7 +114,8 @@ export function makeMarkupCards(exercises) {
           <li class="exercises_list_item_bottom_list_item">
             <p class="exercises_list_item_bottom_list_item_text">
               Burned calories: <span>${burnedCalories ? burnedCalories : ''} / ${
-          time ? time : 'your wish' } min</span>
+          time ? time : 'your wish'
+        } min</span>
             </p>
           </li>
           <li class="exercises_list_item_bottom_list_item">
@@ -111,9 +125,9 @@ export function makeMarkupCards(exercises) {
           </li>
           <li class="exercises_list_item_bottom_list_item">
 <p class="exercises_list_item_bottom_list_item_text"">Target: <span>${cutString(
-  target,
-  7
-)}</span></p>
+          target,
+          7
+        )}</span></p>
 </li>
       </ul>
         </div>
@@ -123,6 +137,3 @@ export function makeMarkupCards(exercises) {
     list.innerHTML = markup;
   }
 }
-
-   
-

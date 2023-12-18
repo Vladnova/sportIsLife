@@ -91,7 +91,7 @@ function getStartHandler({ target }) {
 
 listExercises.addEventListener('click', getStartHandler);
 
-export const oneCard = async id => {
+const oneCard = async id => {
   let data = await fetchSportEnergy.getOneExercises(id);
   const favoriteData = localStorage.getItem('favorites');
   if (favoriteData !== null) {
