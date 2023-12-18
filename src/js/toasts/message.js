@@ -7,12 +7,7 @@ iziToast.settings({
   transitionIn: 'flipInX',
   transitionOut: 'flipOutX',
   position: 'topRight',
-  // onOpening: function () {
-  //   console.log('callback abriu!');
-  // },
-  // onClosing: function () {
-  //   console.log('callback fechou!');
-  // },
+
 });
 
 class Message {
