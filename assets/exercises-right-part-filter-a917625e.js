@@ -176,4 +176,4 @@ var J=Object.defineProperty;var D=(e,t,s)=>t in e?J(e,t,{enumerable:!0,configura
                                             <use href="${l}#icon-heart"></use>
                                         </svg>
                                     </button>`,t.dataset.favorite="false",F(s),o==="favorites.html"&&m()}function Oe({target:e}){if(ke.includes(e.nodeName)&&e.classList[0]!=="favourites_btn_trash_icon"&&e.classList[0]!=="favourites_btn_workout")return O=e.dataset.id,Te(O);if(e.classList[0]==="favourites_btn_trash_icon"){const t=e.dataset.id;F(t),m()}}qe.addEventListener("click",Oe);const Te=async e=>{let t=await _.getOneExercises(e);const s=localStorage.getItem("favorites");s!==null&&JSON.parse(s).find(({_id:n})=>n===e)?t.favorite=!0:t.favorite=!1,p.open(Ee(t)),H=document.querySelector(".refresh-button-js"),T=document.querySelector(".add-rating"),T.addEventListener("click",Ce),H.addEventListener("click",Me)};export{f as a,Le as c,_ as f,M as m,l as s};
-//# sourceMappingURL=exercises-right-part-filter-1a18e9d1.js.map
+//# sourceMappingURL=exercises-right-part-filter-a917625e.js.map
