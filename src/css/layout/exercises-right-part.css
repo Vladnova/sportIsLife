@@ -14,11 +14,13 @@
 }
 .muscles-item {
   position: relative;
-  /* width: 335px;
-  height: 225px; */
   border-radius: 12px;
-
   display: inline-block;
+  transition: scale var(--transition-timing);
+}
+
+.muscles-item:hover {
+  transform: scale(1.05);
 }
 
 .muscles-item:hover {

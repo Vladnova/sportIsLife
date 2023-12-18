@@ -80,6 +80,11 @@
   background-color: inherit;
   padding: 0;
   border: none;
+  transition: transform var(--animation);
+}
+
+.btn-filter:hover {
+  color: var(--second-color);
 }
 
 .btn-filter:hover {
