@@ -17,6 +17,7 @@ list.addEventListener('click', handlerClickFilterCards);
 
 export async function handlerClickFilterCards(e) {
   e.preventDefault();
+ 
   const { target } = e;
   if ((target.nodeName !== 'IMG') & (target.parentNode.nodeName !== 'BUTTON')) {
     return;
@@ -50,8 +51,9 @@ export async function handlerClickFilterCards(e) {
     if (exercises?.results.length) {
       list.classList.add('exercises_list');
       list.classList.remove('muscles-list');
-
+      loader.open()
       makeMarkupCards(exercises);
+      loader.close()
       paginationNumbers.innerHTML = '';
       const {totalPages} = exercises
       pagination.getPaginationNumbers(totalPages, dataExercises);
@@ -63,11 +65,12 @@ export async function handlerClickFilterCards(e) {
   } catch (er) {
     message.error(er.message);
   }
-  // loader.close()
+ 
 }
 
 export function makeMarkupCards(exercises) {
   if (exercises.results.length) {
+    
     const markup = exercises.results
       .map(({ _id, target, rating, name, burnedCalories, time, bodyPart }) => {
         return `

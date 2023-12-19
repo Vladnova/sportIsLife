@@ -1,3 +1,5 @@
+import { loader } from "../loader/loader";
+
 class ApiSportEnergy {
     static BASE_URL = 'https://your-energy.b.goit.study/api';
 
@@ -24,19 +26,22 @@ class ApiSportEnergy {
     }
 
     async getByFilterName(data) {
-    
+        loader.open()
         const wrappedMethod = ApiSportEnergy.handleErrors(async () => {
             const params = new URLSearchParams({ ...data });
             return await ApiSportEnergy.fetchJson(`${ApiSportEnergy.BASE_URL}/filters?${params}`);
         });
+        
         return await wrappedMethod();
     }
 
     async getByFilterCategory(data) {
+        loader.open()
         const wrappedMethod = ApiSportEnergy.handleErrors(async () => {
             const params = new URLSearchParams({ ...data });
             return await ApiSportEnergy.fetchJson(`${ApiSportEnergy.BASE_URL}/exercises?${params}`);
         });
+       
         return await wrappedMethod();
     }
 

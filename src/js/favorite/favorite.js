@@ -1,6 +1,7 @@
 import { markupText } from './markup-text';
 import {markupList} from './markup-list';
 import { listOfFavorites } from '../utils/firebase';
+import { loader } from '../loader/loader';
 
 
 
@@ -17,5 +18,7 @@ export function addContent() {
     return;
   }
   markupList(favorites);
+  loader.close()
 }
+
 

@@ -1,6 +1,6 @@
 @import url('./base/reset.css');
 @import url('./base/common.css');
-
+@import url('../js/loader/loader.css');
 @import url('./layout/modal.css');
 @import url('./layout/exercises-left-part.css');
 @import url('./layout/exercises-right-part.css');
