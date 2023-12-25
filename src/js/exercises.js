@@ -43,9 +43,9 @@ export async function handlerClickFilterCards(e) {
       nameCard
     )}</spam>`;
     // searchCategory.innerHTML=`${capitalizeFirstLetter(nameCard)}`
-
+        loader.open()
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-
+        loader.close()
 
     if (exercises?.results.length) {
       list.classList.add('exercises_list');

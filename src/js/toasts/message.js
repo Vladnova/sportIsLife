@@ -1,7 +1,7 @@
 import iziToast from 'izitoast';
 
 iziToast.settings({
-  timeout: 6000,
+  timeout: 3000,
   resetOnHover: true,
   icon: 'material-icons',
   transitionIn: 'flipInX',

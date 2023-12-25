@@ -1,6 +1,7 @@
 import fetchSportEnergy from '../api/apiSport';
 import * as filterBtn from '../filter';
 import { makeMarkupCards } from '../exercises';
+import { loader } from '../loader/loader';
 
 
 const paginationNumbers = document.querySelector('.pagination-numbers');
@@ -41,13 +42,17 @@ async function handleClick(e) {
   if (dataFilter.page === currentPage) {
     return;
   }
-  if (dataFilter.filter) {
+    if (dataFilter.filter) {
+      loader.open()
     const filter = await fetchSportEnergy.getByFilterName(dataFilter);
-    const filteredResult = filter.results;
+    loader.close();
+        const filteredResult = filter.results;
     musclesList.innerHTML = filterBtn.makeMarkupMuscles(filteredResult);
-  }else {
+    } else {
+        loader.open();
     const exercises = await fetchSportEnergy.getByFilterCategory(dataFilter);
-    makeMarkupCards(exercises);
+    loader.close();
+        makeMarkupCards(exercises);
   }
 
   // loadSectionOnClick(dataFilter);

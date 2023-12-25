@@ -1,4 +1,5 @@
 import fetchSportEnergy from './api/apiSport';
+import { loader } from './loader/loader';
 
 const refs = {
   quoteText: document.querySelector('.quote-text'),
@@ -27,7 +28,9 @@ export async function loadQuote() {
 }
 
 async function fetchQuote() {
-  const fetchQuote = await fetchSportEnergy.getQuotes();
+    loader.open();
+    const fetchQuote = await fetchSportEnergy.getQuotes();
+    loader.close()
 
   const { author, quote } = fetchQuote;
 

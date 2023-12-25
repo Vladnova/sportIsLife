@@ -3,6 +3,7 @@ import { message } from './toasts/message';
 // import { loader } from './loader/loader';
 import * as pagination from './pagination/pagination';
 import { capitalizeFirstLetter } from './utils/firstLater';
+import { loader } from './loader/loader';
 const categoryList = document.querySelector('.wrap-button');
 
 const musclesList = document.querySelector('.muscles-list');
@@ -65,9 +66,10 @@ export async function loadSectionOnClick(dataFilter) {
   document.querySelector('.form-js').classList.add('hidden-form');
 
   try {
-
+    loader.open()
     const filter = await fetchSportEnergy.getByFilterName(dataFilter);
-    const filteredResult = filter.results;
+    loader.close();
+      const filteredResult = filter.results;
 
     if (!filter || filteredResult.length === 0) {
       message.error("Sorry, we didn't find anything according to your request.");
