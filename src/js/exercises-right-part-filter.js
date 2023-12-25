@@ -6,6 +6,7 @@ import { addLocalFavorites, deleteLocalFavorites } from './utils/localStor';
 import { message } from './toasts/message';
 import sprite from '../img/svg/sprite.svg';
 import { addContent } from '../js/favorite/favorite'
+import { loader } from './loader/loader';
 
 
 const listExercises = document.querySelector('.filter-list-js');
@@ -26,9 +27,11 @@ async function sendRaitingHandler(event) {
     rate: Number(ratinFromUser),
     email,
     review,
-  };
+    };
+    loader.open()
   const response = await fetchSportEnergy.addExercisesRate(exerciseID, request);
-  if (response.message) {
+  loader.close()
+    if (response.message) {
     message.error(`${response.message}`);
   } else {
     message.success(`Thank you for your mark - ${request.rate} for ${response.name}`);
@@ -57,8 +60,10 @@ async function addFavoriteHandler(e) {
                                             <use href="${sprite}#icon-trash"></use>
                                         </svg>
                                     </button>`;
-    favoriteButton.dataset.favorite = 'true';
-    let data = await fetchSportEnergy.getOneExercises(cardId);
+      favoriteButton.dataset.favorite = 'true';
+      loader.open();
+      let data = await fetchSportEnergy.getOneExercises(cardId);
+      loader.close();
     addLocalFavorites(data);
     if (part === 'favorites.html') {
       addContent()
@@ -92,7 +97,9 @@ function getStartHandler({ target }) {
 listExercises.addEventListener('click', getStartHandler);
 
 const oneCard = async id => {
-  let data = await fetchSportEnergy.getOneExercises(id);
+    loader.open();
+    let data = await fetchSportEnergy.getOneExercises(id);
+    loader.close()
   const favoriteData = localStorage.getItem('favorites');
   if (favoriteData !== null) {
     const favoriteObject = JSON.parse(favoriteData);

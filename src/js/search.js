@@ -2,6 +2,7 @@ import { makeMarkupCards } from './exercises';
 import fetchSportEnergy from './api/apiSport';
 import * as pagination from './pagination/pagination';
 import { message } from './toasts/message';
+import { loader } from './loader/loader';
 
 const form = document.querySelector('.form-js');
 const paginationNumbers = document.querySelector('.pagination-numbers');
@@ -24,8 +25,10 @@ async function handlerSearch(e) {
     limit: 10,
   };
 try {
-  const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-  if(!exercises.results.length){
+  loader.open()
+    const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
+  loader.open();
+    if (!exercises.results.length) {
     message.info('Nothing was found for this query')
   }
   paginationNumbers.innerHTML = '';

@@ -1,4 +1,5 @@
 import fetchSportEnergy from './api/apiSport';
+import { loader } from './loader/loader';
 import { message } from './toasts/message';
 
 const form = document.querySelector('#subscribe-form');
@@ -19,9 +20,11 @@ async function handlerSendEmail(event) {
     return;
   }
 
-  try {
+    try {
+      loader.open()
     const result = await fetchSportEnergy.addSubscription({ email: value });
-    message.success(result.message);
+        loader.close()
+        message.success(result.message);
   } catch (error) {
     console.log(error);
   } finally {
