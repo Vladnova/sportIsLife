@@ -15,7 +15,7 @@ async function handlerSearch(e) {
   let { categoryName } = JSON.parse(localStorage.getItem('infoRequest'));
 
   let transformCategoryName = categoryName.toLocaleLowerCase().replaceAll(' ', '');
-  
+
   if (transformCategoryName === 'bodyparts') {
     transformCategoryName = 'bodypart';
   }
@@ -24,23 +24,21 @@ async function handlerSearch(e) {
     page: 1,
     limit: 10,
   };
-try {
-  loader.open()
+  try {
+    loader.open();
     const exercises = await fetchSportEnergy.getByFilterCategory(dataExercises);
-  loader.open();
+    loader.open();
     if (!exercises.results.length) {
-    message.info('Nothing was found for this query')
+      message.info('Nothing was found for this query');
+    }
+    paginationNumbers.innerHTML = '';
+    const { totalPages } = exercises;
+    pagination.getPaginationNumbers(totalPages, dataExercises);
+
+    pagination.setCurrentPage(1);
+    form.reset();
+    makeMarkupCards(exercises);
+  } catch (err) {
+    console.log(err);
   }
-  paginationNumbers.innerHTML = '';
-  const {totalPages} = exercises
-  pagination.getPaginationNumbers(totalPages, dataExercises);
-
-
-  pagination.setCurrentPage(1);
-  form.reset();
-  makeMarkupCards(exercises);
-} catch (err) {
-  console.log(err)
-}
-
 }
