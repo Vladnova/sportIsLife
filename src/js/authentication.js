@@ -5,6 +5,7 @@ import { addContent } from './favorite/favorite';
 const provider = new GoogleAuthProvider();
 
 const SingIn = document.getElementById('sign-in');
+const SingInMobile = document.getElementById('sign-in-mobile');
 const SignOut = document.getElementById('sign-out');
 const User = document.getElementById('user');
 User.innerHTML = localStorage.getItem('user');
@@ -16,6 +17,7 @@ if (localStorage.getItem('user')) {
   SingIn.style.display = 'none';
 }
 export const googleSignin = async () => {
+  // console.log("click")
   await signInWithPopup(auth, provider)
     .then(result => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -27,7 +29,7 @@ export const googleSignin = async () => {
       User.innerHTML = localStorage.getItem('user');
       SignOut.classList.remove('display-none');
       SingIn.classList.add('display-none');
-
+      // SingInMobile.classList.add('display-none');
       SingIn.style.display = 'none';
       listOfFavorites();
       // addContent();
@@ -61,5 +63,6 @@ export const logOut = async () => {
 };
 
 SingIn.addEventListener('click', googleSignin);
+// SingInMobile.addEventListener('click', googleSignin);
 SignOut.addEventListener('click', logOut);
 
